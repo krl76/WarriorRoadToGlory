@@ -1,0 +1,142 @@
+{
+    "name": "InputController",
+    "maps": [
+        {
+            "name": "Right Hand",
+            "id": "1a91ce0a-6865-4bbe-948f-d4799a1c1b73",
+            "actions": [
+                {
+                    "name": "Grip",
+                    "type": "Button",
+                    "id": "4d011eb0-9f2a-41cb-ad86-c0ff83df59ed",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Fist",
+                    "type": "Button",
+                    "id": "c9d30395-5aa6-417c-872c-e3dfe4797217",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Pointing",
+                    "type": "Button",
+                    "id": "9b592af3-f8f6-42d2-973b-09abc00f09f0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9742848b-1911-4674-8d1d-0bd01a9f1208",
+                    "path": "<XRController>{RightHand}/grip",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "830f0b2a-ed87-4483-88b7-df80ab5c27d3",
+                    "path": "<XRController>{RightHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fist",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a5dec75d-75d4-4b9d-9db2-bfc30dcb97c1",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pointing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Left Hand",
+            "id": "d3be2115-e4b7-46ed-acfd-aeaa6f080aed",
+            "actions": [
+                {
+                    "name": "Grip",
+                    "type": "Button",
+                    "id": "9c45d759-2722-4ae5-8fb1-712e932db0ad",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Fist",
+                    "type": "Button",
+                    "id": "7503df5f-3153-4e75-ae79-c6bc12448d91",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Pointing",
+                    "type": "Button",
+                    "id": "8a7a8149-fa35-4174-b8ce-a9da4a0ac0b2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5bf4f08e-06fb-4e75-9e6b-814b05775af0",
+                    "path": "<XRController>{RightHand}/grip",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a57ddda0-598f-4771-8d8d-5beb5e9ef46c",
+                    "path": "<XRController>{RightHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fist",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "457cd43e-9cf0-4206-8fc0-da2dd142996d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pointing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
