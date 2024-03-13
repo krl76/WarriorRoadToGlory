@@ -31,13 +31,22 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "75fec1f1-d413-4555-8b86-915330899ec1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "9742848b-1911-4674-8d1d-0bd01a9f1208",
-                    "path": "<XRController>{RightHand}/grip",
+                    "path": "<XRController>{RightHand}/{GripButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -48,7 +57,7 @@
                 {
                     "name": "",
                     "id": "830f0b2a-ed87-4483-88b7-df80ab5c27d3",
-                    "path": "<XRController>{RightHand}/trigger",
+                    "path": "<XRController>{RightHand}/{TriggerButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -64,6 +73,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pointing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6033e0a9-65c3-4ac3-8cff-f495709a714c",
+                    "path": "<XRController>{RightHand}/joystick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -105,7 +125,7 @@
                 {
                     "name": "",
                     "id": "5bf4f08e-06fb-4e75-9e6b-814b05775af0",
-                    "path": "<XRController>{RightHand}/grip",
+                    "path": "<XRController>{LeftHand}/{GripButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -116,7 +136,7 @@
                 {
                     "name": "",
                     "id": "a57ddda0-598f-4771-8d8d-5beb5e9ef46c",
-                    "path": "<XRController>{RightHand}/trigger",
+                    "path": "<XRController>{LeftHand}/{TriggerButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
