@@ -53,15 +53,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""75fec1f1-d413-4555-8b86-915330899ec1"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -95,17 +86,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pointing"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6033e0a9-65c3-4ac3-8cff-f495709a714c"",
-                    ""path"": ""<XRController>{RightHand}/joystick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -207,7 +187,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_RightHand_Grip = m_RightHand.FindAction("Grip", throwIfNotFound: true);
         m_RightHand_Fist = m_RightHand.FindAction("Fist", throwIfNotFound: true);
         m_RightHand_Pointing = m_RightHand.FindAction("Pointing", throwIfNotFound: true);
-        m_RightHand_Move = m_RightHand.FindAction("Move", throwIfNotFound: true);
         // Left Hand
         m_LeftHand = asset.FindActionMap("Left Hand", throwIfNotFound: true);
         m_LeftHand_Grip = m_LeftHand.FindAction("Grip", throwIfNotFound: true);
@@ -278,7 +257,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputAction m_RightHand_Grip;
     private readonly InputAction m_RightHand_Fist;
     private readonly InputAction m_RightHand_Pointing;
-    private readonly InputAction m_RightHand_Move;
     public struct RightHandActions
     {
         private @InputController m_Wrapper;
@@ -286,7 +264,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         public InputAction @Grip => m_Wrapper.m_RightHand_Grip;
         public InputAction @Fist => m_Wrapper.m_RightHand_Fist;
         public InputAction @Pointing => m_Wrapper.m_RightHand_Pointing;
-        public InputAction @Move => m_Wrapper.m_RightHand_Move;
         public InputActionMap Get() { return m_Wrapper.m_RightHand; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -305,9 +282,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Pointing.started += instance.OnPointing;
             @Pointing.performed += instance.OnPointing;
             @Pointing.canceled += instance.OnPointing;
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
         }
 
         private void UnregisterCallbacks(IRightHandActions instance)
@@ -321,9 +295,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Pointing.started -= instance.OnPointing;
             @Pointing.performed -= instance.OnPointing;
             @Pointing.canceled -= instance.OnPointing;
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
         }
 
         public void RemoveCallbacks(IRightHandActions instance)
@@ -416,7 +387,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         void OnGrip(InputAction.CallbackContext context);
         void OnFist(InputAction.CallbackContext context);
         void OnPointing(InputAction.CallbackContext context);
-        void OnMove(InputAction.CallbackContext context);
     }
     public interface ILeftHandActions
     {

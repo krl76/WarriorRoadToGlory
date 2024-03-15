@@ -31,15 +31,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "75fec1f1-d413-4555-8b86-915330899ec1",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -73,17 +64,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pointing",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6033e0a9-65c3-4ac3-8cff-f495709a714c",
-                    "path": "<XRController>{RightHand}/joystick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
