@@ -146,7 +146,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""name"": ""RotationCam"",
                     ""type"": ""Value"",
                     ""id"": ""bd415ab5-3e38-4106-b52f-6037cedbbb93"",
-                    ""expectedControlType"": ""Quaternion"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true

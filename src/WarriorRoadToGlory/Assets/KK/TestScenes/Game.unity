@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.38308117, g: 0.49133283, b: 0.6442, a: 1}
+  m_IndirectSpecularColor: {r: 0.3830809, g: 0.49145585, b: 0.64413184, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5378,7 +5378,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd74067940aad4a65b6c9bffc401cf7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 8
+  _camera: {fileID: 1928473369}
+  _playerSpeed: 6
+  _camSpeed: 3
 --- !u!1001 &823462777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13235,6 +13237,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -1454102097347443881, guid: a2bedc096a3544e4ebdf7cecba00c057, type: 3}
+    - target: {fileID: 4382781486721858256, guid: 70aaf5dcfa5a59543ae8b9070103e698, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4382781486721858258, guid: 70aaf5dcfa5a59543ae8b9070103e698, type: 3}
       propertyPath: m_Mesh
       value: 
