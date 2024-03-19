@@ -121,15 +121,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""RotationCam"",
-                    ""type"": ""Value"",
-                    ""id"": ""bd415ab5-3e38-4106-b52f-6037cedbbb93"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -165,17 +156,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""action"": ""Pointing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fb0c9427-22ab-4a25-96fc-463e1064c717"",
-                    ""path"": ""<XRController>{LeftHand}/joystick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RotationCam"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -192,7 +172,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_LeftHand_Grip = m_LeftHand.FindAction("Grip", throwIfNotFound: true);
         m_LeftHand_Fist = m_LeftHand.FindAction("Fist", throwIfNotFound: true);
         m_LeftHand_Pointing = m_LeftHand.FindAction("Pointing", throwIfNotFound: true);
-        m_LeftHand_RotationCam = m_LeftHand.FindAction("RotationCam", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -319,7 +298,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputAction m_LeftHand_Grip;
     private readonly InputAction m_LeftHand_Fist;
     private readonly InputAction m_LeftHand_Pointing;
-    private readonly InputAction m_LeftHand_RotationCam;
     public struct LeftHandActions
     {
         private @InputController m_Wrapper;
@@ -327,7 +305,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         public InputAction @Grip => m_Wrapper.m_LeftHand_Grip;
         public InputAction @Fist => m_Wrapper.m_LeftHand_Fist;
         public InputAction @Pointing => m_Wrapper.m_LeftHand_Pointing;
-        public InputAction @RotationCam => m_Wrapper.m_LeftHand_RotationCam;
         public InputActionMap Get() { return m_Wrapper.m_LeftHand; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -346,9 +323,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Pointing.started += instance.OnPointing;
             @Pointing.performed += instance.OnPointing;
             @Pointing.canceled += instance.OnPointing;
-            @RotationCam.started += instance.OnRotationCam;
-            @RotationCam.performed += instance.OnRotationCam;
-            @RotationCam.canceled += instance.OnRotationCam;
         }
 
         private void UnregisterCallbacks(ILeftHandActions instance)
@@ -362,9 +336,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Pointing.started -= instance.OnPointing;
             @Pointing.performed -= instance.OnPointing;
             @Pointing.canceled -= instance.OnPointing;
-            @RotationCam.started -= instance.OnRotationCam;
-            @RotationCam.performed -= instance.OnRotationCam;
-            @RotationCam.canceled -= instance.OnRotationCam;
         }
 
         public void RemoveCallbacks(ILeftHandActions instance)
@@ -393,6 +364,5 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         void OnGrip(InputAction.CallbackContext context);
         void OnFist(InputAction.CallbackContext context);
         void OnPointing(InputAction.CallbackContext context);
-        void OnRotationCam(InputAction.CallbackContext context);
     }
 }
