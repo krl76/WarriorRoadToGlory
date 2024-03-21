@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3830809, g: 0.49145585, b: 0.64413184, a: 1}
+  m_IndirectSpecularColor: {r: 0.38308117, g: 0.49133283, b: 0.6442, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -324,6 +324,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6098579886850455089, guid: 0b1c484f4763c2c46bc4eb498142e190, type: 3}
   m_PrefabInstance: {fileID: 25780135}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &66428940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4382781486721858263, guid: 70aaf5dcfa5a59543ae8b9070103e698, type: 3}
+  m_PrefabInstance: {fileID: 4382781487379215332}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &77789364
 PrefabInstance:
@@ -2454,6 +2459,7 @@ GameObject:
   - component: {fileID: 499432175}
   - component: {fileID: 499432174}
   - component: {fileID: 499432179}
+  - component: {fileID: 499432180}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -2469,12 +2475,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 499432172}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 762828835}
+  - {fileID: 1691490275}
   m_Father: {fileID: 249677275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &499432174
@@ -2835,7 +2842,15 @@ MonoBehaviour:
       m_Id: 50ed0753-8cd5-4f05-ade8-0dcb49683177
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 711c0074-24c8-4b3e-a888-482e91e9d5c8
+        m_Path: <XRController>{RightHand}/gripButton
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Select
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_SelectActionValue:
@@ -3001,7 +3016,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 1691490275}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -3073,6 +3088,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_PhysicsTriggerInteraction: 1
+--- !u!135 &499432180
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499432172}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.03
+  m_Center: {x: 0, y: 0, z: 0.2}
 --- !u!1001 &521125689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3423,7 +3459,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 1277832919}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 561670301}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -3616,8 +3653,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.1957397, y: 1.3274907, z: 2.2369382}
-  m_Center: {x: 0.2243042, y: 0.055811506, z: 0.14613402}
+  m_Size: {x: 2.1957397, y: 11.331101, z: 2.2369382}
+  m_Center: {x: 0.2243042, y: -0.103167064, z: 0.146134}
 --- !u!1001 &565329801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6838,6 +6875,7 @@ GameObject:
   - component: {fileID: 1022694202}
   - component: {fileID: 1022694201}
   - component: {fileID: 1022694200}
+  - component: {fileID: 1022694206}
   - component: {fileID: 1022694205}
   m_Layer: 0
   m_Name: Left Controller
@@ -7141,7 +7179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
-  m_EnableInputActions: 0
+  m_EnableInputActions: 1
   m_ModelPrefab: {fileID: 0}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
@@ -7221,7 +7259,15 @@ MonoBehaviour:
       m_Id: 9a2d7970-26ff-4992-b4a1-3b50e86f2980
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: a08a8b0f-8b48-4472-9729-ca20942fb263
+        m_Path: <XRController>{LeftHand}/gripButton
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Select
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_SelectActionValue:
@@ -7369,7 +7415,28 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_ButtonPressPoint: 0.5
---- !u!114 &1022694205
+--- !u!135 &1022694205
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022694198}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.03
+  m_Center: {x: 0, y: 0, z: 0.2}
+--- !u!114 &1022694206
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7530,6 +7597,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4382781486721858259, guid: 70aaf5dcfa5a59543ae8b9070103e698, type: 3}
   m_PrefabInstance: {fileID: 4382781487379215332}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1062439227
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66428940}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 188.91733, y: 0.15, z: 166.98558}
+  m_Center: {x: -3.7660828, y: 0, z: -3.522873}
 --- !u!1001 &1073842116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10516,6 +10604,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1691490274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1691490275}
+  m_Layer: 0
+  m_Name: AttachPointRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1691490275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691490274}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.57956994, y: -0.4339, z: -0.4910476, w: 0.48446035}
+  m_LocalPosition: {x: -0.01, y: -0.002, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 499432173}
+  m_LocalEulerAnglesHint: {x: -81, y: 108, z: -190}
 --- !u!1001 &1724658583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10920,13 +11039,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762062317}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.00000023841855, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0106, y: -0.0192, z: 0.1927}
+  m_LocalRotation: {x: 0.44975317, y: 0.5290054, z: 0.3568791, w: -0.6249101}
+  m_LocalPosition: {x: -0.01, y: -0.01, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1022694199}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -70, y: 276, z: 5}
 --- !u!1001 &1775240525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12557,7 +12676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2059754137
 Transform:
   m_ObjectHideFlags: 0
@@ -13346,7 +13465,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4382781486721858263, guid: 70aaf5dcfa5a59543ae8b9070103e698, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1062439227}
   m_SourcePrefab: {fileID: 100100000, guid: 70aaf5dcfa5a59543ae8b9070103e698, type: 3}
 --- !u!1 &5315323021344581398
 GameObject:
