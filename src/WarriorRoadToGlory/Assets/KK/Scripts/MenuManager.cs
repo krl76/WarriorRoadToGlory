@@ -28,6 +28,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private string _nameOfGameScene;
 
     [Header("Delete/Start Zone")] 
+    [SerializeField] private GameObject _returnToMenu;
     [SerializeField] private GameObject _cancelDelete;
     
     private bool delete = false;
@@ -107,12 +108,14 @@ public class MenuManager : MonoBehaviour
     {
         delete = true;
         _cancelDelete.SetActive(true);
+        _returnToMenu.SetActive(false);
     }
 
     public void CancelButton()
     {
         delete = false;
         _cancelDelete.SetActive(false);
+        _returnToMenu.SetActive(true);
     }
     
     public void SaveSettings()
