@@ -32,6 +32,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _cancelDelete;
     
     private bool delete = false;
+    private string nameOfSave;
 
     private void Awake()
     {
@@ -64,28 +65,22 @@ public class MenuManager : MonoBehaviour
             switch (name)
             {
                 case "Save1":
-                    if (_save1.text == "Создать новое сохранение")
-                    {
-                        _save1.text = $"Сохранение 1. {date}.{month}.{year} {hour}:{minute}";
-                        SaveSettings();
-                        FindObjectOfType<LoadScreen>().LoadLevel(_nameOfGameScene);
-                    }
+                    _save1.text = $"Сохранение 1. {date}.{month}.{year} {hour}:{minute}"; 
+                    SaveSettings();
+                    nameOfSave = "save1";
+                    FindObjectOfType<LoadScreen>().LoadLevel(_nameOfGameScene);
                     break;
                 case "Save2":
-                    if (_save2.text == "Создать новое сохранение")
-                    {
-                        _save2.text = $"Сохранение 2. {date}.{month}.{year} {hour}:{minute}";
-                        SaveSettings();
-                        FindObjectOfType<LoadScreen>().LoadLevel(_nameOfGameScene);
-                    }
+                    _save2.text = $"Сохранение 2. {date}.{month}.{year} {hour}:{minute}";
+                    SaveSettings(); 
+                    nameOfSave = "save2"; 
+                    FindObjectOfType<LoadScreen>().LoadLevel(_nameOfGameScene);
                     break;
                 case "Save3":
-                    if (_save3.text == "Создать новое сохранение")
-                    {
-                        _save3.text = $"Сохранение 3. {date}.{month}.{year} {hour}:{minute}";
-                        SaveSettings();
-                        FindObjectOfType<LoadScreen>().LoadLevel(_nameOfGameScene);
-                    }
+                    _save3.text = $"Сохранение 3. {date}.{month}.{year} {hour}:{minute}"; 
+                    SaveSettings(); 
+                    nameOfSave = "save3"; 
+                    FindObjectOfType<LoadScreen>().LoadLevel(_nameOfGameScene);
                     break;
             }
         }
@@ -107,6 +102,11 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public string NameOfSave()
+    {
+        return nameOfSave;
+    }
+    
     public void DeleteButton()
     {
         delete = true;
