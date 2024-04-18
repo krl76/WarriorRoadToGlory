@@ -67,6 +67,7 @@ public class MenuManager : MonoBehaviour
                     if (_save1.text == "Создать новое сохранение")
                     {
                         _save1.text = $"Сохранение 1. {date}.{month}.{year} {hour}:{minute}";
+                        SaveSettings();
                         FindObjectOfType<LoadScreen>().LoadLevel(_nameOfGameScene);
                     }
                     break;
@@ -74,6 +75,7 @@ public class MenuManager : MonoBehaviour
                     if (_save2.text == "Создать новое сохранение")
                     {
                         _save2.text = $"Сохранение 2. {date}.{month}.{year} {hour}:{minute}";
+                        SaveSettings();
                         FindObjectOfType<LoadScreen>().LoadLevel(_nameOfGameScene);
                     }
                     break;
@@ -81,6 +83,7 @@ public class MenuManager : MonoBehaviour
                     if (_save3.text == "Создать новое сохранение")
                     {
                         _save3.text = $"Сохранение 3. {date}.{month}.{year} {hour}:{minute}";
+                        SaveSettings();
                         FindObjectOfType<LoadScreen>().LoadLevel(_nameOfGameScene);
                     }
                     break;
