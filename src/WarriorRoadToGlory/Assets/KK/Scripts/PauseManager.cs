@@ -5,11 +5,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Slider = UnityEngine.UI.Slider;
 
 public class PauseManager : MonoBehaviour
 {
+    [Header("Pause")] 
+    [SerializeField] private GameObject _pauseCanvas;
+    private InputController inputController;
+    
     [Header("Settings")] 
     [SerializeField] private Slider _sliderVolume;
     [SerializeField] private TextMeshProUGUI _textVolume;
@@ -27,12 +32,25 @@ public class PauseManager : MonoBehaviour
 
     private void Awake()
     {
-        nameSave = menuManager.NameOfSave();
+        inputController = new InputController();
+        inputController.RightHand.UI.started += ctx => ActivePause(ctx.ReadValueAsButton());
+        
+        //nameSave = menuManager.NameOfSave();
         playerTransform = _player.GetComponent<Transform>();
         LoadSettings();
     }
 
-    void ChangeVolume()
+    private void OnEnable()
+    {
+        inputController.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputController.Disable();
+    }
+
+    public void ChangeVolume()
     {
         _textVolume.text = Math.Round(_sliderVolume.value * 100).ToString();
         _audioMixer.SetFloat("Master", Mathf.Log10(_sliderVolume.value) * 20);
@@ -116,11 +134,31 @@ public class PauseManager : MonoBehaviour
                 break;
         }
     }
+
+    private void ActivePause(bool isPause)
+    {
+        if (isPause)
+        {
+            Time.timeScale = 0;
+            _pauseCanvas.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            _pauseCanvas.SetActive(false);
+        }
+    }
+
+    public void ContinueBtn()
+    {
+        ActivePause(false);
+    }
     
     public void ExitToMenu()
     {
         SavePlayer();
-        FindObjectOfType<LoadScreen>().LoadLevel(_nameOfMenuScene);
+        SceneManager.LoadScene(_nameOfMenuScene);
+        //FindObjectOfType<LoadScreen>().LoadLevel(_nameOfMenuScene);
     }
     
     public void LoadSettings()
