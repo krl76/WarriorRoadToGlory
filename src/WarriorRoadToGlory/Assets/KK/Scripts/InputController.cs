@@ -53,6 +53,15 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UI"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e57e2d0-122b-4c38-b62a-d2933864b86e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -86,6 +95,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pointing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""205c858f-8c06-4e73-821b-024ae89d789f"",
+                    ""path"": ""<XRController>{RightHand}/{SecondaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UI"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -158,45 +178,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""UI"",
-            ""id"": ""0cbd36c6-d6ff-46f3-baa7-ff5de27e2c29"",
-            ""actions"": [
-                {
-                    ""name"": ""Click"",
-                    ""type"": ""Button"",
-                    ""id"": ""e7a2133b-94d5-4348-b606-7888f319ca26"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""82673b86-f908-442b-a75f-01c3304dda96"",
-                    ""path"": ""<XRSimulatedController>/gripButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0d1aafd8-61ef-4339-a490-e7edc8362a7f"",
-                    ""path"": ""<XRController>{LeftHand}/{GripButton}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": []
@@ -206,14 +187,12 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_RightHand_Grip = m_RightHand.FindAction("Grip", throwIfNotFound: true);
         m_RightHand_Fist = m_RightHand.FindAction("Fist", throwIfNotFound: true);
         m_RightHand_Pointing = m_RightHand.FindAction("Pointing", throwIfNotFound: true);
+        m_RightHand_UI = m_RightHand.FindAction("UI", throwIfNotFound: true);
         // Left Hand
         m_LeftHand = asset.FindActionMap("Left Hand", throwIfNotFound: true);
         m_LeftHand_Grip = m_LeftHand.FindAction("Grip", throwIfNotFound: true);
         m_LeftHand_Fist = m_LeftHand.FindAction("Fist", throwIfNotFound: true);
         m_LeftHand_Pointing = m_LeftHand.FindAction("Pointing", throwIfNotFound: true);
-        // UI
-        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -278,6 +257,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputAction m_RightHand_Grip;
     private readonly InputAction m_RightHand_Fist;
     private readonly InputAction m_RightHand_Pointing;
+    private readonly InputAction m_RightHand_UI;
     public struct RightHandActions
     {
         private @InputController m_Wrapper;
@@ -285,6 +265,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         public InputAction @Grip => m_Wrapper.m_RightHand_Grip;
         public InputAction @Fist => m_Wrapper.m_RightHand_Fist;
         public InputAction @Pointing => m_Wrapper.m_RightHand_Pointing;
+        public InputAction @UI => m_Wrapper.m_RightHand_UI;
         public InputActionMap Get() { return m_Wrapper.m_RightHand; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -303,6 +284,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Pointing.started += instance.OnPointing;
             @Pointing.performed += instance.OnPointing;
             @Pointing.canceled += instance.OnPointing;
+            @UI.started += instance.OnUI;
+            @UI.performed += instance.OnUI;
+            @UI.canceled += instance.OnUI;
         }
 
         private void UnregisterCallbacks(IRightHandActions instance)
@@ -316,6 +300,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Pointing.started -= instance.OnPointing;
             @Pointing.performed -= instance.OnPointing;
             @Pointing.canceled -= instance.OnPointing;
+            @UI.started -= instance.OnUI;
+            @UI.performed -= instance.OnUI;
+            @UI.canceled -= instance.OnUI;
         }
 
         public void RemoveCallbacks(IRightHandActions instance)
@@ -395,66 +382,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         }
     }
     public LeftHandActions @LeftHand => new LeftHandActions(this);
-
-    // UI
-    private readonly InputActionMap m_UI;
-    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_Click;
-    public struct UIActions
-    {
-        private @InputController m_Wrapper;
-        public UIActions(@InputController wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Click => m_Wrapper.m_UI_Click;
-        public InputActionMap Get() { return m_Wrapper.m_UI; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
-        public void AddCallbacks(IUIActions instance)
-        {
-            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-            @Click.started += instance.OnClick;
-            @Click.performed += instance.OnClick;
-            @Click.canceled += instance.OnClick;
-        }
-
-        private void UnregisterCallbacks(IUIActions instance)
-        {
-            @Click.started -= instance.OnClick;
-            @Click.performed -= instance.OnClick;
-            @Click.canceled -= instance.OnClick;
-        }
-
-        public void RemoveCallbacks(IUIActions instance)
-        {
-            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IUIActions instance)
-        {
-            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public UIActions @UI => new UIActions(this);
     public interface IRightHandActions
     {
         void OnGrip(InputAction.CallbackContext context);
         void OnFist(InputAction.CallbackContext context);
         void OnPointing(InputAction.CallbackContext context);
+        void OnUI(InputAction.CallbackContext context);
     }
     public interface ILeftHandActions
     {
         void OnGrip(InputAction.CallbackContext context);
         void OnFist(InputAction.CallbackContext context);
         void OnPointing(InputAction.CallbackContext context);
-    }
-    public interface IUIActions
-    {
-        void OnClick(InputAction.CallbackContext context);
     }
 }

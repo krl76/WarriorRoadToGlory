@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
 
 public class PauseManager : MonoBehaviour
 {
-    [Header("Main")]
-    [SerializeField] private Transform _head;
-    [SerializeField] private GameObject _pause;
-    
-    [Header("Settings")]
+    [Header("Settings")] 
     [SerializeField] private Slider _sliderVolume;
     [SerializeField] private TextMeshProUGUI _textVolume;
     [SerializeField] private AudioMixer _audioMixer;
@@ -33,13 +31,7 @@ public class PauseManager : MonoBehaviour
         playerTransform = _player.GetComponent<Transform>();
         LoadSettings();
     }
-    
-    void Update()
-    {
-        _pause.transform.LookAt(new Vector3(_head.position.x, _pause.transform.position.y, _head.position.z ));
-        //_mainMenu.transform.forward *= -1;
-    }
-    
+
     void ChangeVolume()
     {
         _textVolume.text = Math.Round(_sliderVolume.value * 100).ToString();
@@ -50,29 +42,37 @@ public class PauseManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("DifficultSettings", _difficult.value);
         PlayerPrefs.SetFloat("VolumeSettings", _sliderVolume.value);
-        /*PlayerPrefs.SetString("Save1", _save1.text);
-        PlayerPrefs.SetString("Save2", _save2.text);
-        PlayerPrefs.SetString("Save3", _save3.text);*/
     }
 
     private void SavePlayer()
     {
+        int date, month, year, hour, minute;
+        DateTime dt = DateTime.Now;
+        date = dt.Day;
+        month = dt.Month;
+        year = dt.Year;
+        hour = dt.Hour;
+        minute = dt.Minute;
+        
         switch (nameSave)
         {
             case "save1":
                 PlayerPrefs.SetFloat("Save1PlayerX", playerTransform.position.x);
                 PlayerPrefs.SetFloat("Save1PlayerY", playerTransform.position.y);
                 PlayerPrefs.SetFloat("Save1PlayerZ", playerTransform.position.z);
+                PlayerPrefs.SetString("Save1", $"Сохранение 1. {date}.{month}.{year} {hour}:{minute}");
                 break;
             case "save2":
                 PlayerPrefs.SetFloat("Save2PlayerX", playerTransform.position.x);
                 PlayerPrefs.SetFloat("Save2PlayerY", playerTransform.position.y);
                 PlayerPrefs.SetFloat("Save2PlayerZ", playerTransform.position.z);
+                PlayerPrefs.SetString("Save2", $"Сохранение 2. {date}.{month}.{year} {hour}:{minute}");
                 break;
             case "save3":
                 PlayerPrefs.SetFloat("Save3PlayerX", playerTransform.position.x);
                 PlayerPrefs.SetFloat("Save3PlayerY", playerTransform.position.y);
                 PlayerPrefs.SetFloat("Save3PlayerZ", playerTransform.position.z);
+                PlayerPrefs.SetString("Save3", $"Сохранение 2. {date}.{month}.{year} {hour}:{minute}");
                 break;
         }
     }
@@ -143,20 +143,5 @@ public class PauseManager : MonoBehaviour
             _sliderVolume.value = 1f;
             ChangeVolume();
         }
-        /*if (PlayerPrefs.HasKey("Save1"))
-        {
-            if (PlayerPrefs.GetString("Save1") != "Создать новое сохранение")
-                _save1.text = PlayerPrefs.GetString("Save1");
-        }
-        if (PlayerPrefs.HasKey("Save2"))
-        {
-            if (PlayerPrefs.GetString("Save2") != "Создать новое сохранение")
-                _save2.text = PlayerPrefs.GetString("Save2");
-        }
-        if (PlayerPrefs.HasKey("Save3"))
-        {
-            if (PlayerPrefs.GetString("Save3") != "Создать новое сохранение")
-                _save3.text = PlayerPrefs.GetString("Save3");
-        }*/
     }
 }

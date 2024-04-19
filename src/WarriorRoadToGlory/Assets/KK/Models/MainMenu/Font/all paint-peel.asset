@@ -60,9 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: all paint-peel
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -1256794510
   material: {fileID: 1852594122473304935}
-  materialHashCode: 0
+  materialHashCode: -1967252078
   m_Version: 1.1.0
   m_SourceFontFileGUID: f024b2afe2c5ba546a5035585e99f5cc
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: f024b2afe2c5ba546a5035585e99f5cc, type: 3}
@@ -3556,9 +3556,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
