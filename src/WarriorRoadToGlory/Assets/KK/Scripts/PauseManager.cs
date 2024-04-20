@@ -137,15 +137,18 @@ public class PauseManager : MonoBehaviour
 
     private void ActivePause(bool isPause)
     {
-        if (isPause)
+        if (SceneManager.GetActiveScene().name != _nameOfMenuScene)
         {
-            Time.timeScale = 0;
-            _pauseCanvas.SetActive(true);
-        }
-        else
-        {
-            Time.timeScale = 1f;
-            _pauseCanvas.SetActive(false);
+            if (isPause)
+            {
+                Time.timeScale = 0;
+                _pauseCanvas.SetActive(true);
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                _pauseCanvas.SetActive(false);
+            }
         }
     }
 
