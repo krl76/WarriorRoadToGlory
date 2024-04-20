@@ -27,15 +27,14 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private Vector3 _basePosition;
 
     private Transform playerTransform;
-    private MenuManager menuManager;
     private string nameSave;
 
     private void Awake()
     {
         inputController = new InputController();
         inputController.RightHand.UI.started += ctx => ActivePause(ctx.ReadValueAsButton());
-        
-        //nameSave = menuManager.NameOfSave();
+
+        nameSave = PlayerPrefs.GetString("NameSave");
         playerTransform = _player.GetComponent<Transform>();
         LoadSettings();
     }
@@ -160,8 +159,8 @@ public class PauseManager : MonoBehaviour
     public void ExitToMenu()
     {
         SavePlayer();
-        SceneManager.LoadScene(_nameOfMenuScene);
-        //FindObjectOfType<LoadScreen>().LoadLevel(_nameOfMenuScene);
+        //SceneManager.LoadScene(_nameOfMenuScene);
+        FindObjectOfType<LoadScene>().SceneLoad(_nameOfMenuScene);
     }
     
     public void LoadSettings()

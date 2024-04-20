@@ -32,7 +32,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _cancelDelete;
     
     private bool delete = false;
-    private string nameOfSave;
+    public static string nameOfSave;
 
     private void Awake()
     {
@@ -66,23 +66,21 @@ public class MenuManager : MonoBehaviour
             {
                 case "Save1":
                     _save1.text = $"Сохранение 1. {date}.{month}.{year} {hour}:{minute}"; 
-                    SaveSaves();
                     nameOfSave = "save1";
                     break;
                 case "Save2":
                     _save2.text = $"Сохранение 2. {date}.{month}.{year} {hour}:{minute}";
-                    SaveSaves(); 
                     nameOfSave = "save2"; 
                     break;
                 case "Save3":
                     _save3.text = $"Сохранение 3. {date}.{month}.{year} {hour}:{minute}"; 
-                    SaveSaves(); 
                     nameOfSave = "save3"; 
                     break;
             }
-
-            SceneManager.LoadScene(_nameOfGameScene);
-            //FindObjectOfType<LoadScreen>().LoadLevel(_nameOfGameScene);
+            //SceneManager.LoadScene(_nameOfGameScene);
+            PlayerPrefs.SetString("NameSave", nameOfSave);
+            SaveSaves();
+            FindObjectOfType<LoadScene>().SceneLoad(_nameOfGameScene);
         }
         else
         {
@@ -92,6 +90,7 @@ public class MenuManager : MonoBehaviour
                     if (_save1.text != "Создать новое сохранение")
                     {
                         _save1.text = "Создать новое сохранение";
+                        PlayerPrefs.DeleteKey("Save1");
                         PlayerPrefs.DeleteKey("Save1PlayerX");
                         PlayerPrefs.DeleteKey("Save1PlayerY");
                         PlayerPrefs.DeleteKey("Save1PlayerZ");
@@ -101,15 +100,17 @@ public class MenuManager : MonoBehaviour
                     if (_save2.text != "Создать новое сохранение")
                     {
                         _save2.text = "Создать новое сохранение";
+                        PlayerPrefs.DeleteKey("Save2");
                         PlayerPrefs.DeleteKey("Save2PlayerX");
                         PlayerPrefs.DeleteKey("Save2PlayerY");
                         PlayerPrefs.DeleteKey("Save2PlayerZ");
                     }
                     break;
                 case "Save3":
-                    if (_save2.text != "Создать новое сохранение")
+                    if (_save3.text != "Создать новое сохранение")
                     {
-                        _save2.text = "Создать новое сохранение";
+                        _save3.text = "Создать новое сохранение";
+                        PlayerPrefs.DeleteKey("Save3");
                         PlayerPrefs.DeleteKey("Save3PlayerX");
                         PlayerPrefs.DeleteKey("Save3PlayerY");
                         PlayerPrefs.DeleteKey("Save3PlayerZ");
@@ -132,7 +133,7 @@ public class MenuManager : MonoBehaviour
         _returnToMenu.SetActive(false);
     }
 
-    public void CancelButton()
+    private void CancelButton()
     {
         delete = false;
         _cancelDelete.SetActive(false);
