@@ -1521,8 +1521,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 3.9325}
+  m_SizeDelta: {x: 0, y: -7.865}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450232515
 MonoBehaviour:
@@ -1547,8 +1547,8 @@ MonoBehaviour:
   m_text: "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043D\u043E\u0432\u043E\u0435
     \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0435"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 071aa34e4971b5041bfcdcb080e51816, type: 2}
-  m_sharedMaterial: {fileID: 272282576584341568, guid: 071aa34e4971b5041bfcdcb080e51816, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ffe4504c2986342c6bb5fe2c88622903, type: 2}
+  m_sharedMaterial: {fileID: -8717104708801955113, guid: ffe4504c2986342c6bb5fe2c88622903, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 45
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -2583,7 +2583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &816754165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4735,7 +4735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1427339997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5466,8 +5466,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 3.93}
+  m_SizeDelta: {x: 0, y: -7.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1678925939
 MonoBehaviour:
@@ -5492,8 +5492,8 @@ MonoBehaviour:
   m_text: "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043D\u043E\u0432\u043E\u0435
     \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0435"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 071aa34e4971b5041bfcdcb080e51816, type: 2}
-  m_sharedMaterial: {fileID: 272282576584341568, guid: 071aa34e4971b5041bfcdcb080e51816, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ffe4504c2986342c6bb5fe2c88622903, type: 2}
+  m_sharedMaterial: {fileID: -8717104708801955113, guid: ffe4504c2986342c6bb5fe2c88622903, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5529,7 +5529,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 45
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -6163,8 +6163,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 3.9325}
+  m_SizeDelta: {x: 0, y: -7.865}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1825787937
 MonoBehaviour:
@@ -6189,8 +6189,8 @@ MonoBehaviour:
   m_text: "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043D\u043E\u0432\u043E\u0435
     \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0435"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 071aa34e4971b5041bfcdcb080e51816, type: 2}
-  m_sharedMaterial: {fileID: 272282576584341568, guid: 071aa34e4971b5041bfcdcb080e51816, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ffe4504c2986342c6bb5fe2c88622903, type: 2}
+  m_sharedMaterial: {fileID: -8717104708801955113, guid: ffe4504c2986342c6bb5fe2c88622903, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6226,7 +6226,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 45
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
