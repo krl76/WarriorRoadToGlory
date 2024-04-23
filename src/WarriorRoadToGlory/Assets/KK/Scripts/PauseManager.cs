@@ -37,6 +37,7 @@ public class PauseManager : MonoBehaviour
         nameSave = PlayerPrefs.GetString("NameSave");
         playerTransform = _player.GetComponent<Transform>();
         LoadSettings();
+        LoadPlayer();
     }
 
     private void OnEnable()
@@ -158,6 +159,7 @@ public class PauseManager : MonoBehaviour
     
     public void ExitToMenu()
     {
+        Time.timeScale = 1f;
         SavePlayer();
         //SceneManager.LoadScene(_nameOfMenuScene);
         FindObjectOfType<LoadScene>().SceneLoad(_nameOfMenuScene);
