@@ -4175,6 +4175,10 @@ PrefabInstance:
       propertyPath: _nameOfMenuScene
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3792671209206935129, guid: de1f2ddb55ce8410e9f99f23a5f79da2, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8690495814969583572, guid: de1f2ddb55ce8410e9f99f23a5f79da2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
