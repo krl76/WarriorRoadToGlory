@@ -1505,7 +1505,7 @@ GameObject:
   - component: {fileID: 415990048}
   - component: {fileID: 415990047}
   m_Layer: 0
-  m_Name: CostOfBuy (1)
+  m_Name: CostOfBuy (1))
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3995,6 +3995,7 @@ GameObject:
   - component: {fileID: 1511256318}
   - component: {fileID: 1511256317}
   - component: {fileID: 1511256316}
+  - component: {fileID: 1511256320}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -4109,6 +4110,52 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1511256320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511256314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36173f48ac4da4ddd95ae2d123aa0d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sword1: {fileID: 0}
+  _sword2: {fileID: 0}
+  _sword3: {fileID: 0}
+  _spear: {fileID: 0}
+  _buy:
+  - {fileID: 1019522045}
+  - {fileID: 1392062892}
+  - {fileID: 1361648575}
+  - {fileID: 1031337254}
+  _upgrade:
+  - {fileID: 359016464}
+  - {fileID: 2071910187}
+  - {fileID: 2046255123}
+  - {fileID: 1442256011}
+  _coinCost:
+  - {fileID: 1373737176}
+  - {fileID: 178126500}
+  - {fileID: 1510575682}
+  - {fileID: 918711212}
+  - {fileID: 415990047}
+  - {fileID: 1957733442}
+  - {fileID: 2054890709}
+  - {fileID: 1036768192}
+  _coinSprites:
+  - {fileID: 1994194890}
+  - {fileID: 170664724}
+  - {fileID: 1529051435}
+  - {fileID: 1058488762}
+  - {fileID: 52729807}
+  - {fileID: 1834859928}
+  - {fileID: 13643629}
+  - {fileID: 1616719928}
+  _multiplyForUpgrade: 0
+  _coins: {fileID: 0}
 --- !u!1 &1529051435
 GameObject:
   m_ObjectHideFlags: 0
@@ -5922,6 +5969,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5753851038371323459, guid: 8d20cc21844594c1aa42198c0730c888, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2964246623288864363}
+    - targetCorrespondingSourceObject: {fileID: 5753851038371323459, guid: 8d20cc21844594c1aa42198c0730c888, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2964246623288864364}
   m_SourcePrefab: {fileID: 100100000, guid: 8d20cc21844594c1aa42198c0730c888, type: 3}
 --- !u!1 &2964246623288864361 stripped
 GameObject:
@@ -5954,6 +6004,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9785991, y: 1, z: 1.6656271}
   m_Center: {x: -0.489298, y: -0.000002873008, z: 0.88602775}
+--- !u!114 &2964246623288864364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2964246623288864361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1dc83c96c0d4c6dad13f023fd77db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactCanvas: {fileID: 1802541824}
+  _shopCanvas: {fileID: 1511256314}
+  _coins: {fileID: 1032820255}
+  _baseCoins: 10
 --- !u!1001 &5845409104765745192
 PrefabInstance:
   m_ObjectHideFlags: 0
