@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4126,6 +4126,7 @@ MonoBehaviour:
   _sword2: {fileID: 0}
   _sword3: {fileID: 0}
   _spear: {fileID: 0}
+  _multiplyForWeapon: 0
   _buy:
   - {fileID: 1019522045}
   - {fileID: 1392062892}
@@ -4154,7 +4155,7 @@ MonoBehaviour:
   - {fileID: 1834859928}
   - {fileID: 13643629}
   - {fileID: 1616719928}
-  _multiplyForUpgrade: 0
+  _multiplyForCoins: 0
   _coins: {fileID: 0}
 --- !u!1 &1529051435
 GameObject:
