@@ -10,23 +10,15 @@ using Slider = UnityEngine.UI.Slider;
 
 public class LoadScene : MonoBehaviour
 {
-    [Header("Player Sets")]
-    [SerializeField] private GameObject _player;
-    
     [Header("Load Sets")]
     [SerializeField] private Slider _progressSlider;
+    [SerializeField] private GameObject _load;
 
     private float progressValue;
-    private Vector3 coordinateToTeleport;
-
-    private void Awake()
-    {
-        coordinateToTeleport = gameObject.transform.position;
-    }
 
     public void SceneLoad(string nameScene)
     {
-        _player.transform.position = coordinateToTeleport;
+        _load.SetActive(true);
         StartCoroutine(LoadSceneAsync(nameScene));
     }
 
@@ -40,5 +32,6 @@ public class LoadScene : MonoBehaviour
             _progressSlider.value = progressValue;
             yield return null;
         }
+        //_load.SetActive(false);
     }
 }
