@@ -33,7 +33,9 @@ public class Merchant : MonoBehaviour
     private void Update()
     {
         _interactCanvas.transform.LookAt(new Vector3(_head.position.x, _interactCanvas.transform.position.y, _head.position.z));
+        _interactCanvas.transform.forward *= -1;
         _coinsCanvas.transform.LookAt(new Vector3(_head.position.x, _coinsCanvas.transform.position.y, _head.position.z));
+        _coinsCanvas.transform.forward *= -1;
     }
 
     private void OnEnable()
