@@ -527,6 +527,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cada15878627f5f4da54aedae9d0531c, type: 3}
+--- !u!4 &73756586367331473 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8027373710769826097, guid: cada15878627f5f4da54aedae9d0531c, type: 3}
+  m_PrefabInstance: {fileID: 73756586367331472}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2964246623288864360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -535,6 +540,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 779475302019776136, guid: 8d20cc21844594c1aa42198c0730c888, type: 3}
+      propertyPath: _head
+      value: 
+      objectReference: {fileID: 73756586367331473}
     - target: {fileID: 5753851038371323459, guid: 8d20cc21844594c1aa42198c0730c888, type: 3}
       propertyPath: m_Name
       value: anvil

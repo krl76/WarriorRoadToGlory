@@ -390,8 +390,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1dc83c96c0d4c6dad13f023fd77db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _head: {fileID: 0}
   _interactCanvas: {fileID: 1001964955136833052}
   _shopCanvas: {fileID: 1889663383368273068}
+  _coinsCanvas: {fileID: 7985106377466836260}
   _coins: {fileID: 4349038270825181369}
   _baseCoins: 10
 --- !u!1 &5950007242792301915

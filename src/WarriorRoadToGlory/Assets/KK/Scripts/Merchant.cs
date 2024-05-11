@@ -6,8 +6,13 @@ using UnityEngine;
 
 public class Merchant : MonoBehaviour
 {
+    [Header("Main")] 
+    [SerializeField] private Transform _head;
     [SerializeField] private GameObject _interactCanvas;
     [SerializeField] private GameObject _shopCanvas;
+    [SerializeField] private GameObject _coinsCanvas;
+    
+    [Header("Coins")]
     [SerializeField] private TextMeshProUGUI _coins;
     [SerializeField] private int _baseCoins;
 
@@ -23,6 +28,12 @@ public class Merchant : MonoBehaviour
         inputController.LeftHand.Interact.started += ctx => ActiveShop(ctx.ReadValueAsButton());
         nameSave = PlayerPrefs.GetString("NameSave");
         LoadCoin();
+    }
+
+    private void Update()
+    {
+        _interactCanvas.transform.LookAt(new Vector3(_head.position.x, _interactCanvas.transform.position.y, _head.position.z));
+        _coinsCanvas.transform.LookAt(new Vector3(_head.position.x, _coinsCanvas.transform.position.y, _head.position.z));
     }
 
     private void OnEnable()
@@ -88,12 +99,14 @@ public class Merchant : MonoBehaviour
     {
         if (isActive && onTrigger && !inShop)
         {
+            Time.timeScale = 0f;
             inShop = true;
             _shopCanvas.SetActive(true);
             _interactCanvas.SetActive(false);
         }
         else if (isActive && onTrigger && inShop)
         {
+            Time.timeScale = 1f;
             inShop = false;
             _shopCanvas.SetActive(false);
             _interactCanvas.SetActive(true);
