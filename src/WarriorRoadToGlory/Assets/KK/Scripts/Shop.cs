@@ -20,6 +20,7 @@ public class Shop : MonoBehaviour
 
     [Header("Buttons")] 
     [SerializeField] private Button[] _buy;
+    [SerializeField] private Button[] _pick;
     [SerializeField] private Button[] _upgrade;
     
     
@@ -75,7 +76,8 @@ public class Shop : MonoBehaviour
                     _coinCost[typeOfSword + 3].gameObject.SetActive(true);
                     _coinSprites[typeOfSword + 3].gameObject.SetActive(true);
                     levelOfSword2 = 1;
-                    _sword2.SetActive(true);
+                    _pick[typeOfSword - 1].gameObject.SetActive(true);
+                    //_sword2.SetActive(true);
                 }
                 break;
             case 3:
@@ -89,7 +91,8 @@ public class Shop : MonoBehaviour
                     _coinCost[typeOfSword + 3].gameObject.SetActive(true);
                     _coinSprites[typeOfSword + 3].gameObject.SetActive(true);
                     levelOfSword3 = 1;
-                    _sword3.SetActive(true);
+                    _pick[typeOfSword - 1].gameObject.SetActive(true);
+                    //_sword3.SetActive(true);
                 }
                 break;
             case 4:
@@ -177,6 +180,31 @@ public class Shop : MonoBehaviour
                     }
                 }
                 break;*/
+        }
+    }
+
+    public void Pick(int typeOfSword)
+    {
+        switch (typeOfSword)
+        {
+            case 1:
+                _pick[typeOfSword - 1].interactable = false;
+                _sword1.SetActive(true);
+                _sword2.SetActive(false);
+                _sword3.SetActive(false);
+                break;
+            case 2:
+                _pick[typeOfSword - 1].interactable = false;
+                _sword1.SetActive(false);
+                _sword2.SetActive(true);
+                _sword3.SetActive(false);
+                break;
+            case 3:
+                _pick[typeOfSword - 1].interactable = false;
+                _sword1.SetActive(false);
+                _sword2.SetActive(false);
+                _sword3.SetActive(true);
+                break;
         }
     }
 
