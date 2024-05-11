@@ -7,13 +7,11 @@ public class HitEffect : MonoBehaviour
     {
         public GameObject[] hitEffects = new GameObject[1];
         GameObject _hitEffectClone;
-        private const string weaponTag = "Weapon";
         bool _sentinel = false;
     private void OnCollisionEnter(Collision collision)
         {
-            if (collision.transform.tag == weaponTag)
+            if (collision.transform.tag == PlayerHp.weaponTag1 || collision.transform.tag == PlayerHp.weaponTag2 || collision.transform.tag == PlayerHp.weaponTag3)
             {
-                Debug.Log("Hit");
                 foreach (ContactPoint swordHit in collision.contacts)
                 {
                     Vector3 hitPoint = swordHit.point;

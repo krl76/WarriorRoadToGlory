@@ -14,10 +14,7 @@ public class EnemyIdle : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (door.transform.localEulerAngles.y == 110)
-        {
-            animator.SetBool("isChasing", true);
-        }
+        animator.SetBool("isChasing", true);
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

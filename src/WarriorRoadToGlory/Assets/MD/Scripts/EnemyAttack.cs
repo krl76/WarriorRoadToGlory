@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAttack : StateMachineBehaviour
 {
@@ -14,9 +15,12 @@ public class EnemyAttack : StateMachineBehaviour
     {
         animator.transform.LookAt(player);
         float distance = Vector3.Distance(animator.transform.position, player.position);
-        if (distance > 3)
+
+        if (distance > EnemyChase.attackRange)
         {
             animator.SetBool("isAttacking", false);
+            animator.SetBool("isChasing", true);
+            EnemyChase.agent.SetDestination(player.position);
         }
     }
 

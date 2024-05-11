@@ -8,7 +8,7 @@ public class HeadController : MonoBehaviour
 
     [SerializeField] private float _power;
 
-    private const string weapon_tag = "Weapon";
+    private const string weapon_tag = "StartSword";
 
     private void OnTriggerEnter(Collider collider)
     {
