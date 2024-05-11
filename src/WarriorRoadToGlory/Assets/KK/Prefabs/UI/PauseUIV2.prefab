@@ -2680,7 +2680,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7566673978280878521}
-  m_LocalRotation: {x: -0, y: 0.2626285, z: -0, w: -0.96489704}
+  m_LocalRotation: {x: 0, y: 0.2626272, z: -0, w: -0.96489733}
   m_LocalPosition: {x: 0, y: 0, z: 0.336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2690,7 +2690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 329.548, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.003, y: 0.2219}
+  m_AnchoredPosition: {x: 0.0029907227, y: 0.22192383}
   m_SizeDelta: {x: 0.5, y: 0.3223}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &51877887019165038
@@ -2788,13 +2788,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseCanvas: {fileID: 7282186106868607642}
+  _waveManager: {fileID: 0}
   _sliderVolume: {fileID: 4273145755868981617}
   _textVolume: {fileID: 2050683791682049912}
   _audioMixer: {fileID: 24100000, guid: 4c76d72d5a7e64908bae1b683607b4c9, type: 2}
   _difficult: {fileID: 1856429562951569002}
   _nameOfMenuScene: MainMenu
   _player: {fileID: 0}
-  _basePosition: {x: 0, y: 0, z: 0}
+  _basePosition: {x: 35.30101, y: 10.17165, z: 2.107213}
 --- !u!1 &7719373720366977546
 GameObject:
   m_ObjectHideFlags: 0

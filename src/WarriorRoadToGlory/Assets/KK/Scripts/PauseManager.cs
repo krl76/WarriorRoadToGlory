@@ -13,6 +13,7 @@ public class PauseManager : MonoBehaviour
 {
     [Header("Pause")] 
     [SerializeField] private GameObject _pauseCanvas;
+    [SerializeField] private GameObject _waveManager;
     private InputController inputController;
     
     [Header("Settings")] 
@@ -28,12 +29,14 @@ public class PauseManager : MonoBehaviour
 
     private Transform playerTransform;
     private string nameSave;
+    private WaveManager waveManager;
 
     private void Awake()
     {
         inputController = new InputController();
         inputController.RightHand.UI.started += ctx => ActivePause(ctx.ReadValueAsButton());
 
+        waveManager = _waveManager.GetComponent<WaveManager>();
         nameSave = PlayerPrefs.GetString("NameSave");
         playerTransform = _player.GetComponent<Transform>();
         LoadSettings();
@@ -139,9 +142,9 @@ public class PauseManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != _nameOfMenuScene)
         {
-            if (isPause)
+            if (isPause && !waveManager.inWave)
             {
-                Time.timeScale = 0;
+                Time.timeScale = 0f;
                 _pauseCanvas.SetActive(true);
             }
             else
