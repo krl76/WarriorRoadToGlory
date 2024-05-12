@@ -5,18 +5,33 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _door;
-    private StartWave startWave;
+    [SerializeField] private GameObject _exitTrigger;
+    private InLocation inLocation;
 
     public bool inWave;
+    private int count;
 
     private void Awake()
     {
-        startWave = _door.GetComponent<StartWave>();
+        count = 0;
+        inLocation = _exitTrigger.GetComponent<InLocation>();
     }
 
     private void Update()
     {
-        inWave = startWave.inWave;
+        inWave = inLocation.onMain;
+        if (inWave)
+        {
+            if (count == 0)
+            {
+                count += 1;
+                StartWave();
+            }
+        }
+    }
+
+    private void StartWave()
+    {
+        
     }
 }

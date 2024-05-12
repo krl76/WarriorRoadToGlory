@@ -10,17 +10,15 @@ public class StartWave : MonoBehaviour
 
     private InputController inputController;
     private Animator animator;
-    private InLocation inLocation;
     private bool inTrigger = false;
-    public bool inWave = false;
+    private bool isOpen = false;
 
     private void Awake()
     {
         inputController = new InputController();
 
-        inputController.LeftHand.Interact.started += ctx => WaveStart();
-
-        inLocation = _inLocationObject.GetComponent<InLocation>();
+        inputController.LeftHand.Interact.started += ctx => DoorOpen();
+        
         animator = GetComponent<Animator>();
     }
 
@@ -34,20 +32,15 @@ public class StartWave : MonoBehaviour
         inputController.Disable();
     }
 
-    private void Update()
-    {
-        if (inLocation.onMain)
-        {
-            animator.SetTrigger("isClose");
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            inTrigger = true;
-            _interactCanvas.SetActive(true);
+            if (!isOpen)
+            {
+                inTrigger = true;
+                _interactCanvas.SetActive(true);
+            }
         }
     }
 
@@ -60,11 +53,11 @@ public class StartWave : MonoBehaviour
         }
     }
 
-    private void WaveStart()
+    private void DoorOpen()
     {
         if (inTrigger)
         {
-            inWave = true;
+            isOpen = true;
             _interactCanvas.SetActive(false);
             animator.SetTrigger("isOpen");
         }
