@@ -14,10 +14,10 @@ public class EnemyHp : MonoBehaviour
     GameObject _hitEffectClone;
     bool _sentinel = false;
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("triggerEnter for enemy detected");
-        switch (collider.transform.tag)
+        Debug.Log("CollisionEnter for enemy detected");
+        switch (collision.transform.tag)
         {
 
             case weaponTag1:
@@ -35,7 +35,7 @@ public class EnemyHp : MonoBehaviour
         }
         if (_enemyHp <= 0)
         {
-            SpawnEnemy.aliveEnemies -= 1;
+            WaveManager.aliveEnemies -= 1;
         }
     }
 }
