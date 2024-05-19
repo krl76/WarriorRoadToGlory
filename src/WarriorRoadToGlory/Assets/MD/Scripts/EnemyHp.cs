@@ -36,6 +36,7 @@ public class EnemyHp : MonoBehaviour
         if (_enemyHp <= 0)
         {
             WaveManager.aliveEnemies -= 1;
+            NPC.defeatedEnemy += 1;
         }
     }
 }

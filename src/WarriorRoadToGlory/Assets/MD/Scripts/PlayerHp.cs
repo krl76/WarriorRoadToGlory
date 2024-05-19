@@ -23,14 +23,17 @@ public class PlayerHp : MonoBehaviour
 
             case weaponTag1:
                 hp -= 5;
+                NPC.amountHit += 1;
                 break;
 
             case weaponTag2:
                 hp -= 15;
+                NPC.amountHit += 1;
                 break;
 
             case weaponTag3:
                 hp -= 40;
+                NPC.amountHit += 1;
                 break;
         }
     }
