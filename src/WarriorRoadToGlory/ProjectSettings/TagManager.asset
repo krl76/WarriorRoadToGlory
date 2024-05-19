@@ -9,6 +9,7 @@ TagManager:
   - StartSword
   - TheBestSword
   - UpgradedSword
+  - Point
   layers:
   - Default
   - TransparentFX

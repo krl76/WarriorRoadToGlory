@@ -55,7 +55,7 @@ public class WaveManager : MonoBehaviour
             case 1:
                 for (int i = 0; i < wave1.Count; i++)
                 {
-                    enemy = (GameObject)Instantiate(wave1[i], new Vector3(UnityEngine.Random.Range(minXPos, maxXPos), 10, UnityEngine.Random.Range(minZPos, maxZPos)), Quaternion.identity);
+                    enemy = Instantiate(wave1[i], new Vector3(UnityEngine.Random.Range(minXPos, maxXPos), 10, UnityEngine.Random.Range(minZPos, maxZPos)), Quaternion.identity);
                     aliveEnemies += 1;
                 }
                 break;

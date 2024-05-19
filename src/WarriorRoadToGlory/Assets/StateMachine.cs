@@ -19,6 +19,5 @@ public class StateMachine : StateMachineBehaviour
             attackChoice = Random.Range(1, 4);
             animator.SetInteger("AttackChoice", attackChoice);
         }
-        Debug.Log("поменял");
     }
 }

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-
 public class EnemyAttack : StateMachineBehaviour
 {
     Transform player;
@@ -8,11 +7,11 @@ public class EnemyAttack : StateMachineBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.transform.LookAt(player);
-        float distance = Vector3.Distance(animator.transform.position, player.position);
+        float distance = Vector3.Distance(animator.transform.position,
+       player.position);
         if (distance > EnemyChase.attackRange)
         {
             animator.SetBool("isAttacking", false);
@@ -20,4 +19,4 @@ public class EnemyAttack : StateMachineBehaviour
             EnemyChase.agent.SetDestination(player.position);
         }
     }
-}  
+}

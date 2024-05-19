@@ -337,7 +337,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.094947e-11, y: 0.0024022195, z: 3.6379788e-10}
+  m_ConnectedAnchor: {x: -9.094947e-11, y: 0.0024022195, z: 4.3655746e-11}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -825,7 +825,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 4.132561e-11, y: 0.0005096658, z: -0.0000491345}
+  m_ConnectedAnchor: {x: -0.0000000012474226, y: 0.0005096658, z: -0.000049135142}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -2238,6 +2238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gladiator4Rigged
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 42745d5ef4adcb64d9a881d33f14a803, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b59c46e5047c46a47934bad723efe983, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2794,7 +2798,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0010319516, y: 0.0017998163, z: -0.00004026122}
+  m_ConnectedAnchor: {x: -0.0010319491, y: 0.0017998164, z: -0.00004026186}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -3315,6 +3319,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 593207706289538129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &409762982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1758114793319692864, guid: adfc8963008529846acb9166970a0b43, type: 3}
+  m_PrefabInstance: {fileID: 124762882}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &418453221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3952,7 +3961,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00059868325, y: -0.00028332588, z: -0.0000345538}
+  m_ConnectedAnchor: {x: -0.0005986807, y: -0.00028332588, z: -0.000034554123}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -6101,7 +6110,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 4.1275428e-11, y: 0.0022894249, z: 0.00008215693}
+  m_ConnectedAnchor: {x: -0.0000000012474715, y: 0.002289425, z: 0.0000821563}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -10359,6 +10368,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaveManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2252602797645579807, guid: ac76bb64e97930d4383c562ba9c85522, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4651582860689235711, guid: ac76bb64e97930d4383c562ba9c85522, type: 3}
       propertyPath: m_LocalPosition.x
       value: 68.98425
@@ -10410,7 +10423,7 @@ PrefabInstance:
     - target: {fileID: 9166059750596301952, guid: ac76bb64e97930d4383c562ba9c85522, type: 3}
       propertyPath: _exitTrigger
       value: 
-      objectReference: {fileID: 124762884}
+      objectReference: {fileID: 409762982}
     - target: {fileID: 9166059750596301952, guid: ac76bb64e97930d4383c562ba9c85522, type: 3}
       propertyPath: wave1.Array.size
       value: 1
@@ -12992,7 +13005,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 6.234586e-10, y: 0.0012720005, z: 0.0000000033760443}
+  m_ConnectedAnchor: {x: 3.1468517e-10, y: 0.0012720046, z: 0.0000000033905962}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -13269,15 +13282,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 795e186d869eefb408db0ecaa4bbb946, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.531
+      value: -21.73
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 795e186d869eefb408db0ecaa4bbb946, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.525339
+      value: 9.556
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 795e186d869eefb408db0ecaa4bbb946, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.813
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 795e186d869eefb408db0ecaa4bbb946, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13315,6 +13328,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1f651ea8b7a1b7844a4b251e284806a0, type: 2}
+    - target: {fileID: -4896508111383773064, guid: 795e186d869eefb408db0ecaa4bbb946, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00371
+      objectReference: {fileID: 0}
     - target: {fileID: 233048252065049189, guid: 795e186d869eefb408db0ecaa4bbb946, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -13558,7 +13575,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00059868314, y: -0.00028332896, z: -0.00003064324}
+  m_ConnectedAnchor: {x: 0.0005986806, y: -0.00028332896, z: -0.00003064356}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -13807,7 +13824,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 5.14774e-10, y: 0.002402355, z: -6.4028427e-10}
+  m_ConnectedAnchor: {x: 5.12955e-10, y: 0.002402355, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -13880,7 +13897,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.70985e-10, y: 0.0012732942, z: 0.0000000016007107}
+  m_ConnectedAnchor: {x: -2.728484e-10, y: 0.0012732917, z: 0.0000000014842954}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -16846,7 +16863,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0010319374, y: 0.0017966207, z: -0.000007921524}
+  m_ConnectedAnchor: {x: 0.0010319361, y: 0.0017966207, z: -0.000007921204}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -18015,13 +18032,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerV6
       objectReference: {fileID: 0}
+    - target: {fileID: 4156373160962752950, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156373160962752950, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984447596769864401, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+      propertyPath: m_TagString
+      value: Point
+      objectReference: {fileID: 0}
     - target: {fileID: 6089798535929538569, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1277832919}
     - target: {fileID: 9147826782320598685, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 8.62
       objectReference: {fileID: 0}
     - target: {fileID: 9147826782320598685, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18029,7 +18058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9147826782320598685, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 9147826782320598685, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: m_LocalRotation.w
