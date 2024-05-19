@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Weapon
   - Enemy
   - Hit
+  - StartSword
+  - TheBestSword
+  - UpgradedSword
   layers:
   - Default
   - TransparentFX

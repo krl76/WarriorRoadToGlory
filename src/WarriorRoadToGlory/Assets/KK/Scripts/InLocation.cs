@@ -18,16 +18,12 @@ public class InLocation : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _doors.SetTrigger("isClose");
-            onMain = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            onMain = false;
+            if (!onMain)
+            {
+                _doors.SetTrigger("isClose");
+                onMain = true;
+                gameObject.SetActive(false);
+            }
         }
     }
 }
