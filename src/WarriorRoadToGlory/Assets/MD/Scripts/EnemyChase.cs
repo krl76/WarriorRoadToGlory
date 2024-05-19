@@ -4,11 +4,12 @@ public class EnemyChase : StateMachineBehaviour
 {
     public static NavMeshAgent agent;
     Transform player;
-    public static float attackRange = 1f;
+    [SerializeField] int speed = 4;
+    public static float attackRange = 5f;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent = animator.GetComponent<NavMeshAgent>();
-        agent.speed = 4;
+        agent.speed = speed;
         player = GameObject.FindGameObjectWithTag("Point").transform;
     }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -24,6 +25,5 @@ public class EnemyChase : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent.SetDestination(agent.transform.position);
-        agent.speed = 4;
     }
 }
