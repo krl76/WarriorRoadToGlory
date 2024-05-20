@@ -17,6 +17,7 @@ public class NavMesh : MonoBehaviour
 
     private Transform[] _pointsSpawn;
     private Transform[] _pointsAll;
+    private int _numberOfPoint;
 
     private void Awake()
     {
@@ -26,22 +27,22 @@ public class NavMesh : MonoBehaviour
         _navmesh = GetComponent<NavMeshAgent>();
         _pointsSpawn = _pointsScript._pointsForSpawn;
         _pointsAll = _pointsScript._allPoints;
-        int a = rand.Next(0, _pointsSpawn.Length);
+        _numberOfPoint = rand.Next(0, _pointsSpawn.Length);
         try
         {
-            pointOfAttack = _pointsSpawn[a];
+            pointOfAttack = _pointsSpawn[_numberOfPoint];
             if (pointOfAttack == null)
                 throw new Exception();
-            _pointsSpawn[a] = null;
+            _pointsSpawn[_numberOfPoint] = null;
         }
         catch
         {
             while (pointOfAttack == null)
             {
-                a = rand.Next(0, _pointsSpawn.Length);
-                pointOfAttack = _pointsSpawn[a];
+                _numberOfPoint = rand.Next(0, _pointsSpawn.Length);
+                pointOfAttack = _pointsSpawn[_numberOfPoint];
             }
-            _pointsSpawn[a] = null;
+            _pointsSpawn[_numberOfPoint] = null;
         }
     }
 
@@ -52,7 +53,7 @@ public class NavMesh : MonoBehaviour
 
     private void Update()
     {
-        
+        Debug.Log($"{_numberOfPoint} - {gameObject.name}");
         float distance = Vector3.Distance(gameObject.transform.position, pointOfAttack.position);
         if (distance < _attackRange)
         {
