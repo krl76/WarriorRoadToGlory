@@ -14,7 +14,7 @@ public class StateMachine : StateMachineBehaviour
     {
         lastChoice = attackChoice;
         attackChoice = Random.Range(1, 4);
-        while (attackChoice != lastChoice)
+        while (attackChoice == lastChoice)
         {
             attackChoice = Random.Range(1, 4);
             animator.SetInteger("AttackChoice", attackChoice);

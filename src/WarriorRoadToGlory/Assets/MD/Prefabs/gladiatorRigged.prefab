@@ -3130,7 +3130,6 @@ GameObject:
   - component: {fileID: 6861415213913364767}
   - component: {fileID: 2577880052070988282}
   - component: {fileID: 6036330926022786360}
-  - component: {fileID: 4637969354331758358}
   m_Layer: 0
   m_Name: gladiatorRigged
   m_TagString: Untagged
@@ -3199,19 +3198,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4637969354331758358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7813144665844940821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e40348fce19a54dafed9c64d6dfd03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
 --- !u!1 &7992717735543679199
 GameObject:
   m_ObjectHideFlags: 0

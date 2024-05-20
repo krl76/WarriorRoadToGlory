@@ -5,7 +5,7 @@ public class EnemyChase : StateMachineBehaviour
     public static NavMeshAgent agent;
     Transform player;
     [SerializeField] int speed = 4;
-    public static float attackRange = 5f;
+    public static float attackRange = 4f;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent = animator.GetComponent<NavMeshAgent>();
