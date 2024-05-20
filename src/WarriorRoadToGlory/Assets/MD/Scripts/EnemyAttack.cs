@@ -7,7 +7,7 @@ public class EnemyAttack : StateMachineBehaviour
     int lastChoice;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        EnemyChase.agent.SetDestination(EnemyChase.agent.transform.position);
+        //EnemyChase.agent.SetDestination(EnemyChase.agent.transform.position);
         lastChoice = 0;
         player = GameObject.FindGameObjectWithTag("Point").transform;
         attackChoice = Random.Range(1, 4);
@@ -23,12 +23,12 @@ public class EnemyAttack : StateMachineBehaviour
         animator.SetInteger("AttackChoice", attackChoice);
         lastChoice = attackChoice;
         animator.transform.LookAt(player);
-        float distance = Vector3.Distance(animator.transform.position, player.position);
+        /*float distance = Vector3.Distance(animator.transform.position, player.position);
         if (distance > EnemyChase.attackRange)
         {
             animator.SetBool("isAttacking", false);
             animator.SetBool("isChasing", true);
             EnemyChase.agent.SetDestination(player.position);
-        }
+        }*/
     }
 }
