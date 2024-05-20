@@ -7355,7 +7355,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce903d735097c04eac949de600e3335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _point:
+  _pointsForSpawn:
+  - {fileID: 1676481452}
+  - {fileID: 398796127}
+  - {fileID: 1798930002}
+  - {fileID: 271142565}
+  _allPoints:
   - {fileID: 1676481452}
   - {fileID: 398796127}
   - {fileID: 1798930002}
