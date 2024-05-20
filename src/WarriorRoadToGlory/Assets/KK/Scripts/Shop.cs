@@ -16,7 +16,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameObject _sword2;
     [SerializeField] private GameObject _sword3;
     [SerializeField] private GameObject _shield;
-    [SerializeField] private int _multiplyForWeapon;
+    [SerializeField] private float _multiplyForWeapon;
 
     [Header("Buttons")] 
     [SerializeField] private Button[] _buy;
@@ -27,7 +27,7 @@ public class Shop : MonoBehaviour
     [Header("Coins")] 
     [SerializeField] private TextMeshProUGUI[] _coinCost;
     [SerializeField] private GameObject[] _coinSprites;
-    [SerializeField] private int _multiplyForCoins;
+    [SerializeField] private float _multiplyForCoins;
 
     [Header("Merchant Sets")] 
     [SerializeField] private TextMeshProUGUI _coins;
@@ -68,8 +68,8 @@ public class Shop : MonoBehaviour
             case 2:
                 if (Convert.ToInt32(_coins.text) >= Convert.ToInt32(_coinCost[typeOfSword - 1].text))
                 {
-                    _coins.text = (Convert.ToInt32(_coinCost[typeOfSword - 1].text) - Convert.ToInt32(_coins.text)).ToString();
-                    _buy[typeOfSword - 1].interactable = false;
+                    _coins.text = (Convert.ToInt32(_coins.text) - Convert.ToInt32(_coinCost[typeOfSword - 1].text)).ToString();
+                    _buy[typeOfSword - 1].gameObject.SetActive(false);
                     _upgrade[typeOfSword - 1].interactable = true;
                     _coinCost[typeOfSword - 1].gameObject.SetActive(false);
                     _coinSprites[typeOfSword - 1].gameObject.SetActive(false);
@@ -83,8 +83,8 @@ public class Shop : MonoBehaviour
             case 3:
                 if (Convert.ToInt32(_coins.text) >= Convert.ToInt32(_coinCost[typeOfSword - 1].text))
                 {
-                    _coins.text = (Convert.ToInt32(_coinCost[typeOfSword - 1].text) - Convert.ToInt32(_coins.text)).ToString();
-                    _buy[typeOfSword - 1].interactable = false;
+                    _coins.text = (Convert.ToInt32(_coins.text) - Convert.ToInt32(_coinCost[typeOfSword - 1].text)).ToString();
+                    _buy[typeOfSword - 1].gameObject.SetActive(false);
                     _upgrade[typeOfSword - 1].interactable = true;
                     _coinCost[typeOfSword - 1].gameObject.SetActive(false);
                     _coinSprites[typeOfSword - 1].gameObject.SetActive(false);
@@ -98,7 +98,7 @@ public class Shop : MonoBehaviour
             case 4:
                 if (Convert.ToInt32(_coins.text) >= Convert.ToInt32(_coinCost[typeOfSword - 1].text))
                 {
-                    _coins.text = (Convert.ToInt32(_coinCost[typeOfSword - 1].text) - Convert.ToInt32(_coins.text)).ToString();
+                    _coins.text = (Convert.ToInt32(_coins.text) - Convert.ToInt32(_coinCost[typeOfSword - 1].text)).ToString();
                     _buy[typeOfSword - 1].interactable = false;
                     //_upgrade[typeOfSword - 1].interactable = true;
                     _coinCost[typeOfSword - 1].gameObject.SetActive(false);
@@ -119,7 +119,7 @@ public class Shop : MonoBehaviour
             case 1:
                 if (Convert.ToInt32(_coins.text) >= Convert.ToInt32(_coinCost[typeOfSword + 3].text))
                 {
-                    _coins.text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) - Convert.ToInt32(_coins.text)).ToString();
+                    _coins.text = (Convert.ToInt32(_coins.text) - Convert.ToInt32(_coinCost[typeOfSword + 3].text)).ToString();
                     _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
                                                        _multiplyForCoins).ToString();
                     levelOfSword1 += 1;
@@ -135,7 +135,7 @@ public class Shop : MonoBehaviour
             case 2:
                 if (Convert.ToInt32(_coins.text) >= Convert.ToInt32(_coinCost[typeOfSword + 3].text))
                 {
-                    _coins.text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) - Convert.ToInt32(_coins.text)).ToString();
+                    _coins.text = (Convert.ToInt32(_coins.text) - Convert.ToInt32(_coinCost[typeOfSword + 3].text)).ToString();
                     _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
                                                        _multiplyForCoins).ToString();
                     levelOfSword2 += 1;
@@ -151,7 +151,7 @@ public class Shop : MonoBehaviour
             case 3:
                 if (Convert.ToInt32(_coins.text) >= Convert.ToInt32(_coinCost[typeOfSword + 3].text))
                 {
-                    _coins.text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) - Convert.ToInt32(_coins.text)).ToString();
+                    _coins.text = (Convert.ToInt32(_coins.text) - Convert.ToInt32(_coinCost[typeOfSword + 3].text)).ToString();;
                     _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
                                                        _multiplyForCoins).ToString();
                     levelOfSword3 += 1;
@@ -167,7 +167,7 @@ public class Shop : MonoBehaviour
             /*case 4:
                 if (Convert.ToInt32(_coins.text) >= Convert.ToInt32(_coinCost[typeOfSword + 3].text))
                 {
-                    _coins.text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) - Convert.ToInt32(_coins.text)).ToString();
+                    _coins.text = (Convert.ToInt32(_coins.text) - Convert.ToInt32(_coinCost[typeOfSword + 3].text)).ToString();
                     _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
                                                        _multiplyForCoins).ToString();
                     levelOfSword4 += 1;
@@ -189,18 +189,24 @@ public class Shop : MonoBehaviour
         {
             case 1:
                 _pick[typeOfSword - 1].interactable = false;
+                _pick[typeOfSword].interactable = true;
+                _pick[typeOfSword + 1].interactable = true;
                 _sword1.SetActive(true);
                 _sword2.SetActive(false);
                 _sword3.SetActive(false);
                 break;
             case 2:
                 _pick[typeOfSword - 1].interactable = false;
+                _pick[typeOfSword].interactable = true;
+                _pick[typeOfSword - 2].interactable = true;
                 _sword1.SetActive(false);
                 _sword2.SetActive(true);
                 _sword3.SetActive(false);
                 break;
             case 3:
                 _pick[typeOfSword - 1].interactable = false;
+                _pick[typeOfSword - 2].interactable = true;
+                _pick[typeOfSword - 3].interactable = true;
                 _sword1.SetActive(false);
                 _sword2.SetActive(false);
                 _sword3.SetActive(true);

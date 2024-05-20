@@ -14,7 +14,7 @@ public class Merchant : MonoBehaviour
     
     [Header("Coins")]
     [SerializeField] private TextMeshProUGUI _coins;
-    [SerializeField] private int _baseCoins;
+    [SerializeField] private string _baseCoins;
 
     private InputController inputController;
     private bool onTrigger;
@@ -59,7 +59,7 @@ public class Merchant : MonoBehaviour
                 }
                 else
                 {
-                    _coins.text = _baseCoins.ToString();
+                    _coins.text = _baseCoins;
                 }
                 break;
             case "save2":
@@ -69,7 +69,7 @@ public class Merchant : MonoBehaviour
                 }
                 else
                 {
-                    _coins.text = _baseCoins.ToString();
+                    _coins.text = _baseCoins;
                 }
                 break;
             case "save3":
@@ -79,7 +79,7 @@ public class Merchant : MonoBehaviour
                 }
                 else
                 {
-                    _coins.text = _baseCoins.ToString();
+                    _coins.text = _baseCoins;
                 }
                 break;
         }
@@ -87,14 +87,20 @@ public class Merchant : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        onTrigger = true;
-        _interactCanvas.SetActive(true);
+        if (other.CompareTag("Player"))
+        {
+            onTrigger = true;
+            _interactCanvas.SetActive(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        onTrigger = false;
-        _interactCanvas.SetActive(false);
+        if (other.CompareTag("Player"))
+        {
+            onTrigger = false;
+            _interactCanvas.SetActive(false);
+        }
     }
 
     private void ActiveShop(bool isActive)
