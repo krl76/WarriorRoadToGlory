@@ -5,8 +5,6 @@ using Random = System.Random;
 
 public class NavMesh : MonoBehaviour
 {
-    //[SerializeField] private Transform[] _point;
-    [SerializeField] private GameObject _objectOfPoints;
     [SerializeField] private float _attackRange;
     [SerializeField] private float _speed;
     [SerializeField] public Transform pointToSee;
@@ -23,7 +21,8 @@ public class NavMesh : MonoBehaviour
     private void Awake()
     {
         Random rand = new Random();
-        _pointsScript = _objectOfPoints.GetComponent<PointOfAttack>();
+        _pointsScript = FindObjectOfType<PointOfAttack>();
+        pointToSee = GameObject.FindGameObjectWithTag("PointSee").transform;
         _animator = GetComponent<Animator>();
         _navmesh = GetComponent<NavMeshAgent>();
         _pointsSpawn = _pointsScript._pointsForSpawn;
