@@ -1,47 +1,34 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ActivateLose : MonoBehaviour
+public class LoseScreen : MonoBehaviour
 {
-    [Header("Waves")] 
-    [SerializeField] private GameObject _waveObject;
-    
-    [Header("Lose Sets")]
-    [SerializeField] private GameObject _loseCanvas;
-    [SerializeField] private TextMeshProUGUI _numbersOfWaves;
-    [SerializeField] private TextMeshProUGUI _numbersOfcoins;
+    [SerializeField] private GameObject _waveManagerObject;
+    [SerializeField] private TextMeshProUGUI _wave;
+    [SerializeField] private string _nameOfMenuScene;
 
-    private PlayerHp _playerHp;
-    private WaveManager _waveManager;
-    private int _hp;
+    private int _numberOfWave;
     private string nameSave;
-    private bool _active;
 
-    private void Awake()
+    private void OnEnable()
     {
-        _active = false;
-        _playerHp = GetComponent<PlayerHp>();
-        _waveManager = _waveObject.GetComponent<WaveManager>();
+        _numberOfWave = _waveManagerObject.GetComponent<WaveManager>().waveNumber;
+        _wave.text = $"{_numberOfWave - 1} волн";
         nameSave = PlayerPrefs.GetString("NameSave");
     }
 
-    private void Update()
+    public void ToMenu()
     {
-        _hp = _playerHp.hp;
-        if (_hp <= 0 && !_active)
-        {
-            _active = true;
-            ActiveLose();
-        }
+        //Time.timeScale = 1f;
+        DeleteSave();
+        //SceneManager.LoadScene(_nameOfMenuScene);
+        FindObjectOfType<LoadScene>().SceneLoad(_nameOfMenuScene);
     }
-
-    private void ActiveLose()
-    {
-        _loseCanvas.SetActive(true);
-        _numbersOfWaves.text = $"{_waveManager.waveNumber - 1} волн";
-    }
-
-    public void DeleteSave()
+    
+    private void DeleteSave()
     {
         switch (nameSave)
         {

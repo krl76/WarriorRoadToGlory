@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHp : MonoBehaviour
 {
     [SerializeField] public int hp = 100;
+    [SerializeField] private Slider _hpBar;
+    [SerializeField] private GameObject _loseCanvas;
     public const string weaponTag1 = "StartSword";
     public const string weaponTag2 = "UpgradedSword";
     public const string weaponTag3 = "TheBestSword";
@@ -15,11 +18,16 @@ public class PlayerHp : MonoBehaviour
 
     void Update()
     {
-        
+        _hpBar.value = hp;
+        if (hp <= 0)
+        {
+            _loseCanvas.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        switch (collision.transform.tag) {
+        switch (other.transform.tag) {
 
             case weaponTag1:
                 hp -= 5;
