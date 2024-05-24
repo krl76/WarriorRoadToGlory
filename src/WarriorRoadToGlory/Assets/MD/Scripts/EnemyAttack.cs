@@ -9,7 +9,7 @@ public class EnemyAttack : StateMachineBehaviour
     {
         //EnemyChase.agent.SetDestination(EnemyChase.agent.transform.position);
         lastChoice = 0;
-        player = GameObject.FindGameObjectWithTag("Point").transform;
+        //player = GameObject.FindGameObjectWithTag("Point").transform;
         attackChoice = Random.Range(1, 4);
         animator.SetInteger("AttackChoice", attackChoice);
     }
@@ -22,7 +22,7 @@ public class EnemyAttack : StateMachineBehaviour
         }
         animator.SetInteger("AttackChoice", attackChoice);
         lastChoice = attackChoice;
-        animator.transform.LookAt(player);
+        //animator.transform.LookAt(player);
         /*float distance = Vector3.Distance(animator.transform.position, player.position);
         if (distance > EnemyChase.attackRange)
         {

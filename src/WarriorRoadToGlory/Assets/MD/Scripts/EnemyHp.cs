@@ -13,13 +13,13 @@ public class EnemyHp : MonoBehaviour
     GameObject enemy;
     GameObject _hitEffectClone;
     bool _sentinel = false;
+    Animation anim;
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("CollisionEnter for enemy detected");
+        Debug.Log("Player hit enemy");
         switch (collision.transform.tag)
         {
-
             case weaponTag1:
                 _enemyHp -= 5;
                 break;
@@ -31,10 +31,11 @@ public class EnemyHp : MonoBehaviour
             case weaponTag3:
                 _enemyHp -= 40;
                 break;
-
         }
         if (_enemyHp <= 0)
         {
+            anim = GetComponent<Animation>();
+            anim.Stop();
             WaveManager.aliveEnemies -= 1;
             NPC.defeatedEnemy += 1;
         }

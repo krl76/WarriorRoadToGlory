@@ -10,7 +10,7 @@ public class BossAttack : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         lastChoice = 0;
-        player = GameObject.FindGameObjectWithTag("Point").transform;
+        //player = GameObject.FindGameObjectWithTag("Point").transform;
         attackChoice = Random.Range(1, 6);
         animator.SetInteger("AttackChoice", attackChoice);
     }
@@ -23,13 +23,13 @@ public class BossAttack : StateMachineBehaviour
         }
         animator.SetInteger("AttackChoice", attackChoice);
         lastChoice = attackChoice;
-        animator.transform.LookAt(player);
-        float distance = Vector3.Distance(animator.transform.position, player.position);
-        if (distance > EnemyChase.attackRange)
-        {
-            animator.SetBool("isAttacking", false);
-            animator.SetBool("isChasing", true);
-            EnemyChase.agent.SetDestination(player.position);
-        }
+        //animator.transform.LookAt(player);
+        //float distance = Vector3.Distance(animator.transform.position, player.position);
+        //if (distance > EnemyChase.attackRange)
+        //{
+        //    animator.SetBool("isAttacking", false);
+        //    animator.SetBool("isChasing", true);
+        //    EnemyChase.agent.SetDestination(player.position);
+        //}
     }
 }

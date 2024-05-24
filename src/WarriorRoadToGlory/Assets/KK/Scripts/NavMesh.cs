@@ -9,11 +9,12 @@ public class NavMesh : MonoBehaviour
     [SerializeField] private GameObject _objectOfPoints;
     [SerializeField] private float _attackRange;
     [SerializeField] private float _speed;
+    [SerializeField] public Transform pointToSee;
 
     private PointOfAttack _pointsScript;
     private NavMeshAgent _navmesh;
     private Animator _animator;
-    private Transform pointOfAttack;
+    public Transform pointOfAttack;
 
     private Transform[] _pointsSpawn;
     private Transform[] _pointsAll;
@@ -54,6 +55,9 @@ public class NavMesh : MonoBehaviour
     private void Update()
     {
         Debug.Log($"{_numberOfPoint} - {gameObject.name}");
+        Vector3 lookAt = pointToSee.position;
+        lookAt.y = transform.position.y;
+        transform.LookAt(lookAt);
         float distance = Vector3.Distance(gameObject.transform.position, pointOfAttack.position);
         if (distance < _attackRange)
         {
