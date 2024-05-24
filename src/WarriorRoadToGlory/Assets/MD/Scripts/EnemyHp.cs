@@ -10,11 +10,18 @@ public class EnemyHp : MonoBehaviour
     public const string weaponTag1 = "StartSword";
     public const string weaponTag2 = "UpgradedSword";
     public const string weaponTag3 = "TheBestSword";
+    private Animation anim;
     GameObject enemy;
     GameObject _hitEffectClone;
     bool _sentinel = false;
-    Animation anim;
+    private void Start()
+    {
+        
+    }
+    private void Update()
+    {
 
+    }
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Player hit enemy");
