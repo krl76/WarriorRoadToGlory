@@ -20,7 +20,11 @@ public class EnemyHp : MonoBehaviour
     }
     private void Update()
     {
-
+        if (_enemyHp <= 0)
+        {
+            WaveManager.aliveEnemies -= 1;
+            NPC.defeatedEnemy += 1;
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -38,13 +42,6 @@ public class EnemyHp : MonoBehaviour
             case weaponTag3:
                 _enemyHp -= 40;
                 break;
-        }
-        if (_enemyHp <= 0)
-        {
-            anim = GetComponent<Animation>();
-            anim.Stop();
-            WaveManager.aliveEnemies -= 1;
-            NPC.defeatedEnemy += 1;
         }
     }
 }
