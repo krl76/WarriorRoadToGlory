@@ -26,7 +26,10 @@ public class WinCanvas : MonoBehaviour
 
     private void Awake()
     {
-        difficult = PlayerPrefs.GetInt("DifficultSettings");
+        if (PlayerPrefs.HasKey("DifficultSettings"))
+            difficult = PlayerPrefs.GetInt("DifficultSettings");
+        else
+            difficult = 1;
         namesave = PlayerPrefs.GetString("NameSave");
         _waveManager = FindObjectOfType<WaveManager>();
         
