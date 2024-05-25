@@ -45,6 +45,7 @@ public class EnemyHp : MonoBehaviour
             anim.Stop();
             WaveManager.aliveEnemies -= 1;
             NPC.defeatedEnemy += 1;
+            WinCanvas.defeatedEnemy += 1;
         }
     }
 }

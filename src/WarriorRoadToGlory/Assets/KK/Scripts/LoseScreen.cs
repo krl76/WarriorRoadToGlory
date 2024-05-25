@@ -34,11 +34,8 @@ public class LoseScreen : MonoBehaviour
         {
             case "Save1":
                 PlayerPrefs.DeleteKey("Coins1");
-                PlayerPrefs.DeleteKey("Save1PlayerX");
-                PlayerPrefs.DeleteKey("Save1PlayerY");
-                PlayerPrefs.DeleteKey("Save1PlayerZ");
+                PlayerPrefs.DeleteKey("Wave1");
                 PlayerPrefs.DeleteKey("Save1");
-                PlayerPrefs.DeleteKey("Coins1");
                 PlayerPrefs.DeleteKey("LevelSword1.1");
                 PlayerPrefs.DeleteKey("LevelSword2.1");
                 PlayerPrefs.DeleteKey("LevelSword3.1");
@@ -46,11 +43,8 @@ public class LoseScreen : MonoBehaviour
                 break;
             case "Save2":
                 PlayerPrefs.DeleteKey("Coins2");
-                PlayerPrefs.DeleteKey("Save2PlayerX");
-                PlayerPrefs.DeleteKey("Save2PlayerY");
-                PlayerPrefs.DeleteKey("Save2PlayerZ");
+                PlayerPrefs.DeleteKey("Wave2");
                 PlayerPrefs.DeleteKey("Save2");
-                PlayerPrefs.DeleteKey("Coins2");
                 PlayerPrefs.DeleteKey("LevelSword1.2");
                 PlayerPrefs.DeleteKey("LevelSword2.2");
                 PlayerPrefs.DeleteKey("LevelSword3.2");
@@ -58,11 +52,8 @@ public class LoseScreen : MonoBehaviour
                 break;
             case "Save3":
                 PlayerPrefs.DeleteKey("Coins3");
-                PlayerPrefs.DeleteKey("Save3PlayerX");
-                PlayerPrefs.DeleteKey("Save3PlayerY");
-                PlayerPrefs.DeleteKey("Save3PlayerZ");
+                PlayerPrefs.DeleteKey("Wave3");
                 PlayerPrefs.DeleteKey("Save3");
-                PlayerPrefs.DeleteKey("Coins3");
                 PlayerPrefs.DeleteKey("LevelSword1.3");
                 PlayerPrefs.DeleteKey("LevelSword2.3");
                 PlayerPrefs.DeleteKey("LevelSword3.3");

@@ -6,8 +6,9 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     [SerializeField] private GameObject _exitTrigger;
+    [SerializeField] private GameObject _winCanvas;
     private InLocation inLocation;
-    private bool allSpawned = false;
+    public bool allSpawned = false;
     [SerializeField] public int waveNumber = 0;
     GameObject enemy;
     float xPos, yPos;
@@ -28,12 +29,14 @@ public class WaveManager : MonoBehaviour
     public List<GameObject> wave10 = new List<GameObject>();
 
     public bool inWave;
-    private int count;
+
+    private string namesave;
 
     private void Awake()
     {
-        count = 0;
+        namesave = PlayerPrefs.GetString("NameSave");
         inLocation = _exitTrigger.GetComponent<InLocation>();
+        LoadWave();
     }
 
     private void Update()
@@ -41,16 +44,15 @@ public class WaveManager : MonoBehaviour
         inWave = inLocation.onMain;
         if (inWave)
         {
-            if (count == 0 && !allSpawned)
+            if (!allSpawned)
             {
                 waveNumber += 1;
-                count += 1;
                 StartWave();
             }
         }
     }
 
-    private void StartWave()
+    public void StartWave()
     {
         switch (waveNumber)
         {
@@ -133,6 +135,31 @@ public class WaveManager : MonoBehaviour
                     aliveEnemies += 1;
                 }
                 allSpawned = true;
+                break;
+        }
+    }
+
+    private void LoadWave()
+    {
+        switch (namesave)
+        {
+            case "save1":
+                if (PlayerPrefs.HasKey("Wave1"))
+                    waveNumber = PlayerPrefs.GetInt("Wave1");
+                else
+                    waveNumber = 0;
+                break;
+            case "save2":
+                if (PlayerPrefs.HasKey("Wave2"))
+                    waveNumber = PlayerPrefs.GetInt("Wave2");
+                else
+                    waveNumber = 0;
+                break;
+            case "save3":
+                if (PlayerPrefs.HasKey("Wave3"))
+                    waveNumber = PlayerPrefs.GetInt("Wave3");
+                else
+                    waveNumber = 0;
                 break;
         }
     }
