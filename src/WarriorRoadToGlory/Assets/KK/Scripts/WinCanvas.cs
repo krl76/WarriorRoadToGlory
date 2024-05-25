@@ -50,6 +50,8 @@ public class WinCanvas : MonoBehaviour
 
         if (allSpawned && aliveEnemy == 0 && !isChange && _numberOfWave == 10)
         {
+            isChange = true;
+            FindObjectOfType<Final>().StartFinal();
             //действие по запуску кат-сцены финальной
         }
     }
