@@ -16,7 +16,7 @@ public class LoseScreen : MonoBehaviour
     private void OnEnable()
     {
         _numberOfWave = _waveManagerObject.GetComponent<WaveManager>().waveNumber;
-        _wave.text = $"{_numberOfWave - 1} волн";
+        _wave.text = $"{_numberOfWave} волн";
         nameSave = PlayerPrefs.GetString("NameSave");
     }
 

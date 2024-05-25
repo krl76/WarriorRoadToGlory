@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class HandController : MonoBehaviour
     [SerializeField] private Animator _animatorRight;
     
     private InputController inputController;
+    private bool isTake;
+    private string whichTake;
     private void Awake()
     {
         inputController = new InputController();
@@ -75,5 +78,25 @@ public class HandController : MonoBehaviour
         {
             _animatorLeft.SetBool("Pointing", isPointing);
         }
+    }
+
+    private void Update()
+    {
+        if(whichTake == "Right Controller")
+            _animatorRight.SetBool("Grip", isTake);
+        if(whichTake == "Left Controller")
+            _animatorLeft.SetBool("Grip", isTake);
+    }
+
+    public void Take(SelectEnterEventArgs enterEvent)
+    {
+        isTake = true;
+        whichTake = enterEvent.interactorObject.transform.name;
+    }
+    
+    public void TakeOff(SelectExitEventArgs exitEvent)
+    {
+        isTake = false;
+        whichTake = "";
     }
 }
