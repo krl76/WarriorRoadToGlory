@@ -74,64 +74,20 @@ public class PauseManager : MonoBehaviour
         switch (nameSave)
         {
             case "save1":
-                PlayerPrefs.SetFloat("Save1PlayerX", playerTransform.position.x);
-                PlayerPrefs.SetFloat("Save1PlayerY", playerTransform.position.y);
-                PlayerPrefs.SetFloat("Save1PlayerZ", playerTransform.position.z);
                 PlayerPrefs.SetString("Save1", $"Сохранение 1. {date}.{month}.{year} {hour}:{minute}");
                 break;
             case "save2":
-                PlayerPrefs.SetFloat("Save2PlayerX", playerTransform.position.x);
-                PlayerPrefs.SetFloat("Save2PlayerY", playerTransform.position.y);
-                PlayerPrefs.SetFloat("Save2PlayerZ", playerTransform.position.z);
                 PlayerPrefs.SetString("Save2", $"Сохранение 2. {date}.{month}.{year} {hour}:{minute}");
                 break;
             case "save3":
-                PlayerPrefs.SetFloat("Save3PlayerX", playerTransform.position.x);
-                PlayerPrefs.SetFloat("Save3PlayerY", playerTransform.position.y);
-                PlayerPrefs.SetFloat("Save3PlayerZ", playerTransform.position.z);
                 PlayerPrefs.SetString("Save3", $"Сохранение 2. {date}.{month}.{year} {hour}:{minute}");
                 break;
         }
     }
 
     private void LoadPlayer()
-    {
-        switch (nameSave)
-        {
-            case "save1":
-                if (PlayerPrefs.HasKey("Save1PlayerX") && PlayerPrefs.HasKey("Save1PlayerY") && PlayerPrefs.HasKey("Save1PlayerZ"))
-                {
-                    playerTransform.position = new Vector3(PlayerPrefs.GetFloat("Save1PlayerX"), PlayerPrefs.GetFloat("Save1PlayerY"),
-                        PlayerPrefs.GetFloat("Save1PlayerZ"));
-                }
-                else
-                {
-                    playerTransform.position = _basePosition;
-                }
-                break;
-            case "save2":
-                if (PlayerPrefs.HasKey("Save2PlayerX") && PlayerPrefs.HasKey("Save2PlayerY") && PlayerPrefs.HasKey("Save2PlayerZ"))
-                {
-                    playerTransform.position = new Vector3(PlayerPrefs.GetFloat("Save2PlayerX"), PlayerPrefs.GetFloat("Save2PlayerY"),
-                        PlayerPrefs.GetFloat("Save2PlayerZ"));
-                }
-                else
-                {
-                    playerTransform.position = _basePosition;
-                }
-                break;
-            case "save3":
-                if (PlayerPrefs.HasKey("Save3PlayerX") && PlayerPrefs.HasKey("Save3PlayerY") && PlayerPrefs.HasKey("Save3PlayerZ"))
-                {
-                    playerTransform.position = new Vector3(PlayerPrefs.GetFloat("Save3PlayerX"), PlayerPrefs.GetFloat("Save3PlayerY"),
-                        PlayerPrefs.GetFloat("Save3PlayerZ"));
-                }
-                else
-                {
-                    playerTransform.position = _basePosition;
-                }
-                break;
-        }
+    { 
+        playerTransform.position = _basePosition;
     }
 
     private void ActivePause(bool isPause)

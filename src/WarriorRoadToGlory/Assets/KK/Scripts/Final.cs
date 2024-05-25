@@ -1,31 +1,38 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class LoseScreen : MonoBehaviour
+public class Final : MonoBehaviour
 {
-    [SerializeField] private GameObject _waveManagerObject;
-    [SerializeField] private TextMeshProUGUI _wave;
+    [SerializeField] private AudioClip[] _audioClips;
     [SerializeField] private string _nameOfMenuScene;
 
-    private int _numberOfWave;
+    private AudioSource _audioSource;
+    private bool inFinal;
     private string nameSave;
 
-    private void OnEnable()
+    private void Start()
     {
-        _numberOfWave = _waveManagerObject.GetComponent<WaveManager>().waveNumber;
-        _wave.text = $"{_numberOfWave} волн";
         nameSave = PlayerPrefs.GetString("NameSave");
+        _audioSource = GetComponent<AudioSource>();
     }
 
-    public void ToMenu()
+    public void StartFinal()
     {
-        //Time.timeScale = 1f;
-        DeleteSave();
-        //SceneManager.LoadScene(_nameOfMenuScene);
-        FindObjectOfType<LoadScene>().SceneLoad(_nameOfMenuScene);
+        _audioSource.PlayOneShot(_audioClips[0]);
+        inFinal = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && inFinal)
+        {
+            _audioSource.PlayOneShot(_audioClips[1]);
+            StartCoroutine(TakePause());
+            DeleteSave();
+            FindObjectOfType<LoadScene>().SceneLoad(_nameOfMenuScene);
+        }
     }
     
     private void DeleteSave()
@@ -60,5 +67,10 @@ public class LoseScreen : MonoBehaviour
                 PlayerPrefs.DeleteKey("LevelSword4.3");
                 break;
         }
+    }
+
+    IEnumerator TakePause()
+    {
+        yield return new WaitForSeconds(10);
     }
 }
