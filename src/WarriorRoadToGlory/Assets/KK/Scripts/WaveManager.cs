@@ -4,7 +4,6 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     [SerializeField] private GameObject _exitTrigger;
-    [SerializeField] private GameObject _winCanvas;
     private InLocation inLocation;
     public bool allSpawned = false;
     [SerializeField] public int waveNumber = 0;
