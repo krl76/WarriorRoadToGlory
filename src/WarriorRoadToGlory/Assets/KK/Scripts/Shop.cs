@@ -214,13 +214,13 @@ public class Shop : MonoBehaviour
         switch (typeOfSword)
         {
             case 1:
-                weaponScript._weapon1Damage = level * _multiplyForWeapon;
+                weaponScript._weapon1Damage *= _multiplyForWeapon;
                 break;
             case 2:
-                weaponScript._weapon2Damage = level * _multiplyForWeapon;
+                weaponScript._weapon2Damage *= _multiplyForWeapon;
                 break;
             case 3:
-                weaponScript._weapon3Damage = level * _multiplyForWeapon;
+                weaponScript._weapon3Damage *= _multiplyForWeapon;
                 break;
         }
         
@@ -320,9 +320,7 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword4.1"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.1");
-                    _buy[j + 3].gameObject.SetActive(false);
-                    _pick[j + 3].gameObject.SetActive(true);
-                    _pick[j + 3].interactable = true;
+                    _buy[j + 3].interactable = false;
                     _upgrade[j + 3].interactable = true;
                     _coinCost[j + 3].gameObject.SetActive(false);
                     _coinSprites[j + 3].gameObject.SetActive(false);
@@ -391,9 +389,7 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword4.2"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.2");
-                    _buy[j + 3].gameObject.SetActive(false);
-                    _pick[j + 3].gameObject.SetActive(true);
-                    _pick[j + 3].interactable = true;
+                    _buy[j + 3].interactable = false;
                     _upgrade[j + 3].interactable = true;
                     _coinCost[j + 3].gameObject.SetActive(false);
                     _coinSprites[j + 3].gameObject.SetActive(false);
@@ -462,9 +458,7 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword4.3"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.3");
-                    _buy[j + 3].gameObject.SetActive(false);
-                    _pick[j + 3].gameObject.SetActive(true);
-                    _pick[j + 3].interactable = true;
+                    _buy[j + 3].interactable = false;
                     _upgrade[j + 3].interactable = true;
                     _coinCost[j + 3].gameObject.SetActive(false);
                     _coinSprites[j + 3].gameObject.SetActive(false);
