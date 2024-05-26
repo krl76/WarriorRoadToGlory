@@ -16,9 +16,9 @@ public class Shop : MonoBehaviour
     [SerializeField] private Button[] _buy;
     [SerializeField] private Button[] _pick;
     [SerializeField] private Button[] _upgrade;
-    
-    
-    [Header("Coins")] 
+
+
+    [Header("Coins")]
     [SerializeField] private TextMeshProUGUI[] _coinCost;
     [SerializeField] private GameObject[] _coinSprites;
     [SerializeField] private float _multiplyForCoins;
@@ -117,7 +117,7 @@ public class Shop : MonoBehaviour
                     _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
                                                        _multiplyForCoins).ToString();
                     levelOfSword1 += 1;
-                    //UpgradeWeapon(levelOfSword1, _sword1)
+                    UpgradeWeapon(levelOfSword1, typeOfSword);
                     if (levelOfSword1 - 1 == 4)
                     {
                         _upgrade[typeOfSword - 1].interactable = false;
@@ -133,7 +133,7 @@ public class Shop : MonoBehaviour
                     _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
                                                        _multiplyForCoins).ToString();
                     levelOfSword2 += 1;
-                    //UpgradeWeapon(levelOfSword2, _sword2)
+                    UpgradeWeapon(levelOfSword2, typeOfSword);
                     if (levelOfSword2 - 1 == 4)
                     {
                         _upgrade[typeOfSword - 1].interactable = false;
@@ -149,7 +149,7 @@ public class Shop : MonoBehaviour
                     _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
                                                        _multiplyForCoins).ToString();
                     levelOfSword3 += 1;
-                    //UpgradeWeapon(levelOfSword3, _sword3)
+                    UpgradeWeapon(levelOfSword3, typeOfSword);
                     if (levelOfSword3 - 1 == 4)
                     {
                         _upgrade[typeOfSword - 1].interactable = false;
@@ -208,11 +208,23 @@ public class Shop : MonoBehaviour
         }
     }
 
-    /*private void UpgradeWeapon(int level, GameObject weapon)
+    private void UpgradeWeapon(int level, int typeOfSword)
     {
-        WeaponScript damage = weapon.GetComponent<WeaponScript>;
-        damage.damage = level * _multiplyForWeapon;
-    }*/
+        Weapon weaponScript = FindObjectOfType<Weapon>();
+        switch (typeOfSword)
+        {
+            case 1:
+                weaponScript._weapon1Damage = level * _multiplyForWeapon;
+                break;
+            case 2:
+                weaponScript._weapon2Damage = level * _multiplyForWeapon;
+                break;
+            case 3:
+                weaponScript._weapon3Damage = level * _multiplyForWeapon;
+                break;
+        }
+        
+    }
 
     private void OnDisable()
     {
@@ -257,7 +269,9 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword1.1"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword1.1");
-                    _buy[j].interactable = false;
+                    _buy[j].gameObject.SetActive(false);
+                    _pick[j].gameObject.SetActive(true);
+                    _pick[j].interactable = false;
                     _upgrade[j].interactable = true;
                     _coinCost[j].gameObject.SetActive(false);
                     _coinSprites[j].gameObject.SetActive(false);
@@ -272,7 +286,9 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword2.1"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword2.1");
-                    _buy[j + 1].interactable = false;
+                    _buy[j + 1].gameObject.SetActive(false);
+                    _pick[j + 1].gameObject.SetActive(true);
+                    _pick[j + 1].interactable = true;
                     _upgrade[j + 1].interactable = true;
                     _coinCost[j + 1].gameObject.SetActive(false);
                     _coinSprites[j + 1].gameObject.SetActive(false);
@@ -287,7 +303,9 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword3.1"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword3.1");
-                    _buy[j + 2].interactable = false;
+                    _buy[j + 2].gameObject.SetActive(false);
+                    _pick[j + 2].gameObject.SetActive(true);
+                    _pick[j + 2].interactable = true;
                     _upgrade[j + 2].interactable = true;
                     _coinCost[j + 2].gameObject.SetActive(false);
                     _coinSprites[j + 2].gameObject.SetActive(false);
@@ -302,7 +320,9 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword4.1"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.1");
-                    _buy[j + 3].interactable = false;
+                    _buy[j + 3].gameObject.SetActive(false);
+                    _pick[j + 3].gameObject.SetActive(true);
+                    _pick[j + 3].interactable = true;
                     _upgrade[j + 3].interactable = true;
                     _coinCost[j + 3].gameObject.SetActive(false);
                     _coinSprites[j + 3].gameObject.SetActive(false);
@@ -320,7 +340,9 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword1.2"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword1.2");
-                    _buy[j].interactable = false;
+                    _buy[j].gameObject.SetActive(false);
+                    _pick[j].gameObject.SetActive(true);
+                    _pick[j].interactable = false;
                     _upgrade[j].interactable = true;
                     _coinCost[j].gameObject.SetActive(false);
                     _coinSprites[j].gameObject.SetActive(false);
@@ -335,7 +357,9 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword2.2"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword2.2");
-                    _buy[j + 1].interactable = false;
+                    _buy[j + 1].gameObject.SetActive(false);
+                    _pick[j + 1].gameObject.SetActive(true);
+                    _pick[j + 1].interactable = true;
                     _upgrade[j + 1].interactable = true;
                     _coinCost[j + 1].gameObject.SetActive(false);
                     _coinSprites[j + 1].gameObject.SetActive(false);
@@ -350,7 +374,9 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword3.2"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword3.2");
-                    _buy[j + 2].interactable = false;
+                    _buy[j + 2].gameObject.SetActive(false);
+                    _pick[j + 2].gameObject.SetActive(true);
+                    _pick[j + 2].interactable = true;
                     _upgrade[j + 2].interactable = true;
                     _coinCost[j + 2].gameObject.SetActive(false);
                     _coinSprites[j + 2].gameObject.SetActive(false);
@@ -365,7 +391,9 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword4.2"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.2");
-                    _buy[j + 3].interactable = false;
+                    _buy[j + 3].gameObject.SetActive(false);
+                    _pick[j + 3].gameObject.SetActive(true);
+                    _pick[j + 3].interactable = true;
                     _upgrade[j + 3].interactable = true;
                     _coinCost[j + 3].gameObject.SetActive(false);
                     _coinSprites[j + 3].gameObject.SetActive(false);
@@ -383,7 +411,9 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword1.3"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword1.3");
-                    _buy[j].interactable = false;
+                    _buy[j].gameObject.SetActive(false);
+                    _pick[j].gameObject.SetActive(true);
+                    _pick[j].interactable = false;
                     _upgrade[j].interactable = true;
                     _coinCost[j].gameObject.SetActive(false);
                     _coinSprites[j].gameObject.SetActive(false);
@@ -398,7 +428,9 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword2.3"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword2.3");
-                    _buy[j + 1].interactable = false;
+                    _buy[j + 1].gameObject.SetActive(false);
+                    _pick[j + 1].gameObject.SetActive(true);
+                    _pick[j + 1].interactable = true;
                     _upgrade[j + 1].interactable = true;
                     _coinCost[j + 1].gameObject.SetActive(false);
                     _coinSprites[j + 1].gameObject.SetActive(false);
@@ -413,7 +445,9 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword3.3"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword3.3");
-                    _buy[j + 2].interactable = false;
+                    _buy[j + 2].gameObject.SetActive(false);
+                    _pick[j + 2].gameObject.SetActive(true);
+                    _pick[j + 2].interactable = true;
                     _upgrade[j + 2].interactable = true;
                     _coinCost[j + 2].gameObject.SetActive(false);
                     _coinSprites[j + 2].gameObject.SetActive(false);
@@ -428,7 +462,9 @@ public class Shop : MonoBehaviour
                 if (PlayerPrefs.HasKey("LevelSword4.3"))
                 {
                     levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.3");
-                    _buy[j + 3].interactable = false;
+                    _buy[j + 3].gameObject.SetActive(false);
+                    _pick[j + 3].gameObject.SetActive(true);
+                    _pick[j + 3].interactable = true;
                     _upgrade[j + 3].interactable = true;
                     _coinCost[j + 3].gameObject.SetActive(false);
                     _coinSprites[j + 3].gameObject.SetActive(false);

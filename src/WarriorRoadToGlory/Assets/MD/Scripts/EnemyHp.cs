@@ -6,9 +6,9 @@ using UnityEngine;
 public class EnemyHp : MonoBehaviour
 {
     [SerializeField] public float _enemyHp = 100;
-    [SerializeField] private int _weapon1Damage;
-    [SerializeField] private int _weapon2Damage;
-    [SerializeField] private int _weapon3Damage;
+    [SerializeField] private float _weapon1Damage;
+    [SerializeField] private float _weapon2Damage;
+    [SerializeField] private float _weapon3Damage;
     [SerializeField] private float _multiplyForHP = 1.3f;
     public GameObject[] hitEffects = new GameObject[1];
     public const string weaponTag1 = "StartSword";
@@ -20,9 +20,15 @@ public class EnemyHp : MonoBehaviour
     bool _sentinel = false;
 
     private int difficult;
+    private Weapon _weapon;
     
     private void Start()
     {
+        _weapon = FindObjectOfType<Weapon>();
+        _weapon1Damage = _weapon._weapon1Damage;
+        _weapon2Damage = _weapon._weapon2Damage;
+        _weapon3Damage = _weapon._weapon3Damage;
+        
         if (PlayerPrefs.HasKey("DifficultSettings"))
             difficult = PlayerPrefs.GetInt("DifficultSettings");
         else

@@ -16,7 +16,6 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private Slider _sliderVolume;
     [SerializeField] private TextMeshProUGUI _textVolume;
     [SerializeField] private AudioMixer _audioMixer;
-    [SerializeField] private TMP_Dropdown _difficult;
     [SerializeField] private string _nameOfMenuScene;
 
     [Header("Player")] 
@@ -57,7 +56,6 @@ public class PauseManager : MonoBehaviour
     
     public void SaveSettings()
     {
-        PlayerPrefs.SetInt("DifficultSettings", _difficult.value);
         PlayerPrefs.SetFloat("VolumeSettings", _sliderVolume.value);
     }
 
@@ -122,14 +120,6 @@ public class PauseManager : MonoBehaviour
     
     public void LoadSettings()
     {
-        if (PlayerPrefs.HasKey("DifficultSettings"))
-        {
-            _difficult.value = PlayerPrefs.GetInt("DifficultSettings");
-        }
-        else
-        {
-            _difficult.value = 1;
-        }
         if (PlayerPrefs.HasKey("VolumeSettings"))
         {
             _sliderVolume.value = PlayerPrefs.GetFloat("VolumeSettings");

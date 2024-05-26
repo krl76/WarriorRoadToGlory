@@ -1,11 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
-using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver;
 using Slider = UnityEngine.UI.Slider;
 
 public class LoadScene : MonoBehaviour
