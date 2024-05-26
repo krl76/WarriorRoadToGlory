@@ -1183,7 +1183,6 @@ MonoBehaviour:
   _sliderVolume: {fileID: 8871101975381624319}
   _textVolume: {fileID: 4454465425300564238}
   _audioMixer: {fileID: 24100000, guid: 4c76d72d5a7e64908bae1b683607b4c9, type: 2}
-  _difficult: {fileID: 0}
   _nameOfMenuScene: MainMenu
   _player: {fileID: 4156373160962752950}
   _basePosition: {x: 35.66, y: 10.6, z: 1.33}

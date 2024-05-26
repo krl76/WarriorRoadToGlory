@@ -47,12 +47,12 @@ public class WinCanvas : MonoBehaviour
         {
             isChange = true;
             FindObjectOfType<Final>().StartFinal();
-            //действие по запуску кат-сцены финальной
         }
     }
 
     public void Continue()
     {
+        isChange = false;
         wavesInARow += 0.2f;
         _waveManager.waveNumber += 1;
         _waveManager.StartWave();
