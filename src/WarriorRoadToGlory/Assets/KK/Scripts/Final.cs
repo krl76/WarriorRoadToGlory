@@ -7,7 +7,9 @@ public class Final : MonoBehaviour
 {
     [SerializeField] private AudioClip[] _audioClips;
     [SerializeField] private string _nameOfMenuScene;
+    [SerializeField] private Vector3 _positionForStand;
 
+    private Animator _animator;
     private AudioSource _audioSource;
     private bool inFinal;
     private string nameSave;
@@ -15,13 +17,16 @@ public class Final : MonoBehaviour
     private void Start()
     {
         nameSave = PlayerPrefs.GetString("NameSave");
+        _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
     }
 
     public void StartFinal()
     {
-        _audioSource.PlayOneShot(_audioClips[0]);
         inFinal = true;
+        _animator.SetTrigger("Stand");
+        transform.position = _positionForStand;
+        _audioSource.PlayOneShot(_audioClips[0]);
     }
 
     private void OnTriggerEnter(Collider other)
