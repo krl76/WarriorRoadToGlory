@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -15,16 +12,16 @@ public class LoseScreen : MonoBehaviour
 
     private void OnEnable()
     {
+        Time.timeScale = 0f;
         _numberOfWave = _waveManagerObject.GetComponent<WaveManager>().waveNumber;
         _wave.text = $"{_numberOfWave} волн";
+        DeleteSave();
         nameSave = PlayerPrefs.GetString("NameSave");
     }
 
     public void ToMenu()
     {
         //Time.timeScale = 1f;
-        DeleteSave();
-        //SceneManager.LoadScene(_nameOfMenuScene);
         FindObjectOfType<LoadScene>().SceneLoad(_nameOfMenuScene);
     }
     
@@ -40,6 +37,7 @@ public class LoseScreen : MonoBehaviour
                 PlayerPrefs.DeleteKey("LevelSword2.1");
                 PlayerPrefs.DeleteKey("LevelSword3.1");
                 PlayerPrefs.DeleteKey("LevelSword4.1");
+                PlayerPrefs.DeleteKey("WavesInARow1");
                 break;
             case "Save2":
                 PlayerPrefs.DeleteKey("Coins2");
@@ -49,6 +47,7 @@ public class LoseScreen : MonoBehaviour
                 PlayerPrefs.DeleteKey("LevelSword2.2");
                 PlayerPrefs.DeleteKey("LevelSword3.2");
                 PlayerPrefs.DeleteKey("LevelSword4.2");
+                PlayerPrefs.DeleteKey("WavesInARow2");
                 break;
             case "Save3":
                 PlayerPrefs.DeleteKey("Coins3");
@@ -58,6 +57,7 @@ public class LoseScreen : MonoBehaviour
                 PlayerPrefs.DeleteKey("LevelSword2.3");
                 PlayerPrefs.DeleteKey("LevelSword3.3");
                 PlayerPrefs.DeleteKey("LevelSword4.3");
+                PlayerPrefs.DeleteKey("WavesInARow3");
                 break;
         }
     }

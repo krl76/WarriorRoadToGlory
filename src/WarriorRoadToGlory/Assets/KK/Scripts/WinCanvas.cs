@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,17 +19,14 @@ public class WinCanvas : MonoBehaviour
     private bool allSpawned;
     private int aliveEnemy;
     private int difficult;
+    private float wavesInARow;
     private bool isChange;
 
     private void Awake()
     {
-        if (PlayerPrefs.HasKey("DifficultSettings"))
-            difficult = PlayerPrefs.GetInt("DifficultSettings");
-        else
-            difficult = 1;
-        namesave = PlayerPrefs.GetString("NameSave");
+        wavesInARow = 1;
+        LoadSettings();
         _waveManager = FindObjectOfType<WaveManager>();
-        
     }
 
     private void Update()
@@ -44,7 +38,8 @@ public class WinCanvas : MonoBehaviour
         {
             _winCanvas.SetActive(true);
             Time.timeScale = 0;
-            _coins.text = $"{(_baseCoins * defeatedEnemy) / difficult}";
+            if(wavesInARow > 1)
+                _coins.text = $"{Convert.ToInt32((_baseCoins * defeatedEnemy * wavesInARow) / difficult)}";
             isChange = true;
         }
 
@@ -58,6 +53,7 @@ public class WinCanvas : MonoBehaviour
 
     public void Continue()
     {
+        wavesInARow += 0.2f;
         _waveManager.waveNumber += 1;
         _waveManager.StartWave();
     }
@@ -80,5 +76,14 @@ public class WinCanvas : MonoBehaviour
                 break;
         }
         FindObjectOfType<LoadScene>().SceneLoad(SceneManager.GetActiveScene().name);
+    }
+
+    private void LoadSettings()
+    {
+        namesave = PlayerPrefs.GetString("NameSave");
+        if (PlayerPrefs.HasKey("DifficultSettings"))
+            difficult = PlayerPrefs.GetInt("DifficultSettings");
+        else
+            difficult = 1;
     }
 }
