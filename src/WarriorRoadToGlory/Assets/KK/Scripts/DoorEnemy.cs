@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class DoorEnemy : MonoBehaviour
 {
+    [SerializeField] private AudioClip[] _audioClips;
+    
     private Animator _animator;
     private WaveManager _waveManager;
+    private AudioSource _audioSource;
+    
     private bool _trigger;
     private bool _trigger2;
     private int _enemyInArena;
@@ -13,12 +17,14 @@ public class DoorEnemy : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _waveManager = FindObjectOfType<WaveManager>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
         if (_waveManager.inWave && !_trigger)
         {
+            _audioSource.PlayOneShot(_audioClips[0]);
             _animator.SetTrigger("isOpen");
             _trigger = true;
         }
@@ -120,6 +126,7 @@ public class DoorEnemy : MonoBehaviour
     IEnumerator Pause()
     {
         yield return new WaitForSeconds(1);
+        _audioSource.PlayOneShot(_audioClips[1]);
         _animator.SetTrigger("isClose");
     }
 }

@@ -9,7 +9,7 @@ public class Final : MonoBehaviour
 
     private Animator _animator;
     private AudioSource _audioSource;
-    private bool inFinal;
+    public bool inFinal;
     private string nameSave;
 
     private void Start()

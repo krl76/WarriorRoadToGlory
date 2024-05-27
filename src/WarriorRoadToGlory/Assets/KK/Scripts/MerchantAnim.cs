@@ -19,8 +19,7 @@ public class MerchantAnim : MonoBehaviour
     
     IEnumerator TakePause()
     {
-        _animator.SetBool("AfterTime", false);
-        yield return new WaitForSeconds(3);
-        _animator.SetBool("AfterTime", true);
+        yield return new WaitForSeconds(10);
+        _animator.SetTrigger("AfterTime");
     }
 }

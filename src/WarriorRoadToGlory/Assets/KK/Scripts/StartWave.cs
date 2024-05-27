@@ -4,9 +4,12 @@ public class StartWave : MonoBehaviour
 {
     [SerializeField] private GameObject _interactCanvas;
     [SerializeField] private GameObject _inLocationObject;
+    [SerializeField] public AudioClip[] _audioClips;
 
     private InputController inputController;
     private Animator animator;
+    private AudioSource _audioSource;
+    
     private bool inTrigger = false;
     private bool isOpen = false;
 
@@ -17,6 +20,7 @@ public class StartWave : MonoBehaviour
         inputController.LeftHand.Interact.started += ctx => DoorOpen();
         
         animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -56,6 +60,7 @@ public class StartWave : MonoBehaviour
         {
             isOpen = true;
             _interactCanvas.SetActive(false);
+            _audioSource.PlayOneShot(_audioClips[0]);
             animator.SetTrigger("isOpen");
         }
     }
