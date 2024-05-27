@@ -18,11 +18,15 @@ public class Merchant : MonoBehaviour
     private bool inShop = false;
 
     private string nameSave;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
         inputController = new InputController();
         inputController.LeftHand.Interact.started += ctx => ActiveShop(ctx.ReadValueAsButton());
+
+        _audioSource = GetComponent<AudioSource>();
+        
         nameSave = PlayerPrefs.GetString("NameSave");
         LoadCoin();
     }
@@ -45,6 +49,11 @@ public class Merchant : MonoBehaviour
         inputController.Disable();
     }
 
+    public void Click()
+    {
+        _audioSource.PlayOneShot(_audioSource.clip);
+    }
+    
     private void LoadCoin()
     {
         switch (nameSave)
