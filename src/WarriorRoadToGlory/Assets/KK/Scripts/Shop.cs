@@ -117,7 +117,7 @@ public class Shop : MonoBehaviour
                     _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
                                                        _multiplyForCoins).ToString();
                     levelOfSword1 += 1;
-                    UpgradeWeapon(levelOfSword1, typeOfSword);
+                    UpgradeWeapon(typeOfSword);
                     if (levelOfSword1 - 1 == 4)
                     {
                         _upgrade[typeOfSword - 1].interactable = false;
@@ -133,7 +133,7 @@ public class Shop : MonoBehaviour
                     _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
                                                        _multiplyForCoins).ToString();
                     levelOfSword2 += 1;
-                    UpgradeWeapon(levelOfSword2, typeOfSword);
+                    UpgradeWeapon(typeOfSword);
                     if (levelOfSword2 - 1 == 4)
                     {
                         _upgrade[typeOfSword - 1].interactable = false;
@@ -149,7 +149,7 @@ public class Shop : MonoBehaviour
                     _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
                                                        _multiplyForCoins).ToString();
                     levelOfSword3 += 1;
-                    UpgradeWeapon(levelOfSword3, typeOfSword);
+                    UpgradeWeapon(typeOfSword);
                     if (levelOfSword3 - 1 == 4)
                     {
                         _upgrade[typeOfSword - 1].interactable = false;
@@ -208,19 +208,22 @@ public class Shop : MonoBehaviour
         }
     }
 
-    private void UpgradeWeapon(int level, int typeOfSword)
+    private void UpgradeWeapon(int typeOfSword)
     {
         Weapon weaponScript = FindObjectOfType<Weapon>();
         switch (typeOfSword)
         {
             case 1:
                 weaponScript._weapon1Damage *= _multiplyForWeapon;
+                _sword1.GetComponent<TakeDamage>().Upgrade();
                 break;
             case 2:
                 weaponScript._weapon2Damage *= _multiplyForWeapon;
+                _sword2.GetComponent<TakeDamage>().Upgrade();
                 break;
             case 3:
                 weaponScript._weapon3Damage *= _multiplyForWeapon;
+                _sword3.GetComponent<TakeDamage>().Upgrade();
                 break;
         }
         

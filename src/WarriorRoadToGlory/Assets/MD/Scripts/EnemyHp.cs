@@ -4,12 +4,14 @@ using Random = UnityEngine.Random;
 
 public class EnemyHp : MonoBehaviour
 {
+    [Header("Model Sets")]
     [SerializeField] public float _enemyHp = 100;
-    [SerializeField] private float _weapon1Damage;
-    [SerializeField] private float _weapon2Damage;
-    [SerializeField] private float _weapon3Damage;
     [SerializeField] private float _multiplyForHP = 1.3f;
     public GameObject[] hitEffects = new GameObject[1];
+    [SerializeField] private GameObject _ragdoll;
+    [SerializeField] private GameObject _objectToOff;
+    
+    [Header("SFX")]
     [SerializeField] private AudioClip[] _audioClips;
     
     public const string weaponTag1 = "StartSword";
@@ -17,7 +19,7 @@ public class EnemyHp : MonoBehaviour
     public const string weaponTag3 = "TheBestSword";
 
     private NPC _npc;
-    private Animation anim;
+    private Animator anim;
     GameObject enemy;
     GameObject _hitEffectClone;
     bool _sentinel = false;
@@ -36,10 +38,7 @@ public class EnemyHp : MonoBehaviour
 
     private void Start()
     {
-        _weapon = FindObjectOfType<Weapon>();
-        _weapon1Damage = _weapon._weapon1Damage;
-        _weapon2Damage = _weapon._weapon2Damage;
-        _weapon3Damage = _weapon._weapon3Damage;
+        anim = GetComponentInParent<Animator>();
         
         if (PlayerPrefs.HasKey("DifficultSettings"))
             difficult = PlayerPrefs.GetInt("DifficultSettings");
@@ -49,69 +48,14 @@ public class EnemyHp : MonoBehaviour
     }
     private void Update()
     {
-
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Player hit enemy");
-        switch (collision.transform.tag)
-        {
-            case weaponTag1:
-                if (!_sentinel)
-                {
-                    _audioSource.PlayOneShot(_audioClips[Random.Range(0, _audioClips.Length)]);
-                    _enemyHp -= _weapon1Damage;
-                    foreach (ContactPoint swordHit in collision.contacts)
-                    {
-                        Vector3 hitPoint = swordHit.point;
-                        int index = Random.Range(0, hitEffects.Length);
-                        _hitEffectClone = (GameObject)Instantiate(hitEffects[index], new Vector3(hitPoint.x, hitPoint.y, hitPoint.z), Quaternion.LookRotation(-collision.contacts[0].normal));
-                        _sentinel = true;
-                    }
-                }
-                break;
-
-            case weaponTag2:
-                if (!_sentinel)
-                {
-                    _audioSource.PlayOneShot(_audioClips[Random.Range(0, _audioClips.Length)]);
-                    _enemyHp -= _weapon2Damage;
-                    foreach (ContactPoint swordHit in collision.contacts)
-                    {
-                        Vector3 hitPoint = swordHit.point;
-                        int index = Random.Range(0, hitEffects.Length);
-                        _hitEffectClone = (GameObject)Instantiate(hitEffects[index], new Vector3(hitPoint.x, hitPoint.y, hitPoint.z), Quaternion.LookRotation(-collision.contacts[0].normal));
-                        _sentinel = true;
-                    }
-                }
-                break;
-
-            case weaponTag3:
-                if (!_sentinel)
-                {
-                    _audioSource.PlayOneShot(_audioClips[Random.Range(0, _audioClips.Length)]);
-                    _enemyHp -= _weapon3Damage;
-                    foreach (ContactPoint swordHit in collision.contacts)
-                    {
-                        Vector3 hitPoint = swordHit.point;
-                        int index = Random.Range(0, hitEffects.Length);
-                        _hitEffectClone = (GameObject)Instantiate(hitEffects[index], new Vector3(hitPoint.x, hitPoint.y, hitPoint.z), Quaternion.LookRotation(-collision.contacts[0].normal));
-                        _sentinel = true;
-                    }
-                }
-                break;
-        }
         if (_enemyHp <= 0)
         {
-            anim = GetComponent<Animation>();
-            anim.Stop();
+            anim.enabled = false;
             WaveManager.aliveEnemies -= 1;
             _npc.defeatedEnemy += 1;
             _win.defeatedEnemy += 1;
+            _ragdoll.SetActive(true);
+            _objectToOff.SetActive(false);
         }
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        _sentinel = false;
     }
 }
