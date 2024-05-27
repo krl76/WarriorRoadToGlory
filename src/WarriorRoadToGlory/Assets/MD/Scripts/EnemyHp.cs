@@ -42,15 +42,45 @@ public class EnemyHp : MonoBehaviour
         switch (collision.transform.tag)
         {
             case weaponTag1:
-                _enemyHp -= _weapon1Damage;
+                if (!_sentinel)
+                {
+                    _enemyHp -= _weapon1Damage;
+                    foreach (ContactPoint swordHit in collision.contacts)
+                    {
+                        Vector3 hitPoint = swordHit.point;
+                        int index = Random.Range(0, hitEffects.Length);
+                        _hitEffectClone = (GameObject)Instantiate(hitEffects[index], new Vector3(hitPoint.x, hitPoint.y, hitPoint.z), Quaternion.LookRotation(-collision.contacts[0].normal));
+                        _sentinel = true;
+                    }
+                }
                 break;
 
             case weaponTag2:
-                _enemyHp -= _weapon2Damage;
+                if (!_sentinel)
+                {
+                    _enemyHp -= _weapon2Damage;
+                    foreach (ContactPoint swordHit in collision.contacts)
+                    {
+                        Vector3 hitPoint = swordHit.point;
+                        int index = Random.Range(0, hitEffects.Length);
+                        _hitEffectClone = (GameObject)Instantiate(hitEffects[index], new Vector3(hitPoint.x, hitPoint.y, hitPoint.z), Quaternion.LookRotation(-collision.contacts[0].normal));
+                        _sentinel = true;
+                    }
+                }
                 break;
 
             case weaponTag3:
-                _enemyHp -= _weapon3Damage;
+                if (!_sentinel)
+                {
+                    _enemyHp -= _weapon3Damage;
+                    foreach (ContactPoint swordHit in collision.contacts)
+                    {
+                        Vector3 hitPoint = swordHit.point;
+                        int index = Random.Range(0, hitEffects.Length);
+                        _hitEffectClone = (GameObject)Instantiate(hitEffects[index], new Vector3(hitPoint.x, hitPoint.y, hitPoint.z), Quaternion.LookRotation(-collision.contacts[0].normal));
+                        _sentinel = true;
+                    }
+                }
                 break;
         }
         if (_enemyHp <= 0)
@@ -61,5 +91,9 @@ public class EnemyHp : MonoBehaviour
             NPC.defeatedEnemy += 1;
             WinCanvas.defeatedEnemy += 1;
         }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        _sentinel = false;
     }
 }
