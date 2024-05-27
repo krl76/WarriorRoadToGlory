@@ -28,9 +28,11 @@ public class MenuManager : MonoBehaviour
     
     private bool delete = false;
     private string nameOfSave;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         LoadSettings();
     }
 
@@ -44,6 +46,11 @@ public class MenuManager : MonoBehaviour
     {
         _textVolume.text = Math.Round(_sliderVolume.value * 100).ToString();
         _audioMixer.SetFloat("Master", Mathf.Log10(_sliderVolume.value) * 20);
+    }
+
+    public void Click()
+    {
+        _audioSource.PlayOneShot(_audioSource.clip);
     }
 
     public void Save(string name)
