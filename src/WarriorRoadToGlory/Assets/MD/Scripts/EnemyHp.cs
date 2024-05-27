@@ -15,6 +15,8 @@ public class EnemyHp : MonoBehaviour
     public const string weaponTag1 = "StartSword";
     public const string weaponTag2 = "UpgradedSword";
     public const string weaponTag3 = "TheBestSword";
+
+    private NPC _npc;
     private Animation anim;
     GameObject enemy;
     GameObject _hitEffectClone;
@@ -23,9 +25,12 @@ public class EnemyHp : MonoBehaviour
     private int difficult;
     private Weapon _weapon;
     private AudioSource _audioSource;
+    private WinCanvas _win;
 
     private void Awake()
     {
+        _npc = FindObjectOfType<NPC>();
+        _win = FindObjectOfType<WinCanvas>();
         _audioSource = GetComponent<AudioSource>();
     }
 
@@ -101,8 +106,8 @@ public class EnemyHp : MonoBehaviour
             anim = GetComponent<Animation>();
             anim.Stop();
             WaveManager.aliveEnemies -= 1;
-            NPC.defeatedEnemy += 1;
-            WinCanvas.defeatedEnemy += 1;
+            _npc.defeatedEnemy += 1;
+            _win.defeatedEnemy += 1;
         }
     }
     private void OnCollisionExit(Collision collision)

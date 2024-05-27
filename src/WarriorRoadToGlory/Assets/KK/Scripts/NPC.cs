@@ -1,22 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Random = System.Random;
 
 public class NPC : MonoBehaviour
 {
     private List<Animator> _animators;
 
     private SoundViewers _soundViewers;
-    private Random rand;
-    public static int defeatedEnemy;
-    public static int amountHit;
+    public int defeatedEnemy;
+    public int amountHit;
 
     private void Awake()
     {
         _animators = new List<Animator>(GetComponentsInChildren<Animator>());
         _soundViewers = FindObjectOfType<SoundViewers>();
-        rand = new Random();
         defeatedEnemy = 0;
+        amountHit = 0;
     }
 
     private void Update()

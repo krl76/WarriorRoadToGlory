@@ -12,7 +12,7 @@ public class WinCanvas : MonoBehaviour
 
     private WaveManager _waveManager;
 
-    public static int defeatedEnemy;
+    public int defeatedEnemy;
     
     private int _numberOfWave;
     private string namesave;

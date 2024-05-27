@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,14 @@ public class PlayerHp : MonoBehaviour
     [SerializeField] private Slider _hpBar;
     [SerializeField] private GameObject _loseCanvas;
 
+    private NPC _npc;
     private int difficult;
+
+    private void Awake()
+    {
+        _npc = FindObjectOfType<NPC>();
+    }
+
     void Start()
     {
         if (PlayerPrefs.HasKey("DifficultSettings"))
@@ -42,17 +50,17 @@ public class PlayerHp : MonoBehaviour
 
             case weaponTag1:
                 hp -= ((_weapon1Damage * difficult) / _multiplyForDamage);
-                NPC.amountHit += 1;
+                _npc.amountHit += 1;
                 break;
 
             case weaponTag2:
                 hp -= ((_weapon2Damage * difficult) / _multiplyForDamage);
-                NPC.amountHit += 1;
+                _npc.amountHit += 1;
                 break;
 
             case weaponTag3:
                 hp -= ((_weapon3Damage * difficult) / _multiplyForDamage);
-                NPC.amountHit += 1;
+                _npc.amountHit += 1;
                 break;
         }
     }
