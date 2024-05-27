@@ -9,6 +9,7 @@ public class StartWave : MonoBehaviour
     private InputController inputController;
     private Animator animator;
     private AudioSource _audioSource;
+    private SoundViewers _soundViewers;
     
     private bool inTrigger = false;
     private bool isOpen = false;
@@ -18,7 +19,8 @@ public class StartWave : MonoBehaviour
         inputController = new InputController();
 
         inputController.LeftHand.Interact.started += ctx => DoorOpen();
-        
+
+        _soundViewers = FindObjectOfType<SoundViewers>();
         animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
     }
@@ -61,6 +63,7 @@ public class StartWave : MonoBehaviour
             isOpen = true;
             _interactCanvas.SetActive(false);
             _audioSource.PlayOneShot(_audioClips[0]);
+            _soundViewers.Barabans();
             animator.SetTrigger("isOpen");
         }
     }

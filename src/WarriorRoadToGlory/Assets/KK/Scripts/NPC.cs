@@ -4,10 +4,9 @@ using Random = System.Random;
 
 public class NPC : MonoBehaviour
 {
-    [SerializeField] private AudioClip[] _audioClips;
-    
     private List<Animator> _animators;
-    private AudioSource _audioSource;
+
+    private SoundViewers _soundViewers;
     private Random rand;
     public static int defeatedEnemy;
     public static int amountHit;
@@ -15,8 +14,8 @@ public class NPC : MonoBehaviour
     private void Awake()
     {
         _animators = new List<Animator>(GetComponentsInChildren<Animator>());
+        _soundViewers = FindObjectOfType<SoundViewers>();
         rand = new Random();
-        _audioSource = GetComponent<AudioSource>();
         defeatedEnemy = 0;
     }
 
@@ -28,7 +27,7 @@ public class NPC : MonoBehaviour
             {
                 anim.SetTrigger("Clap");
             }
-            _audioSource.PlayOneShot(_audioClips[rand.Next(0, _audioClips.Length)]);
+            _soundViewers.TwoRandom();
             defeatedEnemy = 0;
         }
 
@@ -38,7 +37,7 @@ public class NPC : MonoBehaviour
             {
                 anim.SetTrigger("Clap");
             }
-            _audioSource.PlayOneShot(_audioClips[rand.Next(0, _audioClips.Length)]);
+            _soundViewers.TwoRandom();
             amountHit = 0;
         }
     }

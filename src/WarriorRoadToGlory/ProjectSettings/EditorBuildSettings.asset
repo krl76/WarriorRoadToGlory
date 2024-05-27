@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/KK/TestScenes/MainMenu.unity
     guid: d4730d32ef1f15c44ad1639aebaf80d5
   - enabled: 1
-    path: Assets/KK/TestScenes/TestPause.unity
-    guid: f4e39d8ec2da44eee85ef60473f0830c
-  - enabled: 1
     path: Assets/KK/TestScenes/Game.unity
     guid: 188a84fe57a39e545b94e1c6f35db7da
   m_configObjects:

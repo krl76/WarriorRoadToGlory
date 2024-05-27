@@ -523,6 +523,7 @@ MonoBehaviour:
   _multiplyForHP: 1.3
   hitEffects:
   - {fileID: 0}
+  _audioClips: []
 --- !u!1 &789929986089702925
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +973,7 @@ GameObject:
   - component: {fileID: 2185015214031945794}
   - component: {fileID: 8205174778889589781}
   - component: {fileID: 302430063079035550}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: wire_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1292,9 +1293,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1996861656338662051}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: G4shield
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1851,7 +1852,7 @@ GameObject:
   - component: {fileID: 1993138826825804799}
   - component: {fileID: 1089751285835784673}
   - component: {fileID: 2186284309603209113}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Shield_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3062,7 +3063,7 @@ GameObject:
   - component: {fileID: 4154044252113315222}
   - component: {fileID: 7738907514375602699}
   - component: {fileID: 4022553430966449009}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Shieldparts_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}

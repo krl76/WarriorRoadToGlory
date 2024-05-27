@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyHp : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class EnemyHp : MonoBehaviour
     [SerializeField] private float _weapon3Damage;
     [SerializeField] private float _multiplyForHP = 1.3f;
     public GameObject[] hitEffects = new GameObject[1];
+    [SerializeField] private AudioClip[] _audioClips;
+    
     public const string weaponTag1 = "StartSword";
     public const string weaponTag2 = "UpgradedSword";
     public const string weaponTag3 = "TheBestSword";
@@ -18,7 +22,13 @@ public class EnemyHp : MonoBehaviour
 
     private int difficult;
     private Weapon _weapon;
-    
+    private AudioSource _audioSource;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
+
     private void Start()
     {
         _weapon = FindObjectOfType<Weapon>();
@@ -44,6 +54,7 @@ public class EnemyHp : MonoBehaviour
             case weaponTag1:
                 if (!_sentinel)
                 {
+                    _audioSource.PlayOneShot(_audioClips[Random.Range(0, _audioClips.Length)]);
                     _enemyHp -= _weapon1Damage;
                     foreach (ContactPoint swordHit in collision.contacts)
                     {
@@ -58,6 +69,7 @@ public class EnemyHp : MonoBehaviour
             case weaponTag2:
                 if (!_sentinel)
                 {
+                    _audioSource.PlayOneShot(_audioClips[Random.Range(0, _audioClips.Length)]);
                     _enemyHp -= _weapon2Damage;
                     foreach (ContactPoint swordHit in collision.contacts)
                     {
@@ -72,6 +84,7 @@ public class EnemyHp : MonoBehaviour
             case weaponTag3:
                 if (!_sentinel)
                 {
+                    _audioSource.PlayOneShot(_audioClips[Random.Range(0, _audioClips.Length)]);
                     _enemyHp -= _weapon3Damage;
                     foreach (ContactPoint swordHit in collision.contacts)
                     {

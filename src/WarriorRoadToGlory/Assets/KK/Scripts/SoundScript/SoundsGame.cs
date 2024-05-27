@@ -33,6 +33,7 @@ public class SoundsGame : MonoBehaviour
             _isPlaying = false;
             _audioSource.Stop();
             _audioSource.clip = _audioClips[1];
+            _audioSource.volume = 0.05f;
             _audioSource.Play();
             _isPlaying2 = true;
         }
