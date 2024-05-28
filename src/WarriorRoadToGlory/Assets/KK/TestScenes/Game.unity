@@ -19675,6 +19675,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 260492131627997623, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5640751492505792086, guid: 80e2705e166b49b419543070426a5132, type: 3}
     - target: {fileID: 371290999201929212, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
@@ -19871,6 +19875,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3743957985116492822, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5153477489304834563, guid: 80e2705e166b49b419543070426a5132, type: 3}
+    - target: {fileID: 4056216963917477927, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5153477489304834563, guid: 80e2705e166b49b419543070426a5132, type: 3}
     - target: {fileID: 4156373160962752950, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: m_Name
       value: PlayerV6
@@ -19987,6 +19999,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1277832919}
+    - target: {fileID: 7280301291317113569, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5640751492505792086, guid: 80e2705e166b49b419543070426a5132, type: 3}
     - target: {fileID: 7445666626844739695, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
