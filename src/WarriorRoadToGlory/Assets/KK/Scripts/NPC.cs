@@ -19,7 +19,7 @@ public class NPC : MonoBehaviour
 
     private void Update()
     {
-        if (defeatedEnemy >= 3)
+        if (defeatedEnemy >= 2)
         {
             foreach (var anim in _animators)
             {
@@ -29,7 +29,7 @@ public class NPC : MonoBehaviour
             defeatedEnemy = 0;
         }
 
-        if (amountHit >= 3)
+        /*if (amountHit >= 3)
         {
             foreach (var anim in _animators)
             {
@@ -37,6 +37,6 @@ public class NPC : MonoBehaviour
             }
             _soundViewers.TwoRandom();
             amountHit = 0;
-        }
+        }*/
     }
 }

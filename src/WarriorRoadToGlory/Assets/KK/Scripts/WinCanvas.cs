@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class WinCanvas : MonoBehaviour
 {
+    [Header("Player")] 
+    [SerializeField] private Transform _head;
+    
+    [Header("Canvas Sets")]
     [SerializeField] private GameObject _winCanvas;
     [SerializeField] private TextMeshProUGUI _coins;
     [SerializeField] private TextMeshProUGUI _coinsAnvil;
@@ -31,6 +35,9 @@ public class WinCanvas : MonoBehaviour
 
     private void Update()
     {
+        _winCanvas.transform.LookAt(new Vector3(_head.position.x, _winCanvas.transform.position.y, _head.position.z));
+        _winCanvas.transform.forward *= -1;
+        
         _numberOfWave = _waveManager.waveNumber;
         allSpawned = _waveManager.allSpawned;
         aliveEnemy = WaveManager.aliveEnemies;

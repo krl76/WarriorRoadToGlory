@@ -6,6 +6,7 @@ using UnityEngine;
 public class MerchantAnim : MonoBehaviour
 {
     private Animator _animator;
+    private bool _isPause;
     
     private void Awake()
     {
@@ -14,12 +15,17 @@ public class MerchantAnim : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(TakePause());
+        if (!_isPause)
+        {
+            StartCoroutine(TakePause());
+            _isPause = true;
+        }
     }
     
     IEnumerator TakePause()
     {
         yield return new WaitForSeconds(10);
         _animator.SetTrigger("AfterTime");
+        _isPause = false;
     }
 }
