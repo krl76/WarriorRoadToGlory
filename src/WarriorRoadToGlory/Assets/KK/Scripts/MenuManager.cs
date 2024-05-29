@@ -86,30 +86,7 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-            switch (name)
-            {
-                case "Save1":
-                    if (_save1.text != "Создать новое сохранение")
-                    {
-                        _save1.text = "Создать новое сохранение";
-                        PlayerPrefs.DeleteKey("Save1");
-                    }
-                    break;
-                case "Save2":
-                    if (_save2.text != "Создать новое сохранение")
-                    {
-                        _save2.text = "Создать новое сохранение";
-                        PlayerPrefs.DeleteKey("Save2");
-                    }
-                    break;
-                case "Save3":
-                    if (_save3.text != "Создать новое сохранение")
-                    {
-                        _save3.text = "Создать новое сохранение";
-                        PlayerPrefs.DeleteKey("Save3");
-                    }
-                    break;
-            }
+            DeleteSave(name);
             CancelButton();
         }
     }
@@ -154,7 +131,7 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-            _difficult.value = 1;
+            _difficult.value = 0;
         }
         if (PlayerPrefs.HasKey("VolumeSettings"))
         {
@@ -180,6 +157,52 @@ public class MenuManager : MonoBehaviour
         {
             if (PlayerPrefs.GetString("Save3") != "Создать новое сохранение")
                 _save3.text = PlayerPrefs.GetString("Save3");
+        }
+    }
+
+    private void DeleteSave(string name)
+    {
+        switch (name)
+        {
+            case "Save1":
+                if (_save1.text != "Создать новое сохранение")
+                {
+                    PlayerPrefs.DeleteKey("Coins1");
+                    PlayerPrefs.DeleteKey("Wave1");
+                    PlayerPrefs.DeleteKey("Save1");
+                    PlayerPrefs.DeleteKey("LevelSword1.1");
+                    PlayerPrefs.DeleteKey("LevelSword2.1");
+                    PlayerPrefs.DeleteKey("LevelSword3.1");
+                    PlayerPrefs.DeleteKey("LevelSword4.1");
+                    _save1.text = "Создать новое сохранение";
+                }
+                break;
+            case "Save2":
+                if (_save2.text != "Создать новое сохранение")
+                {
+                    PlayerPrefs.DeleteKey("Coins2");
+                    PlayerPrefs.DeleteKey("Wave2");
+                    PlayerPrefs.DeleteKey("Save2");
+                    PlayerPrefs.DeleteKey("LevelSword1.2");
+                    PlayerPrefs.DeleteKey("LevelSword2.2");
+                    PlayerPrefs.DeleteKey("LevelSword3.2");
+                    PlayerPrefs.DeleteKey("LevelSword4.2");
+                    _save2.text = "Создать новое сохранение";
+                }
+                break;
+            case "Save3":
+                if (_save3.text != "Создать новое сохранение")
+                {
+                    PlayerPrefs.DeleteKey("Coins3");
+                    PlayerPrefs.DeleteKey("Wave3");
+                    PlayerPrefs.DeleteKey("Save3");
+                    PlayerPrefs.DeleteKey("LevelSword1.3");
+                    PlayerPrefs.DeleteKey("LevelSword2.3");
+                    PlayerPrefs.DeleteKey("LevelSword3.3");
+                    PlayerPrefs.DeleteKey("LevelSword4.3");
+                    _save3.text = "Создать новое сохранение";
+                }
+                break;
         }
     }
     

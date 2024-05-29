@@ -44,7 +44,6 @@ public class WinCanvas : MonoBehaviour
         if (allSpawned && aliveEnemy == 0 && !isChange && _numberOfWave != 10)
         {
             _winCanvas.SetActive(true);
-            Time.timeScale = 0;
             if(wavesInARow > 1)
                 _coins.text = $"{Convert.ToInt32((_baseCoins * defeatedEnemy * wavesInARow) / difficult)}";
             isChange = true;
@@ -89,7 +88,7 @@ public class WinCanvas : MonoBehaviour
     {
         namesave = PlayerPrefs.GetString("NameSave");
         if (PlayerPrefs.HasKey("DifficultSettings"))
-            difficult = PlayerPrefs.GetInt("DifficultSettings");
+            difficult = PlayerPrefs.GetInt("DifficultSettings") + 1;
         else
             difficult = 1;
     }

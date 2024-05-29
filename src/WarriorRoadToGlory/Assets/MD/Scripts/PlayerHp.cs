@@ -30,7 +30,7 @@ public class PlayerHp : MonoBehaviour
     void Start()
     {
         if (PlayerPrefs.HasKey("DifficultSettings"))
-            difficult = PlayerPrefs.GetInt("DifficultSettings");
+            difficult = PlayerPrefs.GetInt("DifficultSettings") + 1;
         else
             difficult = 1;
     }

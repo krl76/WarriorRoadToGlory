@@ -41,7 +41,7 @@ public class EnemyHp : MonoBehaviour
         anim = GetComponentInParent<Animator>();
         
         if (PlayerPrefs.HasKey("DifficultSettings"))
-            difficult = PlayerPrefs.GetInt("DifficultSettings");
+            difficult = PlayerPrefs.GetInt("DifficultSettings") + 1;
         else
             difficult = 1;
         _enemyHp = (_enemyHp * difficult) / _multiplyForHP;
