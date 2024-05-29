@@ -15,8 +15,8 @@ public class LoseScreen : MonoBehaviour
         Time.timeScale = 0f;
         _numberOfWave = _waveManagerObject.GetComponent<WaveManager>().waveNumber;
         _wave.text = $"{_numberOfWave} волн";
-        DeleteSave();
         nameSave = PlayerPrefs.GetString("NameSave");
+        DeleteSave();
     }
 
     public void ToMenu()

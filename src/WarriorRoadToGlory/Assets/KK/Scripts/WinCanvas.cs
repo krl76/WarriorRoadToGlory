@@ -44,8 +44,7 @@ public class WinCanvas : MonoBehaviour
         if (allSpawned && aliveEnemy == 0 && !isChange && _numberOfWave != 10)
         {
             _winCanvas.SetActive(true);
-            if(wavesInARow > 1)
-                _coins.text = $"{Convert.ToInt32((_baseCoins * defeatedEnemy * wavesInARow) / difficult)}";
+            _coins.text = $"{Convert.ToInt32((_baseCoins * defeatedEnemy * wavesInARow) / difficult)}";
             isChange = true;
         }
 
@@ -61,6 +60,7 @@ public class WinCanvas : MonoBehaviour
         isChange = false;
         wavesInARow += 0.2f;
         _waveManager.waveNumber += 1;
+        _winCanvas.SetActive(false);
         _waveManager.StartWave();
     }
 
@@ -69,15 +69,15 @@ public class WinCanvas : MonoBehaviour
         switch (namesave)
         {
             case "save1":
-                PlayerPrefs.SetInt("Coins1", Int32.Parse(_coins.text) + Int32.Parse(_coinsAnvil.text));
+                PlayerPrefs.SetInt("Coins1", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text));
                 PlayerPrefs.SetInt("Wave1", _numberOfWave);
                 break;
             case "save2":
-                PlayerPrefs.SetInt("Coins2", Int32.Parse(_coins.text) + Int32.Parse(_coinsAnvil.text));
+                PlayerPrefs.SetInt("Coins2", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text));
                 PlayerPrefs.SetInt("Wave2", _numberOfWave);
                 break;
             case "save3":
-                PlayerPrefs.SetInt("Coins3", Int32.Parse(_coins.text) + Int32.Parse(_coinsAnvil.text));
+                PlayerPrefs.SetInt("Coins3", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text));
                 PlayerPrefs.SetInt("Wave3", _numberOfWave);
                 break;
         }

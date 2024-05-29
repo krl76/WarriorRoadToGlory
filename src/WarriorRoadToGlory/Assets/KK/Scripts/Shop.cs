@@ -229,12 +229,7 @@ public class Shop : MonoBehaviour
         
     }
 
-    private void OnDisable()
-    {
-        SaveShop();
-    }
-
-    private void SaveShop()
+    public void SaveShop()
     {
         switch (nameSave)
         {
@@ -262,7 +257,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    private void LoadShop()
+    public void LoadShop()
     {
         int j;
         switch (nameSave)

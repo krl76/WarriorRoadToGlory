@@ -122,6 +122,7 @@ public class Merchant : MonoBehaviour
         {
             Time.timeScale = 1f;
             inShop = false;
+            GetComponent<Shop>().SaveShop();
             _shopCanvas.SetActive(false);
             _interactCanvas.SetActive(true);
         }
