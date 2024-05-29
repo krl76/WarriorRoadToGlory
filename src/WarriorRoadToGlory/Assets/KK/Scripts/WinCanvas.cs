@@ -44,7 +44,14 @@ public class WinCanvas : MonoBehaviour
         if (allSpawned && aliveEnemy == 0 && !isChange && _numberOfWave != 10)
         {
             _winCanvas.SetActive(true);
-            _coins.text = $"{Convert.ToInt32((_baseCoins * defeatedEnemy * wavesInARow) / difficult)}";
+            if (_numberOfWave == 5)
+            {
+                _coins.text = $"{Convert.ToInt32((200 * defeatedEnemy * wavesInARow) / difficult)}";
+            }
+            else
+            {
+                _coins.text = $"{Convert.ToInt32((_baseCoins * defeatedEnemy * wavesInARow) / difficult)}";
+            }
             isChange = true;
         }
 
