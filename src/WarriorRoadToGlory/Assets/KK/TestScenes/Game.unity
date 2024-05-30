@@ -16248,6 +16248,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1277832919}
     - target: {fileID: 2954625394641255317, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+      propertyPath: _vignette
+      value: 
+      objectReference: {fileID: 1209598412}
+    - target: {fileID: 2954625394641255317, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: _waveManagerObject
       value: 
       objectReference: {fileID: 1326955556}
