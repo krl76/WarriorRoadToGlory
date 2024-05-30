@@ -12,6 +12,7 @@ TagManager:
   - Point
   - PointSee
   - Shield
+  - Enemy2
   layers:
   - Default
   - TransparentFX
