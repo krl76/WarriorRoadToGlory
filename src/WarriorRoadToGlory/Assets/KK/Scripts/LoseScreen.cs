@@ -12,6 +12,10 @@ public class LoseScreen : MonoBehaviour
 
     private void OnEnable()
     {
+        foreach (var obj in FindObjectsOfType<SoundsShield>())
+        {
+            Destroy(obj.gameObject);
+        }
         _vignette.SetActive(false);
         Time.timeScale = 0f;
         _numberOfWave = FindObjectOfType<WaveManager>().waveNumber;

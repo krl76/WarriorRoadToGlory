@@ -76,7 +76,7 @@ public class WinCanvas : MonoBehaviour
         _winCanvas.SetActive(false);
         _doorEnemy._trigger = false;
         _doorEnemy._trigger2 = false;
-        //_waveManager.EndWave();
+        _waveManager.EndWave();
     }
 
     public void toMerchant()

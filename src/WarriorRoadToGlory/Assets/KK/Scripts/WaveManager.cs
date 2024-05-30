@@ -137,68 +137,9 @@ public class WaveManager : MonoBehaviour
     }
     public void EndWave()
     {
-        switch (waveNumber)
+        foreach (var obj in FindObjectsOfType<NavMesh>())
         {
-            case 1:
-                for (int i = 0; i < wave1.Count; i++)
-                {
-                    Destroy(wave1[i]);
-                }
-                break;
-            case 2:
-                for (int i = 0; i < wave2.Count; i++)
-                {
-                    Destroy(wave2[i]);
-                }
-                break;
-            case 3:
-                for (int i = 0; i < wave3.Count; i++)
-                {
-                    Destroy(wave3[i]);
-                }
-                break;
-            case 4:
-                for (int i = 0; i < wave4.Count; i++)
-                {
-                    Destroy(wave4[i]);
-                }
-                break;
-            case 5:
-                for (int i = 0; i < wave5.Count; i++)
-                {
-                    Destroy(wave5[i]);
-                }
-                break;
-            case 6:
-                for (int i = 0; i < wave6.Count; i++)
-                {
-                    Destroy(wave6[i]);
-                }
-                break;
-            case 7:
-                for (int i = 0; i < wave7.Count; i++)
-                {
-                    Destroy(wave7[i]);
-                }
-                break;
-            case 8:
-                for (int i = 0; i < wave8.Count; i++)
-                {
-                    Destroy(wave8[i]);
-                }
-                break;
-            case 9:
-                for (int i = 0; i < wave9.Count; i++)
-                {
-                    Destroy(wave9[i]);
-                }
-                break;
-            case 10:
-                for (int i = 0; i < wave10.Count; i++)
-                {
-                    Destroy(wave10[i]);
-                }
-                break;
+            Destroy(obj.gameObject);
         }
         allSpawned = false;
     }

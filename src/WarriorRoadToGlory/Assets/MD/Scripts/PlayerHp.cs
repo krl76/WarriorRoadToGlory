@@ -23,6 +23,7 @@ public class PlayerHp : MonoBehaviour
 
     private NPC _npc;
     private int difficult;
+    private bool _isLose;
 
     private void Awake()
     {
@@ -41,8 +42,9 @@ public class PlayerHp : MonoBehaviour
     {
         _hpBar.value = hp;
         _vignette.color = new Color(1, 1, 1, Mathf.Abs(hp / 100 - 1));
-        if (hp <= 0)
+        if (hp <= 0 && !_isLose)
         {
+            _isLose = true;
             _loseCanvas.SetActive(true);
             FindObjectOfType<WaveManager>().EndWave();
             Time.timeScale = 0;
