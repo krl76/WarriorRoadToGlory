@@ -58,7 +58,7 @@ public class TakeDamage : MonoBehaviour
                 }
                 catch
                 {
-                    other.gameObject.GetComponentInChildren<EnemyHp>()._enemyHp -= _damage;
+                    other.gameObject.GetComponentInParent<EnemyHp>()._enemyHp -= _damage;
                 }
                 foreach (ContactPoint swordHit in other.contacts)
                 {
