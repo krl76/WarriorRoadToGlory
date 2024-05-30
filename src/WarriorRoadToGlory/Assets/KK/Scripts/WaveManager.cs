@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class WaveManager : MonoBehaviour
 {
@@ -137,11 +138,11 @@ public class WaveManager : MonoBehaviour
     }
     public void EndWave()
     {
-        foreach (var obj in FindObjectsOfType<NavMesh>())
+        /*foreach (var obj in FindObjectsOfType<NavMeshAgent>())
         {
             Destroy(obj.gameObject);
         }
-        allSpawned = false;
+        allSpawned = false;*/
     }
 
     private void LoadWave()

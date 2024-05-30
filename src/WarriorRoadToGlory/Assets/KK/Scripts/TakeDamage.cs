@@ -69,6 +69,11 @@ public class TakeDamage : MonoBehaviour
                 }
             }
         }
+
+        if (!other.gameObject.CompareTag("Enemy"))
+        {
+            GetComponent<XRGrabVelocityTracked>().movementType = UnityEngine.XR.Interaction.Toolkit.XRBaseInteractable.MovementType.VelocityTracking;
+        }
     }
     
     private void OnCollisionExit(Collision collision)
@@ -76,6 +81,11 @@ public class TakeDamage : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             _sentinel = false;
+        }
+
+        if (!collision.gameObject.CompareTag("Enemy"))
+        {
+            GetComponent<XRGrabVelocityTracked>().movementType = UnityEngine.XR.Interaction.Toolkit.XRBaseInteractable.MovementType.Instantaneous;
         }
     }
 

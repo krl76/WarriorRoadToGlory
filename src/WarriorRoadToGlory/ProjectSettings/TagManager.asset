@@ -13,6 +13,7 @@ TagManager:
   - PointSee
   - Shield
   - Enemy2
+  - Building
   layers:
   - Default
   - TransparentFX

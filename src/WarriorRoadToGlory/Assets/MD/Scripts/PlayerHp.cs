@@ -24,6 +24,7 @@ public class PlayerHp : MonoBehaviour
     private NPC _npc;
     private int difficult;
     private bool _isLose;
+    public bool _endGame;
 
     private void Awake()
     {
@@ -46,7 +47,7 @@ public class PlayerHp : MonoBehaviour
         {
             _isLose = true;
             _loseCanvas.SetActive(true);
-            FindObjectOfType<WaveManager>().EndWave();
+            _endGame = true;
             Time.timeScale = 0;
         }
     }

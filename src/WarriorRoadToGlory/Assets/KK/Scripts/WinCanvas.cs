@@ -72,11 +72,10 @@ public class WinCanvas : MonoBehaviour
         
         isChange = false;
         wavesInARow += 0.2f;
-        _waveManager.waveNumber += 1;
         _winCanvas.SetActive(false);
         _doorEnemy._trigger = false;
         _doorEnemy._trigger2 = false;
-        _waveManager.EndWave();
+        _waveManager.allSpawned = false;
     }
 
     public void toMerchant()

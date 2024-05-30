@@ -28,12 +28,14 @@ public class EnemyHp : MonoBehaviour
     private Weapon _weapon;
     private AudioSource _audioSource;
     private WinCanvas _win;
+    private PlayerHp _playerHp;
 
     private void Awake()
     {
         _npc = FindObjectOfType<NPC>();
         _win = FindObjectOfType<WinCanvas>();
         _audioSource = GetComponent<AudioSource>();
+        _playerHp = FindObjectOfType<PlayerHp>();
     }
 
     private void Start()
@@ -56,6 +58,12 @@ public class EnemyHp : MonoBehaviour
             _win.defeatedEnemy += 1;
             _ragdoll.SetActive(true);
             _objectToOff.SetActive(false);
+            Destroy(GetComponentInParent<NavMesh>().gameObject, 5);
+        }
+
+        if (_playerHp._endGame)
+        {
+            Destroy(GetComponentInParent<NavMesh>().gameObject);
         }
     }
 }
