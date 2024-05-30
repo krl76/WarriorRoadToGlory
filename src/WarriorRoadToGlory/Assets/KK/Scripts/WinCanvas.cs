@@ -16,6 +16,7 @@ public class WinCanvas : MonoBehaviour
 
     private WaveManager _waveManager;
     private PointOfAttack _pointOfAttack;
+    private DoorEnemy _doorEnemy;
 
     public int defeatedEnemy;
     
@@ -33,6 +34,7 @@ public class WinCanvas : MonoBehaviour
         LoadSettings();
         _waveManager = FindObjectOfType<WaveManager>();
         _pointOfAttack = FindObjectOfType<PointOfAttack>();
+        _doorEnemy = FindObjectOfType<DoorEnemy>();
     }
 
     private void Update()
@@ -72,7 +74,9 @@ public class WinCanvas : MonoBehaviour
         wavesInARow += 0.2f;
         _waveManager.waveNumber += 1;
         _winCanvas.SetActive(false);
-        _waveManager.StartWave();
+        _doorEnemy._trigger = false;
+        _doorEnemy._trigger2 = false;
+        //_waveManager.EndWave();
     }
 
     public void toMerchant()

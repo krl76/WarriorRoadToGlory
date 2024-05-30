@@ -9,8 +9,8 @@ public class DoorEnemy : MonoBehaviour
     private WaveManager _waveManager;
     private AudioSource _audioSource;
     
-    private bool _trigger;
-    private bool _trigger2;
+    public bool _trigger;
+    public bool _trigger2;
     private int _enemyInArena;
 
     private void Awake()
@@ -24,12 +24,10 @@ public class DoorEnemy : MonoBehaviour
     {
         if (_waveManager.inWave && !_trigger)
         {
-            _audioSource.PlayOneShot(_audioClips[0]);
-            _animator.SetTrigger("isOpen");
-            _trigger = true;
+            DoorOpen();
         }
 
-        if (!_trigger2)
+        if (!_trigger2 && _waveManager.inWave)
         {
             switch (_waveManager.waveNumber)
             {
@@ -117,6 +115,19 @@ public class DoorEnemy : MonoBehaviour
         }
     }
 
+    public void DoorOpen()
+    {
+        _audioSource.PlayOneShot(_audioClips[0]);
+        _animator.SetTrigger("isOpen");
+        _trigger = true;
+    }
+
+    public void DoorClose()
+    {
+        _audioSource.PlayOneShot(_audioClips[1]);
+        _animator.SetTrigger("isClose");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy2"))
@@ -126,7 +137,6 @@ public class DoorEnemy : MonoBehaviour
     IEnumerator Pause()
     {
         yield return new WaitForSeconds(1);
-        _audioSource.PlayOneShot(_audioClips[1]);
-        _animator.SetTrigger("isClose");
+        DoorClose();
     }
 }
