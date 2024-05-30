@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.FilePathAttribute;
 
 public class PlayerHp : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class PlayerHp : MonoBehaviour
         if (hp <= 0)
         {
             _loseCanvas.SetActive(true);
+            FindObjectOfType<WaveManager>().EndWave();
             Time.timeScale = 0;
         }
     }
