@@ -14,7 +14,7 @@ public class WaveManager : MonoBehaviour
     float maxXPos = -43f;
     float minZPos = 0;
     float maxZPos = 2.5f;
-    public static int aliveEnemies = 0;
+    public int aliveEnemies = 0;
     public List<GameObject> wave1 = new List<GameObject>();
     public List<GameObject> wave2 = new List<GameObject>();
     public List<GameObject> wave3 = new List<GameObject>();
@@ -30,20 +30,22 @@ public class WaveManager : MonoBehaviour
 
     private string namesave;
 
+    private bool inSpawn;
+
     private void Awake()
     {
         namesave = PlayerPrefs.GetString("NameSave");
-        inLocation = _exitTrigger.GetComponent<InLocation>();
         LoadWave();
     }
 
     private void Update()
     {
-        inWave = inLocation.onMain;
+        inWave = FindObjectOfType<inWave>().inWave2;
         if (inWave)
         {
-            if (!allSpawned)
+            if (!allSpawned && !inSpawn)
             {
+                inSpawn = true;
                 waveNumber += 1;
                 StartWave();
             }
@@ -55,86 +57,87 @@ public class WaveManager : MonoBehaviour
         switch (waveNumber)
         {
             case 1:
+                allSpawned = true;
                 for (int i = 0; i < wave1.Count; i++)
                 {
                     enemy = Instantiate(wave1[i], new Vector3(UnityEngine.Random.Range(minXPos, maxXPos), 10, UnityEngine.Random.Range(minZPos, maxZPos)), Quaternion.identity);
                     aliveEnemies += 1;
                 }
-                allSpawned = true;
                 break;
             case 2:
+                allSpawned = true;
                 for (int i = 0; i < wave2.Count; i++)
                 {
                     enemy = Instantiate(wave2[i], new Vector3(UnityEngine.Random.Range(minXPos, maxXPos), 10, UnityEngine.Random.Range(minZPos, maxZPos)), Quaternion.identity);
                     aliveEnemies += 1;
                 }
-                allSpawned = true;
                 break;
             case 3:
+                allSpawned = true;
                 for (int i = 0; i < wave3.Count; i++)
                 {
                     enemy = Instantiate(wave3[i], new Vector3(UnityEngine.Random.Range(minXPos, maxXPos), 10, UnityEngine.Random.Range(minZPos, maxZPos)), Quaternion.identity);
                     aliveEnemies += 1;
                 }
-                allSpawned = true;
                 break;
             case 4:
+                allSpawned = true;
                 for (int i = 0; i < wave4.Count; i++)
                 {
                     enemy = Instantiate(wave4[i], new Vector3(UnityEngine.Random.Range(minXPos, maxXPos), 10, UnityEngine.Random.Range(minZPos, maxZPos)), Quaternion.identity);
                     aliveEnemies += 1;
                 }
-                allSpawned = true;
                 break;
             case 5:
+                allSpawned = true;
                 for (int i = 0; i < wave5.Count; i++)
                 {
                     enemy = Instantiate(wave5[i], new Vector3(UnityEngine.Random.Range(minXPos, maxXPos), 10, UnityEngine.Random.Range(minZPos, maxZPos)), Quaternion.identity);
                     aliveEnemies += 1;
                 }
-                allSpawned = true;
                 break;
             case 6:
+                allSpawned = true;
                 for (int i = 0; i < wave6.Count; i++)
                 {
                     enemy = Instantiate(wave6[i], new Vector3(UnityEngine.Random.Range(minXPos, maxXPos), 10, UnityEngine.Random.Range(minZPos, maxZPos)), Quaternion.identity);
                     aliveEnemies += 1;
                 }
-                allSpawned = true;
                 break;
             case 7:
+                allSpawned = true;
                 for (int i = 0; i < wave7.Count; i++)
                 {
                     enemy = Instantiate(wave7[i], new Vector3(UnityEngine.Random.Range(minXPos, maxXPos), 10, UnityEngine.Random.Range(minZPos, maxZPos)), Quaternion.identity);
                     aliveEnemies += 1;
                 }
-                allSpawned = true;
                 break;
             case 8:
+                allSpawned = true;
                 for (int i = 0; i < wave8.Count; i++)
                 {
                     enemy = Instantiate(wave8[i], new Vector3(UnityEngine.Random.Range(minXPos, maxXPos), 10, UnityEngine.Random.Range(minZPos, maxZPos)), Quaternion.identity);
                     aliveEnemies += 1;
                 }
-                allSpawned = true;
                 break;
             case 9:
+                allSpawned = true;
                 for (int i = 0; i < wave9.Count; i++)
                 {
                     enemy = Instantiate(wave9[i], new Vector3(UnityEngine.Random.Range(minXPos, maxXPos), 10, UnityEngine.Random.Range(minZPos, maxZPos)), Quaternion.identity);
                     aliveEnemies += 1;
                 }
-                allSpawned = true;
                 break;
             case 10:
+                allSpawned = true;
                 for (int i = 0; i < wave10.Count; i++)
                 {
                     enemy = Instantiate(wave10[i], new Vector3(UnityEngine.Random.Range(minXPos, maxXPos), 10, UnityEngine.Random.Range(minZPos, maxZPos)), Quaternion.identity);
                     aliveEnemies += 1;
                 }
-                allSpawned = true;
                 break;
         }
+        inSpawn = false;
     }
     public void EndWave()
     {

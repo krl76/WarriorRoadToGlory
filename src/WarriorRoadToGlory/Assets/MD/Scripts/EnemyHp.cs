@@ -29,6 +29,7 @@ public class EnemyHp : MonoBehaviour
     private AudioSource _audioSource;
     private WinCanvas _win;
     private PlayerHp _playerHp;
+    private WaveManager _waveManager;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class EnemyHp : MonoBehaviour
         _win = FindObjectOfType<WinCanvas>();
         _audioSource = GetComponent<AudioSource>();
         _playerHp = FindObjectOfType<PlayerHp>();
+        _waveManager = FindObjectOfType<WaveManager>();
     }
 
     private void Start()
@@ -53,7 +55,7 @@ public class EnemyHp : MonoBehaviour
         if (_enemyHp <= 0)
         {
             anim.enabled = false;
-            WaveManager.aliveEnemies -= 1;
+            _waveManager.aliveEnemies -= 1;
             _npc.defeatedEnemy += 1;
             _win.defeatedEnemy += 1;
             _ragdoll.SetActive(true);

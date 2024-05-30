@@ -69,23 +69,13 @@ public class TakeDamage : MonoBehaviour
                 }
             }
         }
-
-        if (!other.gameObject.CompareTag("Enemy"))
-        {
-            GetComponent<XRGrabVelocityTracked>().movementType = UnityEngine.XR.Interaction.Toolkit.XRBaseInteractable.MovementType.VelocityTracking;
-        }
     }
     
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            StartCoroutine(PauseSentinel());
-        }
-
-        if (!collision.gameObject.CompareTag("Enemy"))
-        {
-            GetComponent<XRGrabVelocityTracked>().movementType = UnityEngine.XR.Interaction.Toolkit.XRBaseInteractable.MovementType.Instantaneous;
+            _sentinel = false;
         }
     }
 
@@ -93,7 +83,6 @@ public class TakeDamage : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         _isPause = false;
-
     }
 
     IEnumerator PauseSentinel()

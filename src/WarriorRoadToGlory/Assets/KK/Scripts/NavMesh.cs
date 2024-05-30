@@ -40,10 +40,13 @@ public class NavMesh : MonoBehaviour
         }
         catch
         {
-            while (pointOfAttack == null)
+            int k = 0;
+            while (pointOfAttack == null || k < 10)
             {
                 _numberOfPoint = rand.Next(0, _pointsSpawn.Length);
                 pointOfAttack = _pointsSpawn[_numberOfPoint];
+                k++;
+                Debug.Log($"k: {k}");
             }
             _pointsSpawn[_numberOfPoint] = null;
         }

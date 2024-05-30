@@ -329,6 +329,7 @@ public class Shop : MonoBehaviour
                     if (PlayerPrefs.GetInt("LevelSword4.1") != 0)
                     {
                         levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.1");
+                        _shield.SetActive(true);
                         _buy[j + 3].interactable = false;
                         //_upgrade[j + 3].interactable = true;
                         _coinCost[j + 3].gameObject.SetActive(false);
@@ -411,6 +412,7 @@ public class Shop : MonoBehaviour
                     {
                         levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.2");
                         _buy[j + 3].interactable = false;
+                        _shield.SetActive(true);
                         //_upgrade[j + 3].interactable = true;
                         _coinCost[j + 3].gameObject.SetActive(false);
                         _coinSprites[j + 3].gameObject.SetActive(false);
@@ -492,6 +494,7 @@ public class Shop : MonoBehaviour
                     {
                         levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.3");
                         _buy[j + 3].interactable = false;
+                        _shield.SetActive(true);
                         //_upgrade[j + 3].interactable = true;
                         _coinCost[j + 3].gameObject.SetActive(false);
                         _coinSprites[j + 3].gameObject.SetActive(false);

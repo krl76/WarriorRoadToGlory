@@ -25,6 +25,7 @@ public class PauseManager : MonoBehaviour
     private Transform playerTransform;
     private string nameSave;
     private WaveManager waveManager;
+    private Merchant _merchant;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class PauseManager : MonoBehaviour
         inputController.RightHand.UI.started += ctx => ActivePause(ctx.ReadValueAsButton());
 
         waveManager = _waveManager.GetComponent<WaveManager>();
+        _merchant = FindObjectOfType<Merchant>();
         nameSave = PlayerPrefs.GetString("NameSave");
         playerTransform = _player.GetComponent<Transform>();
         LoadSettings();
@@ -92,7 +94,7 @@ public class PauseManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != _nameOfMenuScene)
         {
-            if (isPause && !waveManager.inWave)
+            if (isPause && !waveManager.inWave && !_merchant.inShop)
             {
                 Time.timeScale = 0f;
                 _pauseCanvas.SetActive(true);

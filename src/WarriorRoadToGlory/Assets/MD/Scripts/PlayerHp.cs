@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.FilePathAttribute;
 
 public class PlayerHp : MonoBehaviour
 {
@@ -57,17 +56,17 @@ public class PlayerHp : MonoBehaviour
 
             case weaponTag1:
                 hp -= ((_weapon1Damage * difficult) / _multiplyForDamage);
-                _npc.amountHit += 1;
+                //_npc.amountHit += 1;
                 break;
 
             case weaponTag2:
                 hp -= ((_weapon2Damage * difficult) / _multiplyForDamage);
-                _npc.amountHit += 1;
+                //_npc.amountHit += 1;
                 break;
 
             case weaponTag3:
                 hp -= ((_weapon3Damage * difficult) / _multiplyForDamage);
-                _npc.amountHit += 1;
+                //_npc.amountHit += 1;
                 break;
         }
     }

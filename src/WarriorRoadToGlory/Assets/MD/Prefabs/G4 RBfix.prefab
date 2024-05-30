@@ -420,7 +420,6 @@ GameObject:
   - component: {fileID: 4855477947930526021}
   - component: {fileID: 5725826171496494883}
   - component: {fileID: 2802601567423141046}
-  - component: {fileID: 2880480462628481419}
   m_Layer: 9
   m_Name: mixamorig:Hips
   m_TagString: Enemy
@@ -494,25 +493,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.003199801, y: 0.003100199, z: 0.0021758045}
   m_Center: {x: -0.000000038711516, y: 0.0005999971, z: -0.00006441964}
---- !u!114 &2880480462628481419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545703371332484201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2293e40cc11ee284c82b06214c6e8231, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyHp: 100
-  _multiplyForHP: 1.3
-  hitEffects:
-  - {fileID: 0}
-  _ragdoll: {fileID: 0}
-  _objectToOff: {fileID: 0}
-  _audioClips: []
 --- !u!1 &564797168989101598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,7 +1581,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0.061987005, y: 0.002407198, z: -0.10855675}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.7164908e-10, y: 0.0021275373, z: -4.9986293e-11}
+  m_ConnectedAnchor: {x: 0.0000000018533934, y: 0.0021275363, z: 1.3924141e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 0.86837, y: -0.0027439978, z: -0.49590892}
   m_TwistLimitSpring:
@@ -5871,7 +5851,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0.9998888, y: -0.013525563, z: -0.006288808}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0009969616, y: -0.00048269363, z: -0.000055857203}
+  m_ConnectedAnchor: {x: 0.0009969616, y: -0.00048269363, z: -0.000055856213}
   serializedVersion: 2
   m_SwingAxis: {x: -0.00603784, y: -0.0185166, z: 0.99981034}
   m_TwistLimitSpring:

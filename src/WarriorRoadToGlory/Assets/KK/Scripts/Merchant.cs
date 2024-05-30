@@ -15,7 +15,7 @@ public class Merchant : MonoBehaviour
 
     private InputController inputController;
     private bool onTrigger;
-    private bool inShop = false;
+    public bool inShop = false;
 
     private string nameSave;
     private AudioSource _audioSource;

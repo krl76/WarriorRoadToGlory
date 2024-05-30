@@ -35,7 +35,7 @@ public class NPC : MonoBehaviour
                 }
                 _soundViewers.TwoRandom();
                 _isPause = true;
-                StartCoroutine(Pause());
+                //StartCoroutine(Pause());
             }
             defeatedEnemy = 0;
         }

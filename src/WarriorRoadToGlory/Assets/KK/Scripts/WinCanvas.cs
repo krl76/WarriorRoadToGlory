@@ -28,6 +28,8 @@ public class WinCanvas : MonoBehaviour
     private float wavesInARow;
     private bool isChange;
 
+    private bool isContinue;
+
     private void Awake()
     {
         wavesInARow = 1;
@@ -44,7 +46,8 @@ public class WinCanvas : MonoBehaviour
         
         _numberOfWave = _waveManager.waveNumber;
         allSpawned = _waveManager.allSpawned;
-        aliveEnemy = WaveManager.aliveEnemies;
+        aliveEnemy = _waveManager.aliveEnemies;
+
         if (allSpawned && aliveEnemy == 0 && !isChange && _numberOfWave != 10)
         {
             _winCanvas.SetActive(true);
@@ -57,6 +60,7 @@ public class WinCanvas : MonoBehaviour
                 _coins.text = $"{Convert.ToInt32((_baseCoins * defeatedEnemy * wavesInARow) / difficult)}";
             }
             isChange = true;
+
         }
 
         if (allSpawned && aliveEnemy == 0 && !isChange && _numberOfWave == 10)
@@ -70,9 +74,9 @@ public class WinCanvas : MonoBehaviour
     {
         _pointOfAttack._pointsForSpawn = _pointOfAttack._allPoints;
         
+        isContinue = true;
         isChange = false;
         wavesInARow += 0.2f;
-        _winCanvas.SetActive(false);
         _doorEnemy._trigger = false;
         _doorEnemy._trigger2 = false;
         _waveManager.allSpawned = false;
