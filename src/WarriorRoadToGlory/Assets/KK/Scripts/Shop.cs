@@ -266,68 +266,80 @@ public class Shop : MonoBehaviour
                 j = 0;
                 if (PlayerPrefs.HasKey("LevelSword1.1"))
                 {
-                    levelOfSword1 = PlayerPrefs.GetInt("LevelSword1.1");
-                    _buy[j].gameObject.SetActive(false);
-                    _pick[j].gameObject.SetActive(true);
-                    _pick[j].interactable = false;
-                    _upgrade[j].interactable = true;
-                    _coinCost[j].gameObject.SetActive(false);
-                    _coinSprites[j].gameObject.SetActive(false);
-                    _coinCost[j + 4].gameObject.SetActive(true);
-                    _coinSprites[j + 4].gameObject.SetActive(true);
-                    for (int i = 0; i < levelOfSword1; i++)
+                    if (PlayerPrefs.GetInt("LevelSword1.1") != 0)
                     {
-                        _coinCost[j + 4].text = (Convert.ToInt32(_coinCost[j + 4].text) *
-                                                           _multiplyForCoins).ToString();
+                        levelOfSword1 = PlayerPrefs.GetInt("LevelSword1.1");
+                        _buy[j].gameObject.SetActive(false);
+                        _pick[j].gameObject.SetActive(true);
+                        _pick[j].interactable = false;
+                        _upgrade[j].interactable = true;
+                        _coinCost[j].gameObject.SetActive(false);
+                        _coinSprites[j].gameObject.SetActive(false);
+                        _coinCost[j + 4].gameObject.SetActive(true);
+                        _coinSprites[j + 4].gameObject.SetActive(true);
+                        for (int i = 0; i < levelOfSword1; i++)
+                        {
+                            _coinCost[j + 4].text = (Convert.ToInt32(_coinCost[j + 4].text) *
+                                                     _multiplyForCoins).ToString();
+                        }   
                     }
                 }
                 if (PlayerPrefs.HasKey("LevelSword2.1"))
                 {
-                    levelOfSword1 = PlayerPrefs.GetInt("LevelSword2.1");
-                    _buy[j + 1].gameObject.SetActive(false);
-                    _pick[j + 1].gameObject.SetActive(true);
-                    _pick[j + 1].interactable = true;
-                    _upgrade[j + 1].interactable = true;
-                    _coinCost[j + 1].gameObject.SetActive(false);
-                    _coinSprites[j + 1].gameObject.SetActive(false);
-                    _coinCost[j + 5].gameObject.SetActive(true);
-                    _coinSprites[j + 5].gameObject.SetActive(true);
-                    for (int i = 0; i < levelOfSword1; i++)
+                    if (PlayerPrefs.GetInt("LevelSword2.1") != 0)
                     {
-                        _coinCost[j + 5].text = (Convert.ToInt32(_coinCost[j + 5].text) *
-                                                 _multiplyForCoins).ToString();
+                        levelOfSword1 = PlayerPrefs.GetInt("LevelSword2.1");
+                        _buy[j + 1].gameObject.SetActive(false);
+                        _pick[j + 1].gameObject.SetActive(true);
+                        _pick[j + 1].interactable = true;
+                        _upgrade[j + 1].interactable = true;
+                        _coinCost[j + 1].gameObject.SetActive(false);
+                        _coinSprites[j + 1].gameObject.SetActive(false);
+                        _coinCost[j + 5].gameObject.SetActive(true);
+                        _coinSprites[j + 5].gameObject.SetActive(true);
+                        for (int i = 0; i < levelOfSword1; i++)
+                        {
+                            _coinCost[j + 5].text = (Convert.ToInt32(_coinCost[j + 5].text) *
+                                                     _multiplyForCoins).ToString();
+                        }
                     }
                 }
                 if (PlayerPrefs.HasKey("LevelSword3.1"))
                 {
-                    levelOfSword1 = PlayerPrefs.GetInt("LevelSword3.1");
-                    _buy[j + 2].gameObject.SetActive(false);
-                    _pick[j + 2].gameObject.SetActive(true);
-                    _pick[j + 2].interactable = true;
-                    _upgrade[j + 2].interactable = true;
-                    _coinCost[j + 2].gameObject.SetActive(false);
-                    _coinSprites[j + 2].gameObject.SetActive(false);
-                    _coinCost[j + 6].gameObject.SetActive(true);
-                    _coinSprites[j + 6].gameObject.SetActive(true);
-                    for (int i = 0; i < levelOfSword1; i++)
+                    if (PlayerPrefs.GetInt("LevelSword3.1") != 0)
                     {
-                        _coinCost[j + 6].text = (Convert.ToInt32(_coinCost[j + 6].text) *
-                                                 _multiplyForCoins).ToString();
+                        levelOfSword1 = PlayerPrefs.GetInt("LevelSword3.1");
+                        _buy[j + 2].gameObject.SetActive(false);
+                        _pick[j + 2].gameObject.SetActive(true);
+                        _pick[j + 2].interactable = true;
+                        _upgrade[j + 2].interactable = true;
+                        _coinCost[j + 2].gameObject.SetActive(false);
+                        _coinSprites[j + 2].gameObject.SetActive(false);
+                        _coinCost[j + 6].gameObject.SetActive(true);
+                        _coinSprites[j + 6].gameObject.SetActive(true);
+                        for (int i = 0; i < levelOfSword1; i++)
+                        {
+                            _coinCost[j + 6].text = (Convert.ToInt32(_coinCost[j + 6].text) *
+                                                     _multiplyForCoins).ToString();
+                        }
                     }
                 }
                 if (PlayerPrefs.HasKey("LevelSword4.1"))
                 {
-                    levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.1");
-                    _buy[j + 3].interactable = false;
-                    _upgrade[j + 3].interactable = true;
-                    _coinCost[j + 3].gameObject.SetActive(false);
-                    _coinSprites[j + 3].gameObject.SetActive(false);
-                    _coinCost[j + 7].gameObject.SetActive(true);
-                    _coinSprites[j + 7].gameObject.SetActive(true);
-                    for (int i = 0; i < levelOfSword1; i++)
+                    if (PlayerPrefs.GetInt("LevelSword4.1") != 0)
                     {
-                        _coinCost[j + 7].text = (Convert.ToInt32(_coinCost[j + 7].text) *
-                                                 _multiplyForCoins).ToString();
+                        levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.1");
+                        _buy[j + 3].interactable = false;
+                        //_upgrade[j + 3].interactable = true;
+                        _coinCost[j + 3].gameObject.SetActive(false);
+                        _coinSprites[j + 3].gameObject.SetActive(false);
+                        //_coinCost[j + 7].gameObject.SetActive(true);
+                        //_coinSprites[j + 7].gameObject.SetActive(true);
+                        /*for (int i = 0; i < levelOfSword1; i++)
+                        {
+                            _coinCost[j + 7].text = (Convert.ToInt32(_coinCost[j + 7].text) *
+                                                     _multiplyForCoins).ToString();
+                        }*/
                     }
                 }
                 break;
@@ -335,68 +347,80 @@ public class Shop : MonoBehaviour
                 j = 0;
                 if (PlayerPrefs.HasKey("LevelSword1.2"))
                 {
-                    levelOfSword1 = PlayerPrefs.GetInt("LevelSword1.2");
-                    _buy[j].gameObject.SetActive(false);
-                    _pick[j].gameObject.SetActive(true);
-                    _pick[j].interactable = false;
-                    _upgrade[j].interactable = true;
-                    _coinCost[j].gameObject.SetActive(false);
-                    _coinSprites[j].gameObject.SetActive(false);
-                    _coinCost[j + 4].gameObject.SetActive(true);
-                    _coinSprites[j + 4].gameObject.SetActive(true);
-                    for (int i = 0; i < levelOfSword1; i++)
+                    if (PlayerPrefs.GetInt("LevelSword1.2") != 0)
                     {
-                        _coinCost[j + 4].text = (Convert.ToInt32(_coinCost[j + 4].text) *
-                                                           _multiplyForCoins).ToString();
+                        levelOfSword1 = PlayerPrefs.GetInt("LevelSword1.2");
+                        _buy[j].gameObject.SetActive(false);
+                        _pick[j].gameObject.SetActive(true);
+                        _pick[j].interactable = false;
+                        _upgrade[j].interactable = true;
+                        _coinCost[j].gameObject.SetActive(false);
+                        _coinSprites[j].gameObject.SetActive(false);
+                        _coinCost[j + 4].gameObject.SetActive(true);
+                        _coinSprites[j + 4].gameObject.SetActive(true);
+                        for (int i = 0; i < levelOfSword1; i++)
+                        {
+                            _coinCost[j + 4].text = (Convert.ToInt32(_coinCost[j + 4].text) *
+                                                     _multiplyForCoins).ToString();
+                        }
                     }
                 }
                 if (PlayerPrefs.HasKey("LevelSword2.2"))
                 {
-                    levelOfSword1 = PlayerPrefs.GetInt("LevelSword2.2");
-                    _buy[j + 1].gameObject.SetActive(false);
-                    _pick[j + 1].gameObject.SetActive(true);
-                    _pick[j + 1].interactable = true;
-                    _upgrade[j + 1].interactable = true;
-                    _coinCost[j + 1].gameObject.SetActive(false);
-                    _coinSprites[j + 1].gameObject.SetActive(false);
-                    _coinCost[j + 5].gameObject.SetActive(true);
-                    _coinSprites[j + 5].gameObject.SetActive(true);
-                    for (int i = 0; i < levelOfSword1; i++)
+                    if (PlayerPrefs.GetInt("LevelSword2.2") != 0)
                     {
-                        _coinCost[j + 5].text = (Convert.ToInt32(_coinCost[j + 5].text) *
-                                                 _multiplyForCoins).ToString();
+                        levelOfSword1 = PlayerPrefs.GetInt("LevelSword2.2");
+                        _buy[j + 1].gameObject.SetActive(false);
+                        _pick[j + 1].gameObject.SetActive(true);
+                        _pick[j + 1].interactable = true;
+                        _upgrade[j + 1].interactable = true;
+                        _coinCost[j + 1].gameObject.SetActive(false);
+                        _coinSprites[j + 1].gameObject.SetActive(false);
+                        _coinCost[j + 5].gameObject.SetActive(true);
+                        _coinSprites[j + 5].gameObject.SetActive(true);
+                        for (int i = 0; i < levelOfSword1; i++)
+                        {
+                            _coinCost[j + 5].text = (Convert.ToInt32(_coinCost[j + 5].text) *
+                                                     _multiplyForCoins).ToString();
+                        }
                     }
                 }
                 if (PlayerPrefs.HasKey("LevelSword3.2"))
                 {
-                    levelOfSword1 = PlayerPrefs.GetInt("LevelSword3.2");
-                    _buy[j + 2].gameObject.SetActive(false);
-                    _pick[j + 2].gameObject.SetActive(true);
-                    _pick[j + 2].interactable = true;
-                    _upgrade[j + 2].interactable = true;
-                    _coinCost[j + 2].gameObject.SetActive(false);
-                    _coinSprites[j + 2].gameObject.SetActive(false);
-                    _coinCost[j + 6].gameObject.SetActive(true);
-                    _coinSprites[j + 6].gameObject.SetActive(true);
-                    for (int i = 0; i < levelOfSword1; i++)
+                    if (PlayerPrefs.GetInt("LevelSword3.2") != 0)
                     {
-                        _coinCost[j + 6].text = (Convert.ToInt32(_coinCost[j + 6].text) *
-                                                 _multiplyForCoins).ToString();
+                        levelOfSword1 = PlayerPrefs.GetInt("LevelSword3.2");
+                        _buy[j + 2].gameObject.SetActive(false);
+                        _pick[j + 2].gameObject.SetActive(true);
+                        _pick[j + 2].interactable = true;
+                        _upgrade[j + 2].interactable = true;
+                        _coinCost[j + 2].gameObject.SetActive(false);
+                        _coinSprites[j + 2].gameObject.SetActive(false);
+                        _coinCost[j + 6].gameObject.SetActive(true);
+                        _coinSprites[j + 6].gameObject.SetActive(true);
+                        for (int i = 0; i < levelOfSword1; i++)
+                        {
+                            _coinCost[j + 6].text = (Convert.ToInt32(_coinCost[j + 6].text) *
+                                                     _multiplyForCoins).ToString();
+                        }
                     }
                 }
                 if (PlayerPrefs.HasKey("LevelSword4.2"))
                 {
-                    levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.2");
-                    _buy[j + 3].interactable = false;
-                    _upgrade[j + 3].interactable = true;
-                    _coinCost[j + 3].gameObject.SetActive(false);
-                    _coinSprites[j + 3].gameObject.SetActive(false);
-                    _coinCost[j + 7].gameObject.SetActive(true);
-                    _coinSprites[j + 7].gameObject.SetActive(true);
-                    for (int i = 0; i < levelOfSword1; i++)
+                    if (PlayerPrefs.GetInt("LevelSword4.2") != 0)
                     {
-                        _coinCost[j + 7].text = (Convert.ToInt32(_coinCost[j + 7].text) *
-                                                 _multiplyForCoins).ToString();
+                        levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.2");
+                        _buy[j + 3].interactable = false;
+                        //_upgrade[j + 3].interactable = true;
+                        _coinCost[j + 3].gameObject.SetActive(false);
+                        _coinSprites[j + 3].gameObject.SetActive(false);
+                        /*_coinCost[j + 7].gameObject.SetActive(true);
+                        _coinSprites[j + 7].gameObject.SetActive(true);
+                        for (int i = 0; i < levelOfSword1; i++)
+                        {
+                            _coinCost[j + 7].text = (Convert.ToInt32(_coinCost[j + 7].text) *
+                                                     _multiplyForCoins).ToString();
+                        }*/
                     }
                 }
                 break;
@@ -404,68 +428,80 @@ public class Shop : MonoBehaviour
                 j = 0;
                 if (PlayerPrefs.HasKey("LevelSword1.3"))
                 {
-                    levelOfSword1 = PlayerPrefs.GetInt("LevelSword1.3");
-                    _buy[j].gameObject.SetActive(false);
-                    _pick[j].gameObject.SetActive(true);
-                    _pick[j].interactable = false;
-                    _upgrade[j].interactable = true;
-                    _coinCost[j].gameObject.SetActive(false);
-                    _coinSprites[j].gameObject.SetActive(false);
-                    _coinCost[j + 4].gameObject.SetActive(true);
-                    _coinSprites[j + 4].gameObject.SetActive(true);
-                    for (int i = 0; i < levelOfSword1; i++)
+                    if (PlayerPrefs.GetInt("LevelSword1.3") != 0)
                     {
-                        _coinCost[j + 4].text = (Convert.ToInt32(_coinCost[j + 4].text) *
-                                                           _multiplyForCoins).ToString();
+                        levelOfSword1 = PlayerPrefs.GetInt("LevelSword1.3");
+                        _buy[j].gameObject.SetActive(false);
+                        _pick[j].gameObject.SetActive(true);
+                        _pick[j].interactable = false;
+                        _upgrade[j].interactable = true;
+                        _coinCost[j].gameObject.SetActive(false);
+                        _coinSprites[j].gameObject.SetActive(false);
+                        _coinCost[j + 4].gameObject.SetActive(true);
+                        _coinSprites[j + 4].gameObject.SetActive(true);
+                        for (int i = 0; i < levelOfSword1; i++)
+                        {
+                            _coinCost[j + 4].text = (Convert.ToInt32(_coinCost[j + 4].text) *
+                                                     _multiplyForCoins).ToString();
+                        }
                     }
                 }
                 if (PlayerPrefs.HasKey("LevelSword2.3"))
                 {
-                    levelOfSword1 = PlayerPrefs.GetInt("LevelSword2.3");
-                    _buy[j + 1].gameObject.SetActive(false);
-                    _pick[j + 1].gameObject.SetActive(true);
-                    _pick[j + 1].interactable = true;
-                    _upgrade[j + 1].interactable = true;
-                    _coinCost[j + 1].gameObject.SetActive(false);
-                    _coinSprites[j + 1].gameObject.SetActive(false);
-                    _coinCost[j + 5].gameObject.SetActive(true);
-                    _coinSprites[j + 5].gameObject.SetActive(true);
-                    for (int i = 0; i < levelOfSword1; i++)
+                    if (PlayerPrefs.GetInt("LevelSword2.3") != 0)
                     {
-                        _coinCost[j + 5].text = (Convert.ToInt32(_coinCost[j + 5].text) *
-                                                 _multiplyForCoins).ToString();
+                        levelOfSword1 = PlayerPrefs.GetInt("LevelSword2.3");
+                        _buy[j + 1].gameObject.SetActive(false);
+                        _pick[j + 1].gameObject.SetActive(true);
+                        _pick[j + 1].interactable = true;
+                        _upgrade[j + 1].interactable = true;
+                        _coinCost[j + 1].gameObject.SetActive(false);
+                        _coinSprites[j + 1].gameObject.SetActive(false);
+                        _coinCost[j + 5].gameObject.SetActive(true);
+                        _coinSprites[j + 5].gameObject.SetActive(true);
+                        for (int i = 0; i < levelOfSword1; i++)
+                        {
+                            _coinCost[j + 5].text = (Convert.ToInt32(_coinCost[j + 5].text) *
+                                                     _multiplyForCoins).ToString();
+                        }
                     }
                 }
                 if (PlayerPrefs.HasKey("LevelSword3.3"))
                 {
-                    levelOfSword1 = PlayerPrefs.GetInt("LevelSword3.3");
-                    _buy[j + 2].gameObject.SetActive(false);
-                    _pick[j + 2].gameObject.SetActive(true);
-                    _pick[j + 2].interactable = true;
-                    _upgrade[j + 2].interactable = true;
-                    _coinCost[j + 2].gameObject.SetActive(false);
-                    _coinSprites[j + 2].gameObject.SetActive(false);
-                    _coinCost[j + 6].gameObject.SetActive(true);
-                    _coinSprites[j + 6].gameObject.SetActive(true);
-                    for (int i = 0; i < levelOfSword1; i++)
+                    if (PlayerPrefs.GetInt("LevelSword3.3") != 0)
                     {
-                        _coinCost[j + 6].text = (Convert.ToInt32(_coinCost[j + 6].text) *
-                                                 _multiplyForCoins).ToString();
+                        levelOfSword1 = PlayerPrefs.GetInt("LevelSword3.3");
+                        _buy[j + 2].gameObject.SetActive(false);
+                        _pick[j + 2].gameObject.SetActive(true);
+                        _pick[j + 2].interactable = true;
+                        _upgrade[j + 2].interactable = true;
+                        _coinCost[j + 2].gameObject.SetActive(false);
+                        _coinSprites[j + 2].gameObject.SetActive(false);
+                        _coinCost[j + 6].gameObject.SetActive(true);
+                        _coinSprites[j + 6].gameObject.SetActive(true);
+                        for (int i = 0; i < levelOfSword1; i++)
+                        {
+                            _coinCost[j + 6].text = (Convert.ToInt32(_coinCost[j + 6].text) *
+                                                     _multiplyForCoins).ToString();
+                        }
                     }
                 }
                 if (PlayerPrefs.HasKey("LevelSword4.3"))
                 {
-                    levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.3");
-                    _buy[j + 3].interactable = false;
-                    _upgrade[j + 3].interactable = true;
-                    _coinCost[j + 3].gameObject.SetActive(false);
-                    _coinSprites[j + 3].gameObject.SetActive(false);
-                    _coinCost[j + 7].gameObject.SetActive(true);
-                    _coinSprites[j + 7].gameObject.SetActive(true);
-                    for (int i = 0; i < levelOfSword1; i++)
+                    if (PlayerPrefs.GetInt("LevelSword4.3") != 0)
                     {
-                        _coinCost[j + 7].text = (Convert.ToInt32(_coinCost[j + 7].text) *
-                                                 _multiplyForCoins).ToString();
+                        levelOfSword1 = PlayerPrefs.GetInt("LevelSword4.3");
+                        _buy[j + 3].interactable = false;
+                        //_upgrade[j + 3].interactable = true;
+                        _coinCost[j + 3].gameObject.SetActive(false);
+                        _coinSprites[j + 3].gameObject.SetActive(false);
+                        /*_coinCost[j + 7].gameObject.SetActive(true);
+                        _coinSprites[j + 7].gameObject.SetActive(true);
+                        for (int i = 0; i < levelOfSword1; i++)
+                        {
+                            _coinCost[j + 7].text = (Convert.ToInt32(_coinCost[j + 7].text) *
+                                                     _multiplyForCoins).ToString();
+                        }*/
                     }
                 }
                 break;

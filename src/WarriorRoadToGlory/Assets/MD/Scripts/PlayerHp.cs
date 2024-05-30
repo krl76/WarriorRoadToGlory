@@ -17,6 +17,7 @@ public class PlayerHp : MonoBehaviour
     
     [Header("PLayer Settings")]
     [SerializeField] private Slider _hpBar;
+    [SerializeField] private Image _vignette;
     [SerializeField] private GameObject _loseCanvas;
 
     private NPC _npc;
@@ -38,6 +39,7 @@ public class PlayerHp : MonoBehaviour
     void Update()
     {
         _hpBar.value = hp;
+        _vignette.color = new Color(1, 1, 1, Mathf.Abs(hp / 100 - 1));
         if (hp <= 0)
         {
             _loseCanvas.SetActive(true);
