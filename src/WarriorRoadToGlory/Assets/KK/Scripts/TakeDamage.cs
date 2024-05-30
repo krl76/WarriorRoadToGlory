@@ -81,7 +81,7 @@ public class TakeDamage : MonoBehaviour
 
     IEnumerator Pause()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.5f);
         _isPause = false;
 
     }

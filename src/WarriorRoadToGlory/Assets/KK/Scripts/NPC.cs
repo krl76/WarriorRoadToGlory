@@ -40,13 +40,6 @@ public class NPC : MonoBehaviour
             defeatedEnemy = 0;
         }
 
-        if (!_isPause2 && _inWave)
-        {
-            _soundViewers.OneRandom();
-            _isPause2 = true;
-            StartCoroutine(Pause2());
-        }
-
         /*if (amountHit >= 3)
         {
             foreach (var anim in _animators)
@@ -62,11 +55,5 @@ public class NPC : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         _isPause = false;
-    }
-    
-    IEnumerator Pause2()
-    {
-        yield return new WaitForSeconds(4);
-        _isPause2 = false;
     }
 }
