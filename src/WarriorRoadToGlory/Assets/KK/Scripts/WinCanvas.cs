@@ -15,6 +15,7 @@ public class WinCanvas : MonoBehaviour
     [SerializeField] private int _baseCoins;
 
     private WaveManager _waveManager;
+    private PointOfAttack _pointOfAttack;
 
     public int defeatedEnemy;
     
@@ -31,6 +32,7 @@ public class WinCanvas : MonoBehaviour
         wavesInARow = 1;
         LoadSettings();
         _waveManager = FindObjectOfType<WaveManager>();
+        _pointOfAttack = FindObjectOfType<PointOfAttack>();
     }
 
     private void Update()
@@ -64,6 +66,8 @@ public class WinCanvas : MonoBehaviour
 
     public void Continue()
     {
+        _pointOfAttack._pointsForSpawn = _pointOfAttack._allPoints;
+        
         isChange = false;
         wavesInARow += 0.2f;
         _waveManager.waveNumber += 1;
