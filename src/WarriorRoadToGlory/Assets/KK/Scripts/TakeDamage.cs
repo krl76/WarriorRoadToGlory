@@ -80,7 +80,7 @@ public class TakeDamage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            _sentinel = false;
+            StartCoroutine(PauseSentinel());
         }
 
         if (!collision.gameObject.CompareTag("Enemy"))
@@ -94,6 +94,12 @@ public class TakeDamage : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _isPause = false;
 
+    }
+
+    IEnumerator PauseSentinel()
+    {
+        yield return new WaitForSeconds(0.2f);
+        _sentinel = false;
     }
 
     public void Upgrade()
