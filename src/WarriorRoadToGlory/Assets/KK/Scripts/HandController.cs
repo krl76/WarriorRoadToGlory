@@ -3,10 +3,15 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandController : MonoBehaviour
 {
+    [Header("Animator")]
     [SerializeField] private Animator _animatorLeft;
     [SerializeField] private Animator _animatorRight;
+
+    [Header("Attach")]
+    [SerializeField] private GameObject _attachShield;
     
     private InputController inputController;
+    private bool isLeftAttach = false;
     private bool isTake;
     private string whichTake;
     private void Awake()
@@ -87,7 +92,21 @@ public class HandController : MonoBehaviour
         isTake = true;
         whichTake = enterEvent.interactorObject.transform.name;
     }
-    
+
+    public void TakeShield(SelectEnterEventArgs enterEvent)
+    {
+       if(enterEvent.interactorObject.transform.name == "Left Controller" && !isLeftAttach)
+        {
+            _attachShield.transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+            isLeftAttach = true;
+        }
+       if (enterEvent.interactorObject.transform.name == "Right Controller" && isLeftAttach)
+        {
+            _attachShield.transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+            isLeftAttach = false;
+        }
+    }
+
     public void TakeOff(SelectExitEventArgs exitEvent)
     {
         isTake = false;

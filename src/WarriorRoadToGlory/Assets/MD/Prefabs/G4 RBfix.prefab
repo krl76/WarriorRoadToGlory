@@ -4183,6 +4183,7 @@ GameObject:
   - component: {fileID: 3378976969136032068}
   - component: {fileID: 8726862407638132120}
   - component: {fileID: 8707775681762268142}
+  - component: {fileID: 7736951014952531950}
   m_Layer: 10
   m_Name: Shield_low
   m_TagString: Untagged
@@ -4255,6 +4256,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7736951014952531950
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054558998206846457}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5218869164820102083, guid: c44638b137dfbd24287395a661f82c46, type: 3}
 --- !u!1 &6088922964685028363
 GameObject:
   m_ObjectHideFlags: 0

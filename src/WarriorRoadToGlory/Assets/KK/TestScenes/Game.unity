@@ -8194,6 +8194,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2289604751073944388, guid: 04dc4871f4110404abe0b7c49513657b, type: 3}
   m_PrefabInstance: {fileID: 756461603}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &756928266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8983126024583287579, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+  m_PrefabInstance: {fileID: 1443384992169145068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &761217195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13055,13 +13060,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175481656}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.116444536, y: 0.07356294, z: 0.697453, w: 0.70326984}
-  m_LocalPosition: {x: 0.051, y: 0.0073, z: 0.0019}
+  m_LocalRotation: {x: -0.39534247, y: -0.50738376, z: 0.39807725, w: 0.65406466}
+  m_LocalPosition: {x: 0.0855, y: 0.0283, z: -0.0315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1748799975}
-  m_LocalEulerAnglesHint: {x: 3.507, y: 15.45, z: 90}
+  m_LocalEulerAnglesHint: {x: -6.5, y: -80, z: 68.107}
 --- !u!1001 &1178855468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15868,7 +15873,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.11515256, y: 0.24610052, z: 0.19495259}
-  m_Center: {x: -0.3465774, y: 0.94390017, z: -0.57516676}
+  m_Center: {x: -0.371006, y: 0.94389886, z: -0.5751666}
 --- !u!4 &1403797790
 Transform:
   m_ObjectHideFlags: 0
@@ -19735,6 +19740,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 756928266}
+        m_TargetAssemblyTypeName: HandController, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -19856,7 +19873,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748799974}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -19874,7 +19891,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1748799978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22825,7 +22842,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 0
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -25211,7 +25228,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &593207706289538136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25346,7 +25363,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 0
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -25583,6 +25600,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 5990047560725163932, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+      propertyPath: _attachShield
+      value: 
+      objectReference: {fileID: 1175481656}
     - target: {fileID: 6089798535929538569, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -26307,7 +26328,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5990047560725163932, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
   m_PrefabInstance: {fileID: 1443384992169145068}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 756928266}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d505ce069f48d38429c055382836ed1d, type: 3}
@@ -26694,6 +26715,10 @@ PrefabInstance:
     - target: {fileID: 4460253202936255278, guid: 63ac941f015c0fb49b9da362538fa7bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5222259648145663410, guid: 63ac941f015c0fb49b9da362538fa7bc, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7092924830297215657, guid: 63ac941f015c0fb49b9da362538fa7bc, type: 3}
       propertyPath: m_SmoothScale
@@ -30732,7 +30757,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &8373555443526096126
 BoxCollider:
   m_ObjectHideFlags: 0
