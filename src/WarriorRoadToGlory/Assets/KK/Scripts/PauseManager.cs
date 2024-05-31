@@ -31,6 +31,8 @@ public class PauseManager : MonoBehaviour
     private Merchant _merchant;
     private XROrigin _xrOrigin;
 
+    public bool inPause;
+
     private void Awake()
     {
         inputController = new InputController();
@@ -109,11 +111,13 @@ public class PauseManager : MonoBehaviour
         {
             if (isPause && !waveManager.inWave && !_merchant.inShop)
             {
+                inPause = true;
                 Time.timeScale = 0f;
                 _pauseCanvas.SetActive(true);
             }
             else
             {
+                inPause = false;
                 Time.timeScale = 1f;
                 _pauseCanvas.SetActive(false);
             }

@@ -436,7 +436,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 4c76d72d5a7e64908bae1b683607b4c9, type: 2}
   m_audioClip: {fileID: 8300000, guid: a5ba87e869600924c90f050d77909e0e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -683,6 +683,7 @@ PrefabInstance:
     - {fileID: 1680605660153694725, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
     - {fileID: 1615919334892167438, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
     - {fileID: 7467793105537777005, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+    - {fileID: 1486843672781834826, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 9147826782320598685, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       insertIndex: -1

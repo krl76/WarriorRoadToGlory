@@ -148,15 +148,27 @@ public class MenuManager : MonoBehaviour
             if (PlayerPrefs.GetString("Save1") != "Создать новое сохранение")
                 _save1.text = PlayerPrefs.GetString("Save1");
         }
+        else
+        {
+            _save1.text = "Создать новое сохранение";
+        }
         if (PlayerPrefs.HasKey("Save2"))
         {
             if (PlayerPrefs.GetString("Save2") != "Создать новое сохранение")
                 _save2.text = PlayerPrefs.GetString("Save2");
         }
+        else
+        {
+            _save2.text = "Создать новое сохранение";
+        }
         if (PlayerPrefs.HasKey("Save3"))
         {
             if (PlayerPrefs.GetString("Save3") != "Создать новое сохранение")
                 _save3.text = PlayerPrefs.GetString("Save3");
+        }
+        else
+        {
+            _save3.text = "Создать новое сохранение";
         }
     }
 

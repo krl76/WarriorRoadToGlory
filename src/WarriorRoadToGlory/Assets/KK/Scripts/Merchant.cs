@@ -19,6 +19,7 @@ public class Merchant : MonoBehaviour
 
     private string nameSave;
     private AudioSource _audioSource;
+    private PauseManager pauseManager;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class Merchant : MonoBehaviour
         inputController.LeftHand.Interact.started += ctx => ActiveShop(ctx.ReadValueAsButton());
 
         _audioSource = GetComponent<AudioSource>();
+        pauseManager = FindObjectOfType<PauseManager>();
         
         nameSave = PlayerPrefs.GetString("NameSave");
         LoadCoin();
@@ -111,7 +113,7 @@ public class Merchant : MonoBehaviour
 
     private void ActiveShop(bool isActive)
     {
-        if (isActive && onTrigger && !inShop)
+        if (isActive && onTrigger && !inShop && !pauseManager.inPause)
         {
             Time.timeScale = 0f;
             inShop = true;
