@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = System.Random;
@@ -16,8 +17,8 @@ public class NavMesh : MonoBehaviour
     public Transform pointOfAttack;
     private EnemyHp _enemyHpScript;
 
-    private Transform[] _pointsSpawn;
-    private Transform[] _pointsAll;
+    private List<Transform> _pointsSpawn;
+    private List<Transform> _pointsAll;
     private int _numberOfPoint;
 
     private void Awake()
@@ -30,7 +31,7 @@ public class NavMesh : MonoBehaviour
         _hpFrom = GetComponentInChildren<EnemyHp>();
         _pointsSpawn = _pointsScript._pointsForSpawn;
         _pointsAll = _pointsScript._allPoints;
-        _numberOfPoint = rand.Next(0, _pointsSpawn.Length);
+        _numberOfPoint = rand.Next(0, _pointsSpawn.Count);
         try
         {
             pointOfAttack = _pointsSpawn[_numberOfPoint];
@@ -41,12 +42,10 @@ public class NavMesh : MonoBehaviour
         catch
         {
             int k = 0;
-            while (pointOfAttack == null || k < 10)
+            while (pointOfAttack == null)
             {
-                _numberOfPoint = rand.Next(0, _pointsSpawn.Length);
+                _numberOfPoint = rand.Next(0, _pointsSpawn.Count);
                 pointOfAttack = _pointsSpawn[_numberOfPoint];
-                k++;
-                Debug.Log($"k: {k}");
             }
             _pointsSpawn[_numberOfPoint] = null;
         }

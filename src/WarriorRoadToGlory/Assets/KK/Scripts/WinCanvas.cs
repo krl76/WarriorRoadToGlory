@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -72,7 +73,12 @@ public class WinCanvas : MonoBehaviour
 
     public void Continue()
     {
-        _pointOfAttack._pointsForSpawn = _pointOfAttack._allPoints;
+        List<Transform> temporary = new List<Transform>();
+        for(int i = 0; i < _pointOfAttack._allPoints.Count; i++)
+        {
+            temporary.Add(_pointOfAttack._allPoints[i]);
+        }
+        _pointOfAttack._pointsForSpawn = temporary;
         
         isContinue = true;
         isChange = false;

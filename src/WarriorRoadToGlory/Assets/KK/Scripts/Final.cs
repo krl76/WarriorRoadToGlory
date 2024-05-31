@@ -11,6 +11,7 @@ public class Final : MonoBehaviour
     private AudioSource _audioSource;
     public bool inFinal;
     private string nameSave;
+    private bool pause;
 
     private void Start()
     {
@@ -34,10 +35,18 @@ public class Final : MonoBehaviour
             _audioSource.PlayOneShot(_audioClips[1]);
             StartCoroutine(TakePause());
             DeleteSave();
-            FindObjectOfType<LoadScene>().SceneLoad(_nameOfMenuScene);
         }
     }
-    
+
+    private void Update()
+    {
+        if (pause)
+        {
+            FindObjectOfType<LoadScene>().SceneLoad(_nameOfMenuScene);
+            pause = false;
+        }
+    }
+
     private void DeleteSave()
     {
         switch (nameSave)
@@ -75,5 +84,6 @@ public class Final : MonoBehaviour
     IEnumerator TakePause()
     {
         yield return new WaitForSeconds(10);
+        pause = true;   
     }
 }

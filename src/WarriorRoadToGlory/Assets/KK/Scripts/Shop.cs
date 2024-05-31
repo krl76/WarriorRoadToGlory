@@ -114,8 +114,8 @@ public class Shop : MonoBehaviour
                 if (Convert.ToInt32(_coins.text) >= Convert.ToInt32(_coinCost[typeOfSword + 3].text))
                 {
                     _coins.text = (Convert.ToInt32(_coins.text) - Convert.ToInt32(_coinCost[typeOfSword + 3].text)).ToString();
-                    _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
-                                                       _multiplyForCoins).ToString();
+                    _coinCost[typeOfSword + 3].text = Convert.ToInt32((Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
+                                                       _multiplyForCoins)).ToString();
                     levelOfSword1 += 1;
                     UpgradeWeapon(typeOfSword);
                     if (levelOfSword1 - 1 == 4)
@@ -130,8 +130,8 @@ public class Shop : MonoBehaviour
                 if (Convert.ToInt32(_coins.text) >= Convert.ToInt32(_coinCost[typeOfSword + 3].text))
                 {
                     _coins.text = (Convert.ToInt32(_coins.text) - Convert.ToInt32(_coinCost[typeOfSword + 3].text)).ToString();
-                    _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
-                                                       _multiplyForCoins).ToString();
+                    _coinCost[typeOfSword + 3].text = Convert.ToInt32((Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
+                                                       _multiplyForCoins)).ToString();
                     levelOfSword2 += 1;
                     UpgradeWeapon(typeOfSword);
                     if (levelOfSword2 - 1 == 4)
@@ -146,8 +146,8 @@ public class Shop : MonoBehaviour
                 if (Convert.ToInt32(_coins.text) >= Convert.ToInt32(_coinCost[typeOfSword + 3].text))
                 {
                     _coins.text = (Convert.ToInt32(_coins.text) - Convert.ToInt32(_coinCost[typeOfSword + 3].text)).ToString();;
-                    _coinCost[typeOfSword + 3].text = (Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
-                                                       _multiplyForCoins).ToString();
+                    _coinCost[typeOfSword + 3].text = Convert.ToInt32((Convert.ToInt32(_coinCost[typeOfSword + 3].text) *
+                                                       _multiplyForCoins)).ToString();
                     levelOfSword3 += 1;
                     UpgradeWeapon(typeOfSword);
                     if (levelOfSword3 - 1 == 4)

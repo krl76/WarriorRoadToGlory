@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -15,6 +16,8 @@ public class PauseManager : MonoBehaviour
     [Header("Settings")] 
     [SerializeField] private Slider _sliderVolume;
     [SerializeField] private TextMeshProUGUI _textVolume;
+    [SerializeField] private Slider _sliderPos;
+    [SerializeField] private TextMeshProUGUI _textPos;
     [SerializeField] private AudioMixer _audioMixer;
     [SerializeField] private string _nameOfMenuScene;
 
@@ -26,11 +29,14 @@ public class PauseManager : MonoBehaviour
     private string nameSave;
     private WaveManager waveManager;
     private Merchant _merchant;
+    private XROrigin _xrOrigin;
 
     private void Awake()
     {
         inputController = new InputController();
         inputController.RightHand.UI.started += ctx => ActivePause(ctx.ReadValueAsButton());
+
+        _xrOrigin = GetComponentInParent<XROrigin>();
 
         waveManager = _waveManager.GetComponent<WaveManager>();
         _merchant = FindObjectOfType<Merchant>();
@@ -55,10 +61,17 @@ public class PauseManager : MonoBehaviour
         _textVolume.text = Math.Round(_sliderVolume.value * 100).ToString();
         _audioMixer.SetFloat("Master", Mathf.Log10(_sliderVolume.value) * 20);
     }
-    
+
+    public void ChangePosCam()
+    {
+        _textPos.text = Math.Round(_sliderPos.value, 2).ToString();
+        _xrOrigin.CameraYOffset = _sliderPos.value;
+    }
+
     public void SaveSettings()
     {
         PlayerPrefs.SetFloat("VolumeSettings", _sliderVolume.value);
+        PlayerPrefs.SetFloat("PosCamSettings", _sliderPos.value);
     }
 
     private void SavePlayer()
@@ -131,6 +144,17 @@ public class PauseManager : MonoBehaviour
         {
             _sliderVolume.value = 1f;
             ChangeVolume();
+        }
+
+        if (PlayerPrefs.HasKey("PosCamSettings"))
+        {
+            _sliderPos.value = PlayerPrefs.GetFloat("PosCamSettings");
+            ChangePosCam();
+        }
+        else
+        {
+            _sliderVolume.value = 0.4f;
+            ChangePosCam();
         }
     }
 }

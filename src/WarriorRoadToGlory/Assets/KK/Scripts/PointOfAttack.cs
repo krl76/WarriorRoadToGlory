@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PointOfAttack : MonoBehaviour
 {
-    [SerializeField] public Transform[] _pointsForSpawn;
-    [SerializeField] public Transform[] _allPoints;
+    [SerializeField] public List<Transform> _pointsForSpawn;
+    [SerializeField] public List<Transform> _allPoints;
 }
