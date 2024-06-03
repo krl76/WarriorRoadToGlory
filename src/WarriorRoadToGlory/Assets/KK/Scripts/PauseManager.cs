@@ -133,7 +133,6 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SavePlayer();
-        //SceneManager.LoadScene(_nameOfMenuScene);
         FindObjectOfType<LoadScene>().SceneLoad(_nameOfMenuScene);
     }
     

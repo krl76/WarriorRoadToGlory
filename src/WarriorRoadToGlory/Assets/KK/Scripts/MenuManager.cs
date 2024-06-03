@@ -79,7 +79,6 @@ public class MenuManager : MonoBehaviour
                     nameOfSave = "save3"; 
                     break;
             }
-            //SceneManager.LoadScene(_nameOfGameScene);
             PlayerPrefs.SetString("NameSave", nameOfSave);
             SaveSaves();
             FindObjectOfType<LoadScene>().SceneLoad(_nameOfGameScene);

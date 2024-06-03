@@ -34,7 +34,7 @@ public class DoorEnemy : MonoBehaviour
                 case 1:
                     if (_waveManager.allSpawned && _waveManager.wave1.Count == _enemyInArena)
                     {
-                        //StartCoroutine(Pause());
+                        StartCoroutine(Pause());
                         _enemyInArena = 0;
                         _trigger2 = true;
                     }
@@ -42,7 +42,7 @@ public class DoorEnemy : MonoBehaviour
                 case 2:
                     if (_waveManager.allSpawned && _waveManager.wave2.Count == _enemyInArena)
                     {
-                       //StartCoroutine(Pause());
+                        StartCoroutine(Pause());
                         _enemyInArena = 0;
                         _trigger2 = true;
                     }
@@ -50,7 +50,7 @@ public class DoorEnemy : MonoBehaviour
                 case 3:
                     if (_waveManager.allSpawned && _waveManager.wave3.Count == _enemyInArena)
                     {
-                        //StartCoroutine(Pause());
+                        StartCoroutine(Pause());
                         _enemyInArena = 0;
                         _trigger2 = true;
                     }
@@ -58,7 +58,7 @@ public class DoorEnemy : MonoBehaviour
                 case 4:
                     if (_waveManager.allSpawned && _waveManager.wave4.Count == _enemyInArena)
                     {
-                        //StartCoroutine(Pause());
+                        StartCoroutine(Pause());
                         _enemyInArena = 0;
                         _trigger2 = true;
                     }
@@ -66,7 +66,7 @@ public class DoorEnemy : MonoBehaviour
                 case 5:
                     if (_waveManager.allSpawned && _waveManager.wave5.Count == _enemyInArena)
                     {
-                        //StartCoroutine(Pause());
+                        StartCoroutine(Pause());
                         _enemyInArena = 0;
                         _trigger2 = true;
                     }
@@ -74,7 +74,7 @@ public class DoorEnemy : MonoBehaviour
                 case 6:
                     if (_waveManager.allSpawned && _waveManager.wave6.Count == _enemyInArena)
                     {
-                        //StartCoroutine(Pause());
+                        StartCoroutine(Pause());
                         _enemyInArena = 0;
                         _trigger2 = true;
                     }
@@ -82,7 +82,7 @@ public class DoorEnemy : MonoBehaviour
                 case 7:
                     if (_waveManager.allSpawned && _waveManager.wave7.Count == _enemyInArena)
                     {
-                        //StartCoroutine(Pause());
+                        StartCoroutine(Pause());
                         _enemyInArena = 0;
                         _trigger2 = true;
                     }
@@ -90,7 +90,7 @@ public class DoorEnemy : MonoBehaviour
                 case 8:
                     if (_waveManager.allSpawned && _waveManager.wave8.Count == _enemyInArena)
                     {
-                        //StartCoroutine(Pause());
+                        StartCoroutine(Pause());
                         _enemyInArena = 0;
                         _trigger2 = true;
                     }
@@ -98,7 +98,7 @@ public class DoorEnemy : MonoBehaviour
                 case 9:
                     if (_waveManager.allSpawned && _waveManager.wave9.Count == _enemyInArena)
                     {
-                        //StartCoroutine(Pause());
+                        StartCoroutine(Pause());
                         _enemyInArena = 0;
                         _trigger2 = true;
                     }
@@ -106,7 +106,7 @@ public class DoorEnemy : MonoBehaviour
                 case 10:
                     if (_waveManager.allSpawned && _waveManager.wave10.Count == _enemyInArena)
                     {
-                        //StartCoroutine(Pause());
+                        StartCoroutine(Pause());
                         _enemyInArena = 0;
                         _trigger2 = true;
                     }
@@ -131,7 +131,10 @@ public class DoorEnemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy2"))
+        {
+            Debug.Log("+1");
             _enemyInArena += 1;
+        }
     }
 
     IEnumerator Pause()
