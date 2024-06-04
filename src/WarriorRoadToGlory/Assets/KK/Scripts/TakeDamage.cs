@@ -93,17 +93,17 @@ public class TakeDamage : MonoBehaviour
 
     public void Upgrade()
     {
-        switch (_typeOfSword)
+        if(_typeOfSword == Sword.First)
         {
-            case Sword.First:
-                _damage = _weapon._weapon1Damage;
-                break;
-            case Sword.Second:
-                _damage = _weapon._weapon2Damage;
-                break;
-            case Sword.Third:
-                _damage = _weapon._weapon3Damage;
-                break;
+            _damage = _weapon._weapon1Damage;
+        }
+        if (_typeOfSword == Sword.Second)
+        {
+            _damage = _weapon._weapon2Damage;
+        }
+        if (_typeOfSword == Sword.Third)
+        {
+            _damage = _weapon._weapon3Damage;
         }
     }
 }

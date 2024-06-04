@@ -117,14 +117,15 @@ public class Merchant : MonoBehaviour
         {
             Time.timeScale = 0f;
             inShop = true;
+            //GetComponent<Shop>().LoadShop();
             _shopCanvas.SetActive(true);
             _interactCanvas.SetActive(false);
         }
         else if (isActive && onTrigger && inShop)
         {
+            GetComponent<Shop>().SaveShop();
             Time.timeScale = 1f;
             inShop = false;
-            //GetComponent<Shop>().SaveShop();
             _shopCanvas.SetActive(false);
             _interactCanvas.SetActive(true);
         }

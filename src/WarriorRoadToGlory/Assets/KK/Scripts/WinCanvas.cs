@@ -28,6 +28,7 @@ public class WinCanvas : MonoBehaviour
     private int difficult;
     private float wavesInARow;
     private bool isChange;
+    private int _coinsCont;
 
     private bool isContinue;
 
@@ -80,18 +81,7 @@ public class WinCanvas : MonoBehaviour
         }
         _pointOfAttack._pointsForSpawn = temporary;
 
-        switch (namesave)
-        {
-            case "save1":
-                PlayerPrefs.SetInt("Coins1", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text));
-                break;
-            case "save2":
-                PlayerPrefs.SetInt("Coins2", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text));
-                break;
-            case "save3":
-                PlayerPrefs.SetInt("Coins3", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text));
-                break;
-        }
+        _coinsCont += Convert.ToInt32(_coins.text);
 
         isContinue = true;
         isChange = false;
@@ -106,18 +96,19 @@ public class WinCanvas : MonoBehaviour
         switch (namesave)
         {
             case "save1":
-                PlayerPrefs.SetInt("Coins1", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text));
+                PlayerPrefs.SetInt("Coins1", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text) + _coinsCont);
                 PlayerPrefs.SetInt("Wave1", _numberOfWave);
                 break;
             case "save2":
-                PlayerPrefs.SetInt("Coins2", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text));
+                PlayerPrefs.SetInt("Coins2", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text) + _coinsCont);
                 PlayerPrefs.SetInt("Wave2", _numberOfWave);
                 break;
             case "save3":
-                PlayerPrefs.SetInt("Coins3", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text));
+                PlayerPrefs.SetInt("Coins3", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text) + _coinsCont);
                 PlayerPrefs.SetInt("Wave3", _numberOfWave);
                 break;
         }
+        _coinsCont = 0;
         FindObjectOfType<LoadScene>().SceneLoad(SceneManager.GetActiveScene().name);
     }
 
