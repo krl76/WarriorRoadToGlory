@@ -26350,6 +26350,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1277832919}
+    - target: {fileID: 2954625394641255317, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+      propertyPath: _geometry
+      value: 
+      objectReference: {fileID: 664233128}
     - target: {fileID: 3033233712742005730, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -26385,6 +26389,14 @@ PrefabInstance:
     - target: {fileID: 4434043947890210608, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: m_Center.z
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434043947890210608, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+      propertyPath: m_SlopeLimit
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434043947890210608, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
+      propertyPath: m_StepOffset
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4720116398317260156, guid: 09dda759ab64a0140a7c79d96b1c9b0c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -29914,6 +29926,10 @@ PrefabInstance:
     - target: {fileID: 2054856122767340381, guid: f12f7fd3aed7cf84ebf4de09257fb314, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.028274652
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282181687192377844, guid: f12f7fd3aed7cf84ebf4de09257fb314, type: 3}
+      propertyPath: m_text
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2588395855224951252, guid: f12f7fd3aed7cf84ebf4de09257fb314, type: 3}
       propertyPath: m_LocalPosition.x

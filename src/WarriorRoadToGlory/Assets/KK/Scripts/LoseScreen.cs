@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class LoseScreen : MonoBehaviour
 {
+    [SerializeField] private GameObject _geometry;
     [SerializeField] private GameObject _vignette;
     [SerializeField] private TextMeshProUGUI _wave;
     [SerializeField] private string _nameOfMenuScene;
@@ -18,6 +19,7 @@ public class LoseScreen : MonoBehaviour
         }
         _vignette.SetActive(false);
         Time.timeScale = 0f;
+        _geometry.SetActive(false);
         _numberOfWave = FindObjectOfType<WaveManager>().waveNumber;
         _wave.text = $"{_numberOfWave - 1} волн";
         nameSave = PlayerPrefs.GetString("NameSave");

@@ -79,7 +79,20 @@ public class WinCanvas : MonoBehaviour
             temporary.Add(_pointOfAttack._allPoints[i]);
         }
         _pointOfAttack._pointsForSpawn = temporary;
-        
+
+        switch (namesave)
+        {
+            case "save1":
+                PlayerPrefs.SetInt("Coins1", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text));
+                break;
+            case "save2":
+                PlayerPrefs.SetInt("Coins2", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text));
+                break;
+            case "save3":
+                PlayerPrefs.SetInt("Coins3", Convert.ToInt32(_coins.text) + Convert.ToInt32(_coinsAnvil.text));
+                break;
+        }
+
         isContinue = true;
         isChange = false;
         wavesInARow += 0.2f;
