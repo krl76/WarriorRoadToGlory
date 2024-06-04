@@ -34,7 +34,7 @@ public class LoseScreen : MonoBehaviour
     {
         switch (nameSave)
         {
-            case "Save1":
+            case "save1":
                 PlayerPrefs.DeleteKey("Coins1");
                 PlayerPrefs.DeleteKey("Wave1");
                 PlayerPrefs.DeleteKey("Save1");
@@ -43,7 +43,7 @@ public class LoseScreen : MonoBehaviour
                 PlayerPrefs.DeleteKey("LevelSword3.1");
                 PlayerPrefs.DeleteKey("LevelSword4.1");
                 break;
-            case "Save2":
+            case "save2":
                 PlayerPrefs.DeleteKey("Coins2");
                 PlayerPrefs.DeleteKey("Wave2");
                 PlayerPrefs.DeleteKey("Save2");
@@ -52,7 +52,7 @@ public class LoseScreen : MonoBehaviour
                 PlayerPrefs.DeleteKey("LevelSword3.2");
                 PlayerPrefs.DeleteKey("LevelSword4.2");
                 break;
-            case "Save3":
+            case "save3":
                 PlayerPrefs.DeleteKey("Coins3");
                 PlayerPrefs.DeleteKey("Wave3");
                 PlayerPrefs.DeleteKey("Save3");

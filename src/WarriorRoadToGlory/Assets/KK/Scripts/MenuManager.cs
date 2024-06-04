@@ -36,6 +36,11 @@ public class MenuManager : MonoBehaviour
         LoadSettings();
     }
 
+    private void OnEnable()
+    {
+        LoadSettings();
+    }
+
     void Update()
     {
         _mainMenu.transform.LookAt(new Vector3(_head.position.x, _mainMenu.transform.position.y, _head.position.z ));
